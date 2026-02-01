@@ -4,7 +4,7 @@
  * Updated: 2025
  */
 
-(function() {
+(function () {
   'use strict';
 
   // ============================================
@@ -51,9 +51,9 @@
 
     // Throttled scroll listener
     let ticking = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
           updateNavbar();
           ticking = false;
         });
@@ -89,9 +89,9 @@
 
     // Throttled scroll listener
     let ticking = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
           updateActiveLink();
           ticking = false;
         });
@@ -105,7 +105,7 @@
   // ============================================
   function initSmoothScroll() {
     navLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
+      link.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
 
         if (href.startsWith('#')) {
@@ -154,9 +154,9 @@
     }
 
     let ticking = false;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (!ticking) {
-        window.requestAnimationFrame(function() {
+        window.requestAnimationFrame(function () {
           updateProgress();
           ticking = false;
         });
@@ -206,7 +206,7 @@
     const backToTopBtn = document.querySelector('a[href="#page-top"]');
 
     if (backToTopBtn) {
-      backToTopBtn.addEventListener('click', function(e) {
+      backToTopBtn.addEventListener('click', function (e) {
         e.preventDefault();
         window.scrollTo({
           top: 0,
@@ -223,7 +223,7 @@
     const forms = document.querySelectorAll('.needs-validation');
 
     forms.forEach(form => {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         if (!form.checkValidity()) {
           e.preventDefault();
           e.stopPropagation();
@@ -240,7 +240,7 @@
     // Skip to content link focus handling
     const skipLink = document.querySelector('.skip-link');
     if (skipLink) {
-      skipLink.addEventListener('click', function(e) {
+      skipLink.addEventListener('click', function (e) {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.setAttribute('tabindex', '-1');
@@ -254,7 +254,7 @@
     interactiveCards.forEach(card => {
       const link = card.querySelector('a');
       if (link) {
-        card.addEventListener('keypress', function(e) {
+        card.addEventListener('keypress', function (e) {
           if (e.key === 'Enter') {
             link.click();
           }

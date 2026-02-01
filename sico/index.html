@@ -1,1160 +1,1728 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SICO - Sistema Integral de Control On-Line. Plataforma completa para la gestión municipal moderna. Expedientes, actas, inspecciones y más.">
-  <meta name="keywords" content="SICO, sistema municipal, gestión municipal, expedientes, actas, inspecciones, software municipal, Argentina">
-  <meta name="author" content="AdvanSys">
-  <meta name="robots" content="index, follow">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="SICO - Sistema Integral de Control On-Line. Plataforma completa para la gestión municipal moderna. Expedientes, actas, inspecciones y más."
+    />
+    <meta
+      name="keywords"
+      content="SICO, sistema municipal, gestión municipal, expedientes, actas, inspecciones, software municipal, Argentina"
+    />
+    <meta name="author" content="AdvanSys" />
+    <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Social Media -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="SICO - Sistema Integral de Control On-Line">
-  <meta property="og:description" content="Plataforma completa para la gestión municipal moderna. Expedientes, actas, inspecciones y más.">
-  <meta property="og:image" content="img/sico-medium.png">
-  <meta property="og:url" content="https://www.advansys.com.ar/sico">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SICO - Sistema Integral de Control On-Line"
+    />
+    <meta
+      property="og:description"
+      content="Plataforma completa para la gestión municipal moderna. Expedientes, actas, inspecciones y más."
+    />
+    <meta property="og:image" content="img/sico-medium.png" />
+    <meta property="og:url" content="https://www.advansys.com.ar/sico" />
 
-  <link rel="icon" href="../img/favicon.ico">
-  <link rel="canonical" href="https://www.advansys.com.ar/sico">
+    <link rel="icon" href="../img/favicon.ico" />
+    <link rel="canonical" href="https://www.advansys.com.ar/sico" />
 
-  <title>SICO - Sistema Integral de Control On-Line | AdvanSys</title>
+    <title>SICO - Sistema Integral de Control On-Line | AdvanSys</title>
 
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <!-- Custom CSS -->
-  <style>
-    :root {
-      --primary: #1ab394;
-      --primary-dark: #18a689;
-      --primary-light: #1dc5a3;
-      --primary-soft: rgba(26, 179, 148, 0.1);
-      --dark: #1e293b;
-      --gray-900: #0f172a;
-      --gray-700: #334155;
-      --gray-600: #475569;
-      --gray-500: #64748b;
-      --gray-400: #94a3b8;
-      --gray-300: #cbd5e1;
-      --gray-200: #e2e8f0;
-      --gray-100: #f1f5f9;
-      --gray-50: #f8fafc;
-      --white: #ffffff;
-      --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-      --radius: 0.5rem;
-      --radius-lg: 1rem;
-      --radius-xl: 1.5rem;
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary: #1ab394;
+        --primary-dark: #18a689;
+        --primary-light: #1dc5a3;
+        --primary-soft: rgba(26, 179, 148, 0.1);
+        --dark: #1e293b;
+        --gray-900: #0f172a;
+        --gray-700: #334155;
+        --gray-600: #475569;
+        --gray-500: #64748b;
+        --gray-400: #94a3b8;
+        --gray-300: #cbd5e1;
+        --gray-200: #e2e8f0;
+        --gray-100: #f1f5f9;
+        --gray-50: #f8fafc;
+        --white: #ffffff;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-dark) 100%
+        );
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        --shadow-md:
+          0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        --shadow-lg:
+          0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        --shadow-xl:
+          0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        --radius: 0.5rem;
+        --radius-lg: 1rem;
+        --radius-xl: 1.5rem;
+        --transition-fast: 150ms ease;
+        --transition-base: 250ms ease;
+      }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--gray-700);
-      background-color: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3, h4, h5, h6 { color: var(--gray-900); line-height: 1.3; }
-    a { color: var(--primary); text-decoration: none; transition: color var(--transition-fast); }
-    a:hover { color: var(--primary-dark); }
-    img { max-width: 100%; height: auto; }
-
-    .section-padding { padding: 100px 0; }
-    .bg-primary-soft { background-color: var(--primary-soft) !important; }
-    .text-primary { color: var(--primary) !important; }
-
-    /* Navbar */
-    .navbar {
-      padding: 1rem 0;
-      transition: all var(--transition-base);
-      background-color: var(--white);
-      box-shadow: var(--shadow-md);
-    }
-    .navbar-brand img { transition: transform var(--transition-fast); }
-    .navbar-brand:hover img { transform: scale(1.05); }
-    .navbar-nav .nav-link {
-      font-weight: 500;
-      color: var(--gray-700);
-      padding: 0.5rem 1rem;
-      margin: 0 0.25rem;
-      border-radius: var(--radius);
-      transition: all var(--transition-fast);
-    }
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: var(--primary);
-      background-color: var(--primary-soft);
-    }
-    .navbar-toggler { border: none; padding: 0.5rem; }
-    .navbar-toggler:focus { box-shadow: none; }
-
-    /* Hero */
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-700) 100%);
-      overflow: hidden;
-      padding-top: 120px;
-    }
-    .hero-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(26,179,148,0.1)" stroke-width="0.5"/></svg>') repeat;
-      background-size: 100px 100px;
-      opacity: 0.5;
-    }
-    .hero-section .container { position: relative; z-index: 1; }
-    .hero-section h1 { color: var(--white); }
-    .hero-section .lead { color: var(--gray-300); }
-
-    .stat-card {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .stat-label { color: var(--gray-300); font-size: 0.875rem; }
-
-    /* Buttons */
-    .btn {
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      transition: all var(--transition-fast);
-      border: 2px solid transparent;
-    }
-    .btn-primary {
-      background-color: var(--primary);
-      border-color: var(--primary);
-      color: var(--white);
-    }
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      border-color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-    .btn-outline-primary {
-      background-color: transparent;
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-    .btn-outline-primary:hover {
-      background-color: var(--primary);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-    .btn-outline-light:hover {
-      background-color: var(--white);
-      color: var(--gray-900);
-    }
-    .btn-lg { padding: 1rem 2rem; font-size: 1rem; }
-
-    /* Feature Icon */
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient-primary);
-      border-radius: 12px;
-      color: white;
-      font-size: 1.5rem;
-      flex-shrink: 0;
-    }
-
-    /* Module Card */
-    .module-card {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      border: 1px solid var(--gray-200);
-      transition: all var(--transition-base);
-      height: 100%;
-    }
-    .module-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--primary-soft);
-    }
-
-    /* Feature Card */
-    .feature-card {
-      text-align: center;
-      padding: 1.5rem;
-    }
-    .feature-card .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary-soft);
-      border-radius: 50%;
-      font-size: 2rem;
-      color: var(--primary);
-      transition: all var(--transition-base);
-    }
-    .feature-card:hover .icon-wrapper {
-      background: var(--primary);
-      color: var(--white);
-      transform: scale(1.1);
-    }
-
-    /* Tech Card */
-    .tech-card {
-      background: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      text-align: center;
-      border: 1px solid var(--gray-200);
-      transition: all var(--transition-base);
-    }
-    .tech-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: var(--primary);
-    }
-
-    /* Accordion */
-    .accordion-item { border: none; margin-bottom: 1rem; }
-    .accordion-button {
-      background: var(--white);
-      border-radius: var(--radius-lg) !important;
-      box-shadow: var(--shadow-sm);
-      font-weight: 600;
-      color: var(--gray-900);
-    }
-    .accordion-button:not(.collapsed) {
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-    .accordion-button:focus { box-shadow: none; }
-    .accordion-body { padding-top: 0; }
-
-    /* Contact Card */
-    .contact-info {
-      background: var(--gray-50);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-    }
-    .contact-icon {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary-soft);
-      border-radius: 50%;
-      color: var(--primary);
-      font-size: 1.25rem;
-      flex-shrink: 0;
-    }
-
-    /* Footer */
-    .footer-section {
-      background: var(--gray-900);
-      color: var(--gray-400);
-      padding: 4rem 0 2rem;
-    }
-    .footer-section h5 { color: var(--white); }
-    .footer-section a { color: var(--gray-400); }
-    .footer-section a:hover { color: var(--primary); }
-
-    /* Back to AdvanSys */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--gray-500);
-      font-size: 0.875rem;
-      margin-bottom: 1rem;
-    }
-    .back-link:hover { color: var(--primary); }
-
-    /* Badge */
-    .badge {
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.875rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 991.98px) {
-      .section-padding { padding: 80px 0; }
-      .hero-section { text-align: center; }
-      h1 { font-size: 2.25rem; }
-      h2 { font-size: 1.75rem; }
-      .navbar-collapse {
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px;
+      }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--gray-700);
         background-color: var(--white);
-        padding: 1rem;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: var(--gray-900);
+        line-height: 1.3;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color var(--transition-fast);
+      }
+      a:hover {
+        color: var(--primary-dark);
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .section-padding {
+        padding: 100px 0;
+      }
+      .bg-primary-soft {
+        background-color: var(--primary-soft) !important;
+      }
+      .text-primary {
+        color: var(--primary) !important;
+      }
+
+      /* Navbar */
+      .navbar {
+        padding: 1rem 0;
+        transition: all var(--transition-base);
+        background-color: var(--white);
+        box-shadow: var(--shadow-md);
+      }
+      .navbar-brand img {
+        transition: transform var(--transition-fast);
+      }
+      .navbar-brand:hover img {
+        transform: scale(1.05);
+      }
+      .navbar-nav .nav-link {
+        font-weight: 500;
+        color: var(--gray-700);
+        padding: 0.5rem 1rem;
+        margin: 0 0.25rem;
+        border-radius: var(--radius);
+        transition: all var(--transition-fast);
+      }
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--primary);
+        background-color: var(--primary-soft);
+      }
+      .navbar-toggler {
+        border: none;
+        padding: 0.5rem;
+      }
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      /* Hero */
+      .hero-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          var(--gray-900) 0%,
+          var(--gray-700) 100%
+        );
+        overflow: hidden;
+        padding-top: 120px;
+      }
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(26,179,148,0.1)" stroke-width="0.5"/></svg>')
+          repeat;
+        background-size: 100px 100px;
+        opacity: 0.5;
+      }
+      .hero-section .container {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-section h1 {
+        color: var(--white);
+      }
+      .hero-section .lead {
+        color: var(--gray-300);
+      }
+
+      .stat-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
         border-radius: var(--radius-lg);
-        margin-top: 0.5rem;
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+      .stat-label {
+        color: var(--gray-300);
+        font-size: 0.875rem;
+      }
+
+      /* Buttons */
+      .btn {
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        border-radius: var(--radius);
+        transition: all var(--transition-fast);
+        border: 2px solid transparent;
+      }
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+      }
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        transform: translateY(-2px);
         box-shadow: var(--shadow-lg);
       }
-    }
-    @media (max-width: 767.98px) {
-      .section-padding { padding: 60px 0; }
-      .module-card, .contact-info { padding: 1.5rem; }
-      .stat-number { font-size: 2rem; }
-    }
-  </style>
-</head>
+      .btn-outline-primary {
+        background-color: transparent;
+        border-color: var(--primary);
+        color: var(--primary);
+      }
+      .btn-outline-primary:hover {
+        background-color: var(--primary);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+      .btn-outline-light:hover {
+        background-color: var(--white);
+        color: var(--gray-900);
+      }
+      .btn-lg {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
 
-<body id="page-top">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="#page-top">
-        <img src="img/sico-small-black.png" alt="SICO" height="36">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
-          <li class="nav-item"><a class="nav-link" href="#modules">Módulos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#features">Características</a></li>
-          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-        </ul>
-        <a href="../" class="btn btn-outline-primary btn-sm">
-          <i class="bi bi-arrow-left me-1"></i>AdvanSys
+      /* Feature Icon */
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--gradient-primary);
+        border-radius: 12px;
+        color: white;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      /* Module Card */
+      .module-card {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        border: 1px solid var(--gray-200);
+        transition: all var(--transition-base);
+        height: 100%;
+      }
+      .module-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        border-color: var(--primary-soft);
+      }
+
+      /* Feature Card */
+      .feature-card {
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .feature-card .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-soft);
+        border-radius: 50%;
+        font-size: 2rem;
+        color: var(--primary);
+        transition: all var(--transition-base);
+      }
+      .feature-card:hover .icon-wrapper {
+        background: var(--primary);
+        color: var(--white);
+        transform: scale(1.1);
+      }
+
+      /* Tech Card */
+      .tech-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        text-align: center;
+        border: 1px solid var(--gray-200);
+        transition: all var(--transition-base);
+      }
+      .tech-card:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary);
+      }
+
+      /* Accordion */
+      .accordion-item {
+        border: none;
+        margin-bottom: 1rem;
+      }
+      .accordion-button {
+        background: var(--white);
+        border-radius: var(--radius-lg) !important;
+        box-shadow: var(--shadow-sm);
+        font-weight: 600;
+        color: var(--gray-900);
+      }
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+      .accordion-button:focus {
+        box-shadow: none;
+      }
+      .accordion-body {
+        padding-top: 0;
+      }
+
+      /* Contact Card */
+      .contact-info {
+        background: var(--gray-50);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+      }
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-soft);
+        border-radius: 50%;
+        color: var(--primary);
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+
+      /* Footer */
+      .footer-section {
+        background: var(--gray-900);
+        color: var(--gray-400);
+        padding: 4rem 0 2rem;
+      }
+      .footer-section h5 {
+        color: var(--white);
+      }
+      .footer-section a {
+        color: var(--gray-400);
+      }
+      .footer-section a:hover {
+        color: var(--primary);
+      }
+
+      /* Back to AdvanSys */
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--gray-500);
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+      .back-link:hover {
+        color: var(--primary);
+      }
+
+      /* Badge */
+      .badge {
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.875rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 991.98px) {
+        .section-padding {
+          padding: 80px 0;
+        }
+        .hero-section {
+          text-align: center;
+        }
+        h1 {
+          font-size: 2.25rem;
+        }
+        h2 {
+          font-size: 1.75rem;
+        }
+        .navbar-collapse {
+          background-color: var(--white);
+          padding: 1rem;
+          border-radius: var(--radius-lg);
+          margin-top: 0.5rem;
+          box-shadow: var(--shadow-lg);
+        }
+      }
+      @media (max-width: 767.98px) {
+        .section-padding {
+          padding: 60px 0;
+        }
+        .module-card,
+        .contact-info {
+          padding: 1.5rem;
+        }
+        .stat-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="page-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="#page-top">
+          <img src="img/sico-small-black.png" alt="SICO" height="36" />
         </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero-section" id="hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-          <a href="../" class="back-link">
-            <i class="bi bi-arrow-left"></i> Volver a AdvanSys
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#page-top">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#modules">Módulos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features">Características</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contacto</a>
+            </li>
+          </ul>
+          <a href="../" class="btn btn-outline-primary btn-sm">
+            <i class="bi bi-arrow-left me-1"></i>AdvanSys
           </a>
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-shield-check me-1"></i>Sistema Integral de Gestión Municipal
-          </span>
-          <h1 class="display-4 fw-bold mb-4">
-            <span class="text-primary">SICO</span> - Sistema Integral de<br>
-            <span class="text-primary">Control On-Line</span>
-          </h1>
-          <p class="lead mb-5" style="max-width: 800px; margin: 0 auto;">
-            Plataforma completa para una gestión municipal moderna y segura. Administre Expedientes, Actas de Inspección, Inspecciones, Documentos, Actuaciones, Establecimientos y más desde una única solución integrada construida con tecnología de vanguardia.
-          </p>
-          <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
-            <a href="#contact" class="btn btn-primary btn-lg">
-              <i class="bi bi-chat-dots me-2"></i>Solicitar Demo
-            </a>
-            <a href="#modules" class="btn btn-outline-light btn-lg">
-              Ver Módulos
-            </a>
-          </div>
+        </div>
+      </div>
+    </nav>
 
-          <!-- Stats -->
-          <div class="row g-3 mt-4">
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Módulos Integrados</div>
-              </div>
+    <!-- Hero Section -->
+    <header class="hero-section" id="hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+            <a href="../" class="back-link">
+              <i class="bi bi-arrow-left"></i> Volver a AdvanSys
+            </a>
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-shield-check me-1"></i>Sistema Integral de Gestión
+              Municipal
+            </span>
+            <h1 class="display-4 fw-bold mb-4">
+              <span class="text-primary">SICO</span> - Sistema Integral de<br />
+              <span class="text-primary">Control On-Line</span>
+            </h1>
+            <p class="lead mb-5" style="max-width: 800px; margin: 0 auto">
+              Plataforma completa para una gestión municipal moderna y segura.
+              Administre Expedientes, Actas de Inspección, Inspecciones,
+              Documentos, Actuaciones, Establecimientos y más desde una única
+              solución integrada construida con tecnología de vanguardia.
+            </p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
+              <a href="#contact" class="btn btn-primary btn-lg">
+                <i class="bi bi-chat-dots me-2"></i>Solicitar Demo
+              </a>
+              <a href="#modules" class="btn btn-outline-light btn-lg">
+                Ver Módulos
+              </a>
             </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Disponibilidad</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Digital</div>
-              </div>
-            </div>
-            <div class="col-6 col-md-3">
-              <div class="stat-card">
-                <div class="stat-number"><i class="bi bi-shield-check"></i></div>
-                <div class="stat-label">Seguro</div>
-              </div>
-            </div>
-          </div>
 
-          <!-- Dashboard Preview Image -->
-          <div class="row mt-5 mb-5 pb-5">
-            <div class="col-md-10 mx-auto">
-              <div class="rounded-4 overflow-hidden shadow-lg" style="border: 1px solid rgba(255,255,255,0.1);">
-                <img src="img/dashboard-preview.png" alt="SICO Dashboard Preview" class="img-fluid" style="width: 100%;">
+            <!-- Stats -->
+            <div class="row g-3 mt-4">
+              <div class="col-6 col-md-3">
+                <div class="stat-card">
+                  <div class="stat-number">10+</div>
+                  <div class="stat-label">Módulos Integrados</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-card">
+                  <div class="stat-number">24/7</div>
+                  <div class="stat-label">Disponibilidad</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-card">
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Digital</div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-card">
+                  <div class="stat-number">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <div class="stat-label">Seguro</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dashboard Preview Image -->
+            <div class="row mt-5 mb-5 pb-5">
+              <div class="col-md-10 mx-auto">
+                <div
+                  class="rounded-4 overflow-hidden shadow-lg"
+                  style="border: 1px solid rgba(255, 255, 255, 0.1)"
+                >
+                  <img
+                    src="img/dashboard-preview.png"
+                    alt="SICO Dashboard Preview"
+                    class="img-fluid"
+                    style="width: 100%"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- About Section -->
-  <section id="about" class="section-padding">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-6" data-aos="fade-right">
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-info-circle me-1"></i>Acerca de SICO
-          </span>
-          <h2 class="display-6 fw-bold mb-4">Una Solución Completa para la Gestión Municipal</h2>
-          <p class="text-muted mb-4">
-            SICO es un sistema integral diseñado específicamente para modernizar y optimizar la gestión de trámites municipales. Desarrollado con tecnología NET 10 y SQL Server, ofrece una plataforma robusta, escalable y segura.
-          </p>
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-info-circle me-1"></i>Acerca de SICO
+            </span>
+            <h2 class="display-6 fw-bold mb-4">
+              Una Solución Completa para la Gestión Municipal
+            </h2>
+            <p class="text-muted mb-4">
+              SICO es un sistema integral diseñado específicamente para
+              modernizar y optimizar la gestión de trámites municipales.
+              Desarrollado con tecnología NET 10 y SQL Server, ofrece una
+              plataforma robusta, escalable y segura.
+            </p>
 
-          <div class="row g-4">
-            <div class="col-md-6">
-              <div class="d-flex gap-3">
-                <div class="feature-icon">
-                  <i class="bi bi-database"></i>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon">
+                    <i class="bi bi-database"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-2">Gestión Centralizada</h5>
+                    <p class="text-muted small mb-0">
+                      Toda la información municipal en un solo lugar accesible y
+                      organizado
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h5 class="mb-2">Gestión Centralizada</h5>
-                  <p class="text-muted small mb-0">Toda la información municipal en un solo lugar accesible y organizado</p>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon">
+                    <i class="bi bi-lightning"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-2">Alto Rendimiento</h5>
+                    <p class="text-muted small mb-0">
+                      Arquitectura optimizada para respuestas rápidas y
+                      eficientes
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon">
+                    <i class="bi bi-lock"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-2">Seguridad Avanzada</h5>
+                    <p class="text-muted small mb-0">
+                      Control de acceso basado en roles y auditoría completa
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex gap-3">
+                  <div class="feature-icon">
+                    <i class="bi bi-phone"></i>
+                  </div>
+                  <div>
+                    <h5 class="mb-2">Responsive Design</h5>
+                    <p class="text-muted small mb-0">
+                      Acceso desde cualquier dispositivo y desde cualquier lugar
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="d-flex gap-3">
-                <div class="feature-icon">
-                  <i class="bi bi-lightning"></i>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="p-4 bg-light rounded-4">
+              <h4 class="mb-4">Tecnologías Utilizadas</h4>
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="tech-card">
+                    <i
+                      class="bi bi-filetype-cs display-4 text-primary mb-2"
+                    ></i>
+                    <h6 class="mb-0">NET 10</h6>
+                    <small class="text-muted">Backend</small>
+                  </div>
                 </div>
-                <div>
-                  <h5 class="mb-2">Alto Rendimiento</h5>
-                  <p class="text-muted small mb-0">Arquitectura optimizada para respuestas rápidas y eficientes</p>
+                <div class="col-6">
+                  <div class="tech-card">
+                    <i class="bi bi-database display-4 text-primary mb-2"></i>
+                    <h6 class="mb-0">SQL Server</h6>
+                    <small class="text-muted">Base de Datos</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="tech-card">
+                    <i class="bi bi-bootstrap display-4 text-primary mb-2"></i>
+                    <h6 class="mb-0">Bootstrap 5</h6>
+                    <small class="text-muted">Frontend</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="tech-card">
+                    <i
+                      class="bi bi-hdd-network display-4 text-primary mb-2"
+                    ></i>
+                    <h6 class="mb-0">REST API</h6>
+                    <small class="text-muted">Arquitectura</small>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section id="modules" class="section-padding bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-grid me-1"></i>Módulos del Sistema
+            </span>
+            <h2 class="display-6 fw-bold mb-3">Funcionalidades Completas</h2>
+            <p class="lead text-muted">
+              SICO integra todos los módulos necesarios para una administración
+              municipal eficiente
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Expedientes -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-folder2-open"></i>
+              </div>
+              <h4 class="mb-3">Expedientes</h4>
+              <p class="text-muted mb-3">
+                Gestión completa de expedientes municipales con seguimiento de
+                estados y tipos configurables.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Múltiples tipos de expedientes
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Seguimiento de estados
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Historial de movimientos
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Expedientes relacionados
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Actas -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-file-earmark-text"></i>
+              </div>
+              <h4 class="mb-3">Actas</h4>
+              <p class="text-muted mb-3">
+                Registro y seguimiento de actas de inspección municipal.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Comprobaciones
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Infracciones
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Intimaciones
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Clausuras
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Actuaciones -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-calendar-event"></i>
+              </div>
+              <h4 class="mb-3">Actuaciones</h4>
+              <p class="text-muted mb-3">
+                Gestión de plazos otorgados con seguimiento automático de
+                vencimientos.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Otorgamiento de plazos
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Control de vencimientos
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Estados personalizables
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Notificaciones automáticas
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Documentos -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3"><i class="bi bi-files"></i></div>
+              <h4 class="mb-3">Documentos</h4>
+              <p class="text-muted mb-3">
+                Sistema de gestión documental con soporte para múltiples
+                formatos.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i>PDF,
+                  imágenes, Office
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Visualización en línea
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Asociación a expedientes
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Búsqueda avanzada
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Órdenes de Trabajo -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-clipboard-check"></i>
+              </div>
+              <h4 class="mb-3">Órdenes de Trabajo</h4>
+              <p class="text-muted mb-3">
+                Emisión y seguimiento de órdenes de trabajo e inspección.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Asignación de inspectores
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Seguimiento de estados
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Observaciones detalladas
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Vinculación con actas
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Profesionales -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-person-badge"></i>
+              </div>
+              <h4 class="mb-3">Profesionales</h4>
+              <p class="text-muted mb-3">
+                Registro unificado de profesionales y gestores con múltiples
+                especialidades.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Múltiples especialidades
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Gestores, ingenieros, arquitectos
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Vinculación a expedientes
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Validación de duplicados
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Establecimientos -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3"><i class="bi bi-shop"></i></div>
+              <h4 class="mb-3">Establecimientos</h4>
+              <p class="text-muted mb-3">
+                Gestión de establecimientos comerciales e industriales con datos
+                completos.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i>Datos
+                  de propietarios
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Direcciones completas
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i>Tipos
+                  de actividad
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >CUIT/CUIL
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Pases -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-arrow-left-right"></i>
+              </div>
+              <h4 class="mb-3">Pases</h4>
+              <p class="text-muted mb-3">
+                Registro cronológico de movimientos de expedientes entre áreas
+                municipales.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Historial completo
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Trazabilidad total
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Observaciones por movimiento
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Filtros de búsqueda
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Defensa del Consumidor -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="900"
+          >
+            <div class="module-card">
+              <div class="feature-icon mb-3">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4 class="mb-3">Defensa del Consumidor</h4>
+              <p class="text-muted mb-3">
+                Módulo especializado para gestión de reclamos y trámites de
+                defensa del consumidor.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Gestión de reclamos
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Seguimiento de casos
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Resoluciones
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  >Estadísticas
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-star me-1"></i>Características
+            </span>
+            <h2 class="display-6 fw-bold mb-3">Por Qué Elegir SICO</h2>
+            <p class="lead text-muted">
+              Funcionalidades avanzadas para optimizar la gestión municipal
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-search"></i></div>
+              <h5>Búsqueda Avanzada</h5>
+              <p class="text-muted small">
+                Filtros poderosos para encontrar expedientes rápidamente
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-eye"></i></div>
+              <h5>Visualización Online</h5>
+              <p class="text-muted small">
+                Vea PDFs y documentos sin descargar
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-shield-lock"></i></div>
+              <h5>Control de Acceso</h5>
+              <p class="text-muted small">
+                Sistema de roles y permisos granular
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <h5>Auditoría Completa</h5>
+              <p class="text-muted small">
+                Registro de todas las acciones del usuario
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-bell"></i></div>
+              <h5>Notificaciones</h5>
+              <p class="text-muted small">
+                Alertas para vencimientos y eventos
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-graph-up"></i></div>
+              <h5>Reportes</h5>
+              <p class="text-muted small">
+                Dashboards y estadísticas detalladas
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="700"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-gear"></i></div>
+              <h5>Configurable</h5>
+              <p class="text-muted small">Catálogos personalizables</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div class="feature-card">
+              <div class="icon-wrapper"><i class="bi bi-link-45deg"></i></div>
+              <h5>Relaciones</h5>
+              <p class="text-muted small">
+                Vinculación automática de expedientes
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Features Cards -->
+        <div class="row g-4 mt-4">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="module-card">
               <div class="d-flex gap-3">
-                <div class="feature-icon">
-                  <i class="bi bi-lock"></i>
+                <div
+                  class="feature-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #198754 0%,
+                      #157347 100%
+                    );
+                  "
+                >
+                  <i class="bi bi-hdd-network"></i>
                 </div>
                 <div>
-                  <h5 class="mb-2">Seguridad Avanzada</h5>
-                  <p class="text-muted small mb-0">Control de acceso basado en roles y auditoría completa</p>
+                  <h4 class="mb-2">API RESTful</h4>
+                  <p class="text-muted mb-0">
+                    Arquitectura API-first que permite integración con otros
+                    sistemas y desarrollo de aplicaciones móviles. Todas las
+                    funcionalidades disponibles vía API.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="module-card">
               <div class="d-flex gap-3">
-                <div class="feature-icon">
+                <div
+                  class="feature-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #0dcaf0 0%,
+                      #0aa2c0 100%
+                    );
+                  "
+                >
                   <i class="bi bi-phone"></i>
                 </div>
                 <div>
-                  <h5 class="mb-2">Responsive Design</h5>
-                  <p class="text-muted small mb-0">Acceso desde cualquier dispositivo y desde cualquier lugar</p>
+                  <h4 class="mb-2">Diseño Responsive</h4>
+                  <p class="text-muted mb-0">
+                    Interface adaptable a cualquier dispositivo. Acceda al
+                    sistema desde PC, tablet o smartphone con la misma
+                    experiencia de usuario.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="module-card">
+              <div class="d-flex gap-3">
+                <div
+                  class="feature-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #ffc107 0%,
+                      #d39e00 100%
+                    );
+                  "
+                >
+                  <i class="bi bi-upload"></i>
+                </div>
+                <div>
+                  <h4 class="mb-2">Importación de Datos</h4>
+                  <p class="text-muted mb-0">
+                    Migre fácilmente desde sistemas anteriores. Soporte para
+                    importación masiva de documentos y registros históricos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="module-card">
+              <div class="d-flex gap-3">
+                <div
+                  class="feature-icon"
+                  style="
+                    background: linear-gradient(
+                      135deg,
+                      #dc3545 0%,
+                      #bb2d3b 100%
+                    );
+                  "
+                >
+                  <i class="bi bi-trash"></i>
+                </div>
+                <div>
+                  <h4 class="mb-2">Soft Delete</h4>
+                  <p class="text-muted mb-0">
+                    Los registros nunca se eliminan físicamente. Sistema de
+                    borrado lógico que permite recuperar información si es
+                    necesario.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-lg-6" data-aos="fade-left">
-          <div class="p-4 bg-light rounded-4">
-            <h4 class="mb-4">Tecnologías Utilizadas</h4>
-            <div class="row g-3">
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-question-circle me-1"></i>FAQ
+            </span>
+            <h2 class="display-6 fw-bold mb-3">Preguntas Frecuentes</h2>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8" data-aos="fade-up">
+            <div class="accordion" id="faqAccordion">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq1"
+                  >
+                    ¿Qué tipos de archivos puedo subir al sistema?
+                  </button>
+                </h2>
+                <div
+                  id="faq1"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    SICO soporta PDFs, imágenes (PNG, JPG, GIF), documentos de
+                    Microsoft Office (Word, Excel), archivos de texto y más. El
+                    sistema cuenta con visualización en línea para PDFs e
+                    imágenes.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq2"
+                  >
+                    ¿Cómo funciona el sistema de permisos?
+                  </button>
+                </h2>
+                <div
+                  id="faq2"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    SICO implementa control de acceso basado en roles. Cada
+                    usuario tiene permisos específicos que determinan qué
+                    módulos puede acceder y qué acciones puede realizar.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq3"
+                  >
+                    ¿Puedo acceder desde dispositivos móviles?
+                  </button>
+                </h2>
+                <div
+                  id="faq3"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    Sí. SICO está construido con diseño responsive, garantizando
+                    una experiencia óptima en cualquier dispositivo:
+                    computadoras, laptops, tablets y smartphones.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq4"
+                  >
+                    ¿El sistema guarda historial de cambios?
+                  </button>
+                </h2>
+                <div
+                  id="faq4"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    Sí, todos los registros incluyen campos de auditoría que
+                    guardan automáticamente quién creó el registro (CreatedBy),
+                    cuándo (CreatedAt), quién lo modificó por última vez
+                    (UpdatedBy) y cuándo (UpdatedAt). Esto garantiza
+                    trazabilidad completa de todas las operaciones.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq5"
+                  >
+                    ¿Cómo se relacionan los expedientes con otros módulos?
+                  </button>
+                </h2>
+                <div
+                  id="faq5"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    Los expedientes son el núcleo del sistema y pueden
+                    vincularse con múltiples elementos: actas de inspección,
+                    actuaciones, órdenes de trabajo, documentos, profesionales y
+                    establecimientos. Además, el sistema detecta automáticamente
+                    expedientes relacionados por dirección, CUIT o referencias
+                    explícitas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq6"
+                  >
+                    ¿Qué es el sistema de Pases?
+                  </button>
+                </h2>
+                <div
+                  id="faq6"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    Los pases registran todos los movimientos de un expediente
+                    entre diferentes áreas y oficinas municipales. Permite ver
+                    el historial completo con fechas, usuarios responsables y
+                    observaciones. Es fundamental para la trazabilidad y
+                    auditoría de procesos.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq7"
+                  >
+                    ¿Puedo configurar los tipos de expedientes y estados?
+                  </button>
+                </h2>
+                <div
+                  id="faq7"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    Sí, SICO cuenta con un sistema de catálogos configurables
+                    (DataCatalogs) que permite a los administradores definir
+                    tipos de expedientes, estados, especialidades profesionales
+                    y otros valores según las necesidades específicas de cada
+                    municipio.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq8"
+                  >
+                    ¿Cómo funciona el seguimiento de plazos en Actuaciones?
+                  </button>
+                </h2>
+                <div
+                  id="faq8"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted">
+                    El módulo de Actuaciones permite otorgar plazos a
+                    contribuyentes y realiza seguimiento automático de
+                    vencimientos. El sistema calcula fechas de vencimiento,
+                    muestra alertas para plazos próximos a vencer y permite
+                    registrar cumplimientos o incumplimientos con observaciones
+                    detalladas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center" data-aos="fade-up">
+            <span class="badge bg-primary-soft text-primary mb-3">
+              <i class="bi bi-envelope me-1"></i>Contacto
+            </span>
+            <h2 class="display-6 fw-bold mb-3">Solicite una Demostración</h2>
+            <p class="lead text-muted">
+              Nuestro equipo está disponible para responder sus consultas sobre
+              SICO
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="contact-info h-100">
+              <div class="d-flex gap-3 mb-4">
+                <div class="contact-icon"><i class="bi bi-envelope"></i></div>
+                <div>
+                  <small class="text-muted">Email</small>
+                  <h6 class="mb-0">
+                    <a href="mailto:sico@advansys.com.ar"
+                      >sico@advansys.com.ar</a
+                    >
+                  </h6>
+                </div>
+              </div>
+              <div class="d-flex gap-3 mb-4">
+                <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
+                <div>
+                  <small class="text-muted">WhatsApp</small>
+                  <h6 class="mb-0">
+                    <a href="https://wa.me/5491164630232">+54 9 11 6463-0232</a>
+                  </h6>
+                </div>
+              </div>
+              <div class="d-flex gap-3">
+                <div class="contact-icon"><i class="bi bi-clock"></i></div>
+                <div>
+                  <small class="text-muted">Horario</small>
+                  <h6 class="mb-0">Lunes a Viernes<br />9:00 - 18:00 hs</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <form class="contact-info">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Su nombre"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Su email"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Teléfono</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Su teléfono"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Municipalidad</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre de su municipalidad"
+                  />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Asunto</label>
+                  <select class="form-select">
+                    <option value="">Seleccione un tema...</option>
+                    <option value="info">Información General</option>
+                    <option value="demo">Solicitar Demostración</option>
+                    <option value="pricing">Consulta de Precios</option>
+                    <option value="support">Soporte Técnico</option>
+                    <option value="other">Otro</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Mensaje</label>
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    placeholder="Su consulta..."
+                  ></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary w-100">
+                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <img src="img/sico-small.png" alt="SICO" height="30" class="mb-3" />
+            <p class="small">
+              SICO es un sistema integral de gestión municipal desarrollado por
+              AdvanSys. Moderniza y optimiza los procesos administrativos con
+              tecnología de última generación.
+            </p>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="mb-3">Módulos</h5>
+            <div class="row">
               <div class="col-6">
-                <div class="tech-card">
-                  <i class="bi bi-filetype-cs display-4 text-primary mb-2"></i>
-                  <h6 class="mb-0">NET 10</h6>
-                  <small class="text-muted">Backend</small>
-                </div>
+                <ul class="list-unstyled small">
+                  <li class="mb-2"><a href="#modules">Expedientes</a></li>
+                  <li class="mb-2"><a href="#modules">Actas</a></li>
+                  <li class="mb-2"><a href="#modules">Actuaciones</a></li>
+                  <li class="mb-2"><a href="#modules">Documentos</a></li>
+                  <li class="mb-2">
+                    <a href="#modules">Órdenes de Trabajo</a>
+                  </li>
+                </ul>
               </div>
               <div class="col-6">
-                <div class="tech-card">
-                  <i class="bi bi-database display-4 text-primary mb-2"></i>
-                  <h6 class="mb-0">SQL Server</h6>
-                  <small class="text-muted">Base de Datos</small>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="tech-card">
-                  <i class="bi bi-bootstrap display-4 text-primary mb-2"></i>
-                  <h6 class="mb-0">Bootstrap 5</h6>
-                  <small class="text-muted">Frontend</small>
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="tech-card">
-                  <i class="bi bi-hdd-network display-4 text-primary mb-2"></i>
-                  <h6 class="mb-0">REST API</h6>
-                  <small class="text-muted">Arquitectura</small>
-                </div>
+                <ul class="list-unstyled small">
+                  <li class="mb-2"><a href="#modules">Profesionales</a></li>
+                  <li class="mb-2"><a href="#modules">Establecimientos</a></li>
+                  <li class="mb-2"><a href="#modules">Pases</a></li>
+                  <li class="mb-2">
+                    <a href="#modules">Defensa del Consumidor</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modules Section -->
-  <section id="modules" class="section-padding bg-light">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 text-center" data-aos="fade-up">
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-grid me-1"></i>Módulos del Sistema
-          </span>
-          <h2 class="display-6 fw-bold mb-3">Funcionalidades Completas</h2>
-          <p class="lead text-muted">
-            SICO integra todos los módulos necesarios para una administración municipal eficiente
-          </p>
-        </div>
-      </div>
-
-      <div class="row g-4">
-        <!-- Expedientes -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-folder2-open"></i></div>
-            <h4 class="mb-3">Expedientes</h4>
-            <p class="text-muted mb-3">
-              Gestión completa de expedientes municipales con seguimiento de estados y tipos configurables.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Múltiples tipos de expedientes</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Seguimiento de estados</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Historial de movimientos</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Expedientes relacionados</li>
+          <div class="col-lg-4">
+            <h5 class="mb-3">Enlaces</h5>
+            <ul class="list-unstyled small">
+              <li class="mb-2"><a href="../">AdvanSys</a></li>
+              <li class="mb-2"><a href="#about">Acerca de SICO</a></li>
+              <li class="mb-2"><a href="#features">Características</a></li>
+              <li class="mb-2"><a href="#contact">Contacto</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- Actas -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-file-earmark-text"></i></div>
-            <h4 class="mb-3">Actas</h4>
-            <p class="text-muted mb-3">
-              Registro y seguimiento de actas de inspección municipal.
+        <hr class="my-4 border-secondary" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="small mb-0">
+              &copy; 2025 SICO - Sistema Integral de Control On-Line |
+              Desarrollado por <a href="../" class="text-primary">AdvanSys</a>
             </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Comprobaciones</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Infracciones</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Intimaciones</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Clausuras</li>
-            </ul>
           </div>
-        </div>
-
-        <!-- Actuaciones -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-calendar-event"></i></div>
-            <h4 class="mb-3">Actuaciones</h4>
-            <p class="text-muted mb-3">
-              Gestión de plazos otorgados con seguimiento automático de vencimientos.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Otorgamiento de plazos</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Control de vencimientos</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Estados personalizables</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Notificaciones automáticas</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Documentos -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-files"></i></div>
-            <h4 class="mb-3">Documentos</h4>
-            <p class="text-muted mb-3">
-              Sistema de gestión documental con soporte para múltiples formatos.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>PDF, imágenes, Office</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Visualización en línea</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Asociación a expedientes</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Búsqueda avanzada</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Órdenes de Trabajo -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-clipboard-check"></i></div>
-            <h4 class="mb-3">Órdenes de Trabajo</h4>
-            <p class="text-muted mb-3">
-              Emisión y seguimiento de órdenes de trabajo e inspección.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Asignación de inspectores</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Seguimiento de estados</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Observaciones detalladas</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Vinculación con actas</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Profesionales -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-person-badge"></i></div>
-            <h4 class="mb-3">Profesionales</h4>
-            <p class="text-muted mb-3">
-              Registro unificado de profesionales y gestores con múltiples especialidades.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Múltiples especialidades</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Gestores, ingenieros, arquitectos</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Vinculación a expedientes</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Validación de duplicados</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Establecimientos -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-shop"></i></div>
-            <h4 class="mb-3">Establecimientos</h4>
-            <p class="text-muted mb-3">
-              Gestión de establecimientos comerciales e industriales con datos completos.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Datos de propietarios</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Direcciones completas</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Tipos de actividad</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>CUIT/CUIL</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Pases -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-arrow-left-right"></i></div>
-            <h4 class="mb-3">Pases</h4>
-            <p class="text-muted mb-3">
-              Registro cronológico de movimientos de expedientes entre áreas municipales.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Historial completo</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Trazabilidad total</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Observaciones por movimiento</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Filtros de búsqueda</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Defensa del Consumidor -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
-          <div class="module-card">
-            <div class="feature-icon mb-3"><i class="bi bi-shield-check"></i></div>
-            <h4 class="mb-3">Defensa del Consumidor</h4>
-            <p class="text-muted mb-3">
-              Módulo especializado para gestión de reclamos y trámites de defensa del consumidor.
-            </p>
-            <ul class="list-unstyled text-muted small">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Gestión de reclamos</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Seguimiento de casos</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Resoluciones</li>
-              <li><i class="bi bi-check-circle-fill text-primary me-2"></i>Estadísticas</li>
-            </ul>
+          <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+            <a href="#page-top" class="btn btn-sm btn-outline-light">
+              <i class="bi bi-arrow-up me-1"></i>Subir
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Features Section -->
-  <section id="features" class="section-padding">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 text-center" data-aos="fade-up">
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-star me-1"></i>Características
-          </span>
-          <h2 class="display-6 fw-bold mb-3">Por Qué Elegir SICO</h2>
-          <p class="lead text-muted">
-            Funcionalidades avanzadas para optimizar la gestión municipal
-          </p>
-        </div>
-      </div>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-      <div class="row g-4">
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-search"></i></div>
-            <h5>Búsqueda Avanzada</h5>
-            <p class="text-muted small">Filtros poderosos para encontrar expedientes rápidamente</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-eye"></i></div>
-            <h5>Visualización Online</h5>
-            <p class="text-muted small">Vea PDFs y documentos sin descargar</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-shield-lock"></i></div>
-            <h5>Control de Acceso</h5>
-            <p class="text-muted small">Sistema de roles y permisos granular</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-clock-history"></i></div>
-            <h5>Auditoría Completa</h5>
-            <p class="text-muted small">Registro de todas las acciones del usuario</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-bell"></i></div>
-            <h5>Notificaciones</h5>
-            <p class="text-muted small">Alertas para vencimientos y eventos</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-graph-up"></i></div>
-            <h5>Reportes</h5>
-            <p class="text-muted small">Dashboards y estadísticas detalladas</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="700">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-gear"></i></div>
-            <h5>Configurable</h5>
-            <p class="text-muted small">Catálogos personalizables</p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="800">
-          <div class="feature-card">
-            <div class="icon-wrapper"><i class="bi bi-link-45deg"></i></div>
-            <h5>Relaciones</h5>
-            <p class="text-muted small">Vinculación automática de expedientes</p>
-          </div>
-        </div>
-      </div>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-      <!-- Additional Features Cards -->
-      <div class="row g-4 mt-4">
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="module-card">
-            <div class="d-flex gap-3">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #198754 0%, #157347 100%);">
-                <i class="bi bi-hdd-network"></i>
-              </div>
-              <div>
-                <h4 class="mb-2">API RESTful</h4>
-                <p class="text-muted mb-0">
-                  Arquitectura API-first que permite integración con otros sistemas y desarrollo de aplicaciones móviles. Todas las funcionalidades disponibles vía API.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="module-card">
-            <div class="d-flex gap-3">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #0dcaf0 0%, #0aa2c0 100%);">
-                <i class="bi bi-phone"></i>
-              </div>
-              <div>
-                <h4 class="mb-2">Diseño Responsive</h4>
-                <p class="text-muted mb-0">
-                  Interface adaptable a cualquier dispositivo. Acceda al sistema desde PC, tablet o smartphone con la misma experiencia de usuario.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="module-card">
-            <div class="d-flex gap-3">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #ffc107 0%, #d39e00 100%);">
-                <i class="bi bi-upload"></i>
-              </div>
-              <div>
-                <h4 class="mb-2">Importación de Datos</h4>
-                <p class="text-muted mb-0">
-                  Migre fácilmente desde sistemas anteriores. Soporte para importación masiva de documentos y registros históricos.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="module-card">
-            <div class="d-flex gap-3">
-              <div class="feature-icon" style="background: linear-gradient(135deg, #dc3545 0%, #bb2d3b 100%);">
-                <i class="bi bi-trash"></i>
-              </div>
-              <div>
-                <h4 class="mb-2">Soft Delete</h4>
-                <p class="text-muted mb-0">
-                  Los registros nunca se eliminan físicamente. Sistema de borrado lógico que permite recuperar información si es necesario.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 50,
+      });
 
-  <!-- FAQ Section -->
-  <section id="faq" class="section-padding bg-light">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 text-center" data-aos="fade-up">
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-question-circle me-1"></i>FAQ
-          </span>
-          <h2 class="display-6 fw-bold mb-3">Preguntas Frecuentes</h2>
-        </div>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-8" data-aos="fade-up">
-          <div class="accordion" id="faqAccordion">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                  ¿Qué tipos de archivos puedo subir al sistema?
-                </button>
-              </h2>
-              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  SICO soporta PDFs, imágenes (PNG, JPG, GIF), documentos de Microsoft Office (Word, Excel), archivos de texto y más. El sistema cuenta con visualización en línea para PDFs e imágenes.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                  ¿Cómo funciona el sistema de permisos?
-                </button>
-              </h2>
-              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  SICO implementa control de acceso basado en roles. Cada usuario tiene permisos específicos que determinan qué módulos puede acceder y qué acciones puede realizar.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                  ¿Puedo acceder desde dispositivos móviles?
-                </button>
-              </h2>
-              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Sí. SICO está construido con diseño responsive, garantizando una experiencia óptima en cualquier dispositivo: computadoras, laptops, tablets y smartphones.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                  ¿El sistema guarda historial de cambios?
-                </button>
-              </h2>
-              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Sí, todos los registros incluyen campos de auditoría que guardan automáticamente quién creó el registro (CreatedBy), cuándo (CreatedAt), quién lo modificó por última vez (UpdatedBy) y cuándo (UpdatedAt). Esto garantiza trazabilidad completa de todas las operaciones.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-                  ¿Cómo se relacionan los expedientes con otros módulos?
-                </button>
-              </h2>
-              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Los expedientes son el núcleo del sistema y pueden vincularse con múltiples elementos: actas de inspección, actuaciones, órdenes de trabajo, documentos, profesionales y establecimientos. Además, el sistema detecta automáticamente expedientes relacionados por dirección, CUIT o referencias explícitas.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
-                  ¿Qué es el sistema de Pases?
-                </button>
-              </h2>
-              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Los pases registran todos los movimientos de un expediente entre diferentes áreas y oficinas municipales. Permite ver el historial completo con fechas, usuarios responsables y observaciones. Es fundamental para la trazabilidad y auditoría de procesos.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
-                  ¿Puedo configurar los tipos de expedientes y estados?
-                </button>
-              </h2>
-              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  Sí, SICO cuenta con un sistema de catálogos configurables (DataCatalogs) que permite a los administradores definir tipos de expedientes, estados, especialidades profesionales y otros valores según las necesidades específicas de cada municipio.
-                </div>
-              </div>
-            </div>
-
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
-                  ¿Cómo funciona el seguimiento de plazos en Actuaciones?
-                </button>
-              </h2>
-              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                <div class="accordion-body text-muted">
-                  El módulo de Actuaciones permite otorgar plazos a contribuyentes y realiza seguimiento automático de vencimientos. El sistema calcula fechas de vencimiento, muestra alertas para plazos próximos a vencer y permite registrar cumplimientos o incumplimientos con observaciones detalladas.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding">
-    <div class="container">
-      <div class="row justify-content-center mb-5">
-        <div class="col-lg-8 text-center" data-aos="fade-up">
-          <span class="badge bg-primary-soft text-primary mb-3">
-            <i class="bi bi-envelope me-1"></i>Contacto
-          </span>
-          <h2 class="display-6 fw-bold mb-3">Solicite una Demostración</h2>
-          <p class="lead text-muted">
-            Nuestro equipo está disponible para responder sus consultas sobre SICO
-          </p>
-        </div>
-      </div>
-
-      <div class="row g-4 justify-content-center">
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="contact-info h-100">
-            <div class="d-flex gap-3 mb-4">
-              <div class="contact-icon"><i class="bi bi-envelope"></i></div>
-              <div>
-                <small class="text-muted">Email</small>
-                <h6 class="mb-0"><a href="mailto:sico@advansys.com.ar">sico@advansys.com.ar</a></h6>
-              </div>
-            </div>
-            <div class="d-flex gap-3 mb-4">
-              <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
-              <div>
-                <small class="text-muted">WhatsApp</small>
-                <h6 class="mb-0"><a href="https://wa.me/5491164630232">+54 9 11 6463-0232</a></h6>
-              </div>
-            </div>
-            <div class="d-flex gap-3">
-              <div class="contact-icon"><i class="bi bi-clock"></i></div>
-              <div>
-                <small class="text-muted">Horario</small>
-                <h6 class="mb-0">Lunes a Viernes<br>9:00 - 18:00 hs</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-          <form class="contact-info">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" placeholder="Su nombre">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="Su email">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" placeholder="Su teléfono">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Municipalidad</label>
-                <input type="text" class="form-control" placeholder="Nombre de su municipalidad">
-              </div>
-              <div class="col-12">
-                <label class="form-label">Asunto</label>
-                <select class="form-select">
-                  <option value="">Seleccione un tema...</option>
-                  <option value="info">Información General</option>
-                  <option value="demo">Solicitar Demostración</option>
-                  <option value="pricing">Consulta de Precios</option>
-                  <option value="support">Soporte Técnico</option>
-                  <option value="other">Otro</option>
-                </select>
-              </div>
-              <div class="col-12">
-                <label class="form-label">Mensaje</label>
-                <textarea class="form-control" rows="4" placeholder="Su consulta..."></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary w-100">
-                  <i class="bi bi-send me-2"></i>Enviar Mensaje
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer-section">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <img src="img/sico-small.png" alt="SICO" height="30" class="mb-3">
-          <p class="small">
-            SICO es un sistema integral de gestión municipal desarrollado por AdvanSys. Moderniza y optimiza los procesos administrativos con tecnología de última generación.
-          </p>
-        </div>
-        <div class="col-lg-4">
-          <h5 class="mb-3">Módulos</h5>
-          <div class="row">
-            <div class="col-6">
-              <ul class="list-unstyled small">
-                <li class="mb-2"><a href="#modules">Expedientes</a></li>
-                <li class="mb-2"><a href="#modules">Actas</a></li>
-                <li class="mb-2"><a href="#modules">Actuaciones</a></li>
-                <li class="mb-2"><a href="#modules">Documentos</a></li>
-                <li class="mb-2"><a href="#modules">Órdenes de Trabajo</a></li>
-              </ul>
-            </div>
-            <div class="col-6">
-              <ul class="list-unstyled small">
-                <li class="mb-2"><a href="#modules">Profesionales</a></li>
-                <li class="mb-2"><a href="#modules">Establecimientos</a></li>
-                <li class="mb-2"><a href="#modules">Pases</a></li>
-                <li class="mb-2"><a href="#modules">Defensa del Consumidor</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <h5 class="mb-3">Enlaces</h5>
-          <ul class="list-unstyled small">
-            <li class="mb-2"><a href="../">AdvanSys</a></li>
-            <li class="mb-2"><a href="#about">Acerca de SICO</a></li>
-            <li class="mb-2"><a href="#features">Características</a></li>
-            <li class="mb-2"><a href="#contact">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <hr class="my-4 border-secondary">
-
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start">
-          <p class="small mb-0">
-            &copy; 2025 SICO - Sistema Integral de Control On-Line | Desarrollado por <a href="../" class="text-primary">AdvanSys</a>
-          </p>
-        </div>
-        <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-          <a href="#page-top" class="btn btn-sm btn-outline-light">
-            <i class="bi bi-arrow-up me-1"></i>Subir
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script>
-    // Initialize AOS
-    AOS.init({
-      duration: 800,
-      easing: 'ease-out-cubic',
-      once: true,
-      offset: 50
-    });
-
-    // Navbar scroll effect
-    const navbar = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
-      } else {
-        navbar.style.boxShadow = '0 1px 3px 0 rgb(0 0 0 / 0.1)';
-      }
-    });
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          const navHeight = navbar.offsetHeight;
-          const targetPosition = target.offsetTop - navHeight;
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-
-          // Close mobile menu
-          const navbarCollapse = document.querySelector('.navbar-collapse');
-          if (navbarCollapse.classList.contains('show')) {
-            bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
-          }
+      // Navbar scroll effect
+      const navbar = document.getElementById("mainNav");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          navbar.style.boxShadow = "0 4px 6px -1px rgb(0 0 0 / 0.1)";
+        } else {
+          navbar.style.boxShadow = "0 1px 3px 0 rgb(0 0 0 / 0.1)";
         }
       });
-    });
-  </script>
-</body>
+
+      // Smooth scroll for nav links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            const navHeight = navbar.offsetHeight;
+            const targetPosition = target.offsetTop - navHeight;
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+
+            // Close mobile menu
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+            if (navbarCollapse.classList.contains("show")) {
+              bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
