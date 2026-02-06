@@ -117,12 +117,7 @@
             const navbarCollapse = document.querySelector('.navbar-collapse');
 
             const scrollToTarget = () => {
-              const navbarHeight = navbar ? navbar.offsetHeight : 0;
-              const targetPosition = targetElement.offsetTop - navbarHeight;
-              window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-              });
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             };
 
             // Close mobile menu if open, then scroll after it finishes closing
