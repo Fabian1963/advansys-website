@@ -102,6 +102,9 @@
         scroll-behavior: smooth;
         scroll-padding-top: 80px;
       }
+      section[id] {
+        scroll-margin-top: 80px;
+      }
       body {
         font-family:
           "Inter",
@@ -139,7 +142,7 @@
       }
 
       .section-padding {
-        padding: 100px 0;
+        padding-bottom: 100px;
       }
       .bg-primary-soft {
         background-color: var(--primary-soft) !important;
@@ -428,7 +431,7 @@
           overflow-x: hidden;
         }
         .section-padding {
-          padding: 80px 0;
+          padding-bottom: 80px;
         }
         .hero-section {
           text-align: center;
@@ -458,7 +461,7 @@
       }
       @media (max-width: 767.98px) {
         .section-padding {
-          padding: 60px 0;
+          padding-bottom: 60px;
         }
         .module-card,
         .contact-info {
@@ -1721,22 +1724,43 @@
         }
       });
 
-      // Smooth scroll for nav links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            const navHeight = navbar.offsetHeight;
-            const targetPosition = target.offsetTop - navHeight;
-            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+      // Handle nav link clicks: close menu + scroll without interruption
+      document.querySelectorAll(".navbar-nav .nav-link").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          var href = this.getAttribute("href");
+          if (!href || href.charAt(0) !== "#") return;
 
-            // Close mobile menu
-            const navbarCollapse = document.querySelector(".navbar-collapse");
-            if (navbarCollapse.classList.contains("show")) {
-              bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
-            }
+          var target = href === "#page-top"
+            ? document.body
+            : document.querySelector(href);
+          if (!target) return;
+
+          e.preventDefault();
+
+          // 1. Close menu instantly
+          var navbarCollapse = document.getElementById("navbarNav");
+          if (navbarCollapse && navbarCollapse.classList.contains("show")) {
+            var bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.dispose();
+            navbarCollapse.classList.remove("show", "collapsing");
+            navbarCollapse.classList.add("collapse");
+            navbarCollapse.style.height = "";
           }
+
+          // 2. Disable smooth scroll so the jump can't be interrupted by the reflow
+          document.documentElement.style.scrollBehavior = "auto";
+
+          // 3. Wait one frame for layout to settle, then scroll instantly
+          requestAnimationFrame(function () {
+            var navHeight = navbar ? navbar.offsetHeight : 0;
+            var top = href === "#page-top"
+              ? 0
+              : target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo(0, Math.max(0, top));
+
+            // 4. Re-enable smooth scroll for normal user scrolling
+            document.documentElement.style.scrollBehavior = "";
+          });
         });
       });
     </script>

@@ -107,32 +107,39 @@
     navLinks.forEach(link => {
       link.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
 
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
+        const target = href === '#page-top'
+          ? document.body
+          : document.querySelector(href);
+        if (!target) return;
 
-          if (targetElement) {
-            // Close mobile menu if open
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-              if (bsCollapse) {
-                bsCollapse.hide();
-              }
-            }
+        e.preventDefault();
 
-            // Scroll to target
-            const navbarHeight = navbar ? navbar.offsetHeight : 0;
-            const targetPosition = targetElement.offsetTop - navbarHeight;
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
+        // 1. Close menu instantly
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) bsCollapse.dispose();
+          navbarCollapse.classList.remove('show', 'collapsing');
+          navbarCollapse.classList.add('collapse');
+          navbarCollapse.style.height = '';
         }
+
+        // 2. Disable smooth scroll so the jump can't be interrupted by the reflow
+        document.documentElement.style.scrollBehavior = 'auto';
+
+        // 3. Wait one frame for the layout to settle, then scroll instantly
+        requestAnimationFrame(function () {
+          const navHeight = navbar ? navbar.offsetHeight : 0;
+          const top = href === '#page-top'
+            ? 0
+            : target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo(0, Math.max(0, top));
+
+          // 4. Re-enable smooth scroll for normal user scrolling
+          document.documentElement.style.scrollBehavior = '';
+        });
       });
     });
   }
