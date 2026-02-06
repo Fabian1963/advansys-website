@@ -105,8 +105,18 @@
   // ============================================
   function initSmoothScroll() {
     navLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        // Close mobile menu instantly (no animation) so it doesn't interfere with native anchor scroll
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+
+        const target = href === '#page-top'
+          ? document.body
+          : document.querySelector(href);
+        if (!target) return;
+
+        e.preventDefault();
+
+        // 1. Close menu instantly
         const navbarCollapse = document.querySelector('.navbar-collapse');
         if (navbarCollapse && navbarCollapse.classList.contains('show')) {
           const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
@@ -115,6 +125,21 @@
           navbarCollapse.classList.add('collapse');
           navbarCollapse.style.height = '';
         }
+
+        // 2. Disable smooth scroll so the jump can't be interrupted by the reflow
+        document.documentElement.style.scrollBehavior = 'auto';
+
+        // 3. Wait one frame for the layout to settle, then scroll instantly
+        requestAnimationFrame(function () {
+          const navHeight = navbar ? navbar.offsetHeight : 0;
+          const top = href === '#page-top'
+            ? 0
+            : target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo(0, Math.max(0, top));
+
+          // 4. Re-enable smooth scroll for normal user scrolling
+          document.documentElement.style.scrollBehavior = '';
+        });
       });
     });
   }
