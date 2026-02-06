@@ -106,10 +106,14 @@
   function initSmoothScroll() {
     navLinks.forEach(link => {
       link.addEventListener('click', function () {
-        // Close mobile menu if open; native anchor scroll + CSS scroll-padding-top handles the rest
+        // Close mobile menu instantly (no animation) so it doesn't interfere with native anchor scroll
         const navbarCollapse = document.querySelector('.navbar-collapse');
         if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-          bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
+          const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+          if (bsCollapse) bsCollapse.dispose();
+          navbarCollapse.classList.remove('show', 'collapsing');
+          navbarCollapse.classList.add('collapse');
+          navbarCollapse.style.height = '';
         }
       });
     });

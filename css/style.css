@@ -78,6 +78,10 @@ html {
   overflow-x: hidden;
 }
 
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 body {
   font-family: var(--font-family);
   font-size: 1rem;

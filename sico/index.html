@@ -102,6 +102,9 @@
         scroll-behavior: smooth;
         scroll-padding-top: 80px;
       }
+      section[id] {
+        scroll-margin-top: 80px;
+      }
       body {
         font-family:
           "Inter",
@@ -1721,12 +1724,16 @@
         }
       });
 
-      // Close mobile menu when nav link is clicked; native anchor scroll + CSS scroll-padding-top handles positioning
+      // Close mobile menu instantly on nav link click so it doesn't interfere with native anchor scroll
       document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
         link.addEventListener("click", function () {
-          const navbarCollapse = document.querySelector(".navbar-collapse");
+          const navbarCollapse = document.getElementById("navbarNav");
           if (navbarCollapse && navbarCollapse.classList.contains("show")) {
-            bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.dispose();
+            navbarCollapse.classList.remove("show", "collapsing");
+            navbarCollapse.classList.add("collapse");
+            navbarCollapse.style.height = "";
           }
         });
       });
