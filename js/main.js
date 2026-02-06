@@ -114,23 +114,32 @@
           const targetElement = document.getElementById(targetId);
 
           if (targetElement) {
-            // Close mobile menu if open
             const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            const scrollToTarget = () => {
+              const navbarHeight = navbar ? navbar.offsetHeight : 0;
+              const targetPosition = targetElement.offsetTop - navbarHeight;
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            };
+
+            // Close mobile menu if open, then scroll after it finishes closing
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
               const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
               if (bsCollapse) {
+                navbarCollapse.addEventListener('hidden.bs.collapse', function onHidden() {
+                  navbarCollapse.removeEventListener('hidden.bs.collapse', onHidden);
+                  scrollToTarget();
+                });
                 bsCollapse.hide();
+              } else {
+                scrollToTarget();
               }
+            } else {
+              scrollToTarget();
             }
-
-            // Scroll to target
-            const navbarHeight = navbar ? navbar.offsetHeight : 0;
-            const targetPosition = targetElement.offsetTop - navbarHeight;
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
           }
         }
       });
