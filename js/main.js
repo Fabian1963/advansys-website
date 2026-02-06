@@ -105,37 +105,11 @@
   // ============================================
   function initSmoothScroll() {
     navLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-
-          if (targetElement) {
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-
-            const scrollToTarget = () => {
-              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-
-            // Close mobile menu if open, then scroll after it finishes closing
-            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
-              const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-              if (bsCollapse) {
-                navbarCollapse.addEventListener('hidden.bs.collapse', function onHidden() {
-                  navbarCollapse.removeEventListener('hidden.bs.collapse', onHidden);
-                  scrollToTarget();
-                });
-                bsCollapse.hide();
-              } else {
-                scrollToTarget();
-              }
-            } else {
-              scrollToTarget();
-            }
-          }
+      link.addEventListener('click', function () {
+        // Close mobile menu if open; native anchor scroll + CSS scroll-padding-top handles the rest
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+          bootstrap.Collapse.getInstance(navbarCollapse)?.hide();
         }
       });
     });
