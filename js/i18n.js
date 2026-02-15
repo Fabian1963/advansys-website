@@ -1,16 +1,16 @@
 /**
  * AdvanSys IT - Internationalization (i18n)
  * Lightweight client-side translation system
+ * Translations are loaded via <script> tags and registered on window._i18n
  */
 (function () {
   'use strict';
 
   var DEFAULT_LANG = 'es';
   var STORAGE_KEY = 'advansys-lang';
-  var translationsCache = {};
 
   /**
-   * Detect which translation file prefix to use based on the current page
+   * Detect which translation key prefix to use based on the current page
    */
   function getTranslationPrefix() {
     var path = window.location.pathname;
@@ -18,17 +18,6 @@
       return 'sico-';
     }
     return '';
-  }
-
-  /**
-   * Resolve the base path for translation files
-   */
-  function getLangBasePath() {
-    var path = window.location.pathname;
-    if (path.indexOf('/sico') !== -1) {
-      return '../lang/';
-    }
-    return 'lang/';
   }
 
   /**
@@ -45,40 +34,16 @@
   }
 
   /**
-   * Load translations for the given language
+   * Get translations for the given language from window._i18n
    */
-  function loadTranslations(lang, callback) {
+  function getTranslations(lang) {
     var prefix = getTranslationPrefix();
     var cacheKey = prefix + lang;
-
-    if (translationsCache[cacheKey]) {
-      callback(translationsCache[cacheKey]);
-      return;
+    if (window._i18n && window._i18n[cacheKey]) {
+      return window._i18n[cacheKey];
     }
-
-    var basePath = getLangBasePath();
-    var url = basePath + prefix + lang + '.json';
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          try {
-            var data = JSON.parse(xhr.responseText);
-            translationsCache[cacheKey] = data;
-            callback(data);
-          } catch (e) {
-            console.error('i18n: Error parsing translations', e);
-            callback(null);
-          }
-        } else {
-          console.error('i18n: Could not load ' + url);
-          callback(null);
-        }
-      }
-    };
-    xhr.send();
+    console.error('i18n: Translations not found for "' + cacheKey + '". Make sure the script tag is loaded.');
+    return null;
   }
 
   /**
@@ -128,10 +93,9 @@
     localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.setAttribute('lang', lang);
 
-    loadTranslations(lang, function (translations) {
-      applyTranslations(translations);
-      updateLanguageToggle(lang);
-    });
+    var translations = getTranslations(lang);
+    applyTranslations(translations);
+    updateLanguageToggle(lang);
   }
 
   /**
