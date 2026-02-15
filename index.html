@@ -94,25 +94,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#page-top">Inicio</a>
+              <a class="nav-link" href="#page-top" data-i18n="nav.home">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#servicios">Servicios</a>
+              <a class="nav-link" href="#servicios" data-i18n="nav.services">Servicios</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tecnologias">Tecnologías</a>
+              <a class="nav-link" href="#tecnologias" data-i18n="nav.technologies">Tecnologías</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#nosotros">Nosotros</a>
+              <a class="nav-link" href="#nosotros" data-i18n="nav.about">Nosotros</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#proceso">Proceso</a>
+              <a class="nav-link" href="#proceso" data-i18n="nav.process">Proceso</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#productos">Productos</a>
+              <a class="nav-link" href="#productos" data-i18n="nav.products">Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contacto">Contacto</a>
+              <a class="nav-link" href="#contacto" data-i18n="nav.contact">Contacto</a>
+            </li>
+            <li class="nav-item ms-2">
+              <div class="language-selector">
+                <button type="button" class="lang-btn active" id="langEs">ES</button>
+                <button type="button" class="lang-btn" id="langEn">EN</button>
+              </div>
             </li>
           </ul>
         </div>
@@ -125,22 +131,22 @@
       <div class="container h-100">
         <div class="row h-100 align-items-center">
           <div class="col-lg-6" data-aos="fade-right">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="hero.badge"
               >Desarrollo de Software</span
             >
-            <h1 class="display-4 fw-bold mb-4">
+            <h1 class="display-4 fw-bold mb-4" data-i18n-html="hero.title">
               Transformamos ideas en
               <span class="text-gradient">soluciones digitales</span>
             </h1>
-            <p class="lead mb-4 text-muted">
+            <p class="lead mb-4 text-muted" data-i18n="hero.subtitle">
               Desarrollamos aplicaciones web y servicios de QA Automation para
               impulsar el crecimiento de tu negocio.
             </p>
             <div class="d-flex gap-3 flex-wrap">
               <a href="#contacto" class="btn btn-primary btn-lg">
-                <i class="bi bi-chat-dots me-2"></i>Contáctanos
+                <i class="bi bi-chat-dots me-2"></i><span data-i18n="hero.cta_contact">Contáctanos</span>
               </a>
-              <a href="#servicios" class="btn btn-outline-primary btn-lg">
+              <a href="#servicios" class="btn btn-outline-primary btn-lg" data-i18n="hero.cta_services">
                 Ver Servicios
               </a>
             </div>
@@ -162,13 +168,13 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="services.badge"
               >Nuestros Servicios</span
             >
-            <h2 class="display-5 fw-bold mb-3">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="services.title">
               Soluciones a medida para tu empresa
             </h2>
-            <p class="lead text-muted">
+            <p class="lead text-muted" data-i18n="services.subtitle">
               Ofrecemos servicios integrales de desarrollo de software y
               aseguramiento de calidad.
             </p>
@@ -182,8 +188,8 @@
               <div class="service-icon">
                 <i class="bi bi-code-slash"></i>
               </div>
-              <h3 class="h4 fw-bold mb-3">Desarrollo de Aplicaciones Web</h3>
-              <p class="text-muted mb-4">
+              <h3 class="h4 fw-bold mb-3" data-i18n="services.dev_title">Desarrollo de Aplicaciones Web</h3>
+              <p class="text-muted mb-4" data-i18n="services.dev_desc">
                 Desarrollamos aplicaciones web modernas y escalables, adaptadas
                 a las necesidades específicas de tu empresa. Utilizamos las
                 últimas tecnologías del mercado para garantizar rendimiento,
@@ -192,19 +198,19 @@
               <ul class="list-unstyled service-features">
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Aplicaciones Single Page (SPA)
-                </li>
-                <li>
-                  <i class="bi bi-check-circle-fill text-primary me-2"></i>APIs
-                  RESTful y GraphQL
+                  ><span data-i18n="services.dev_f1">Aplicaciones Single Page (SPA)</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Integraciones con sistemas existentes
+                  ><span data-i18n="services.dev_f2">APIs RESTful y GraphQL</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Dashboards y reportes personalizados
+                  ><span data-i18n="services.dev_f3">Integraciones con sistemas existentes</span>
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  ><span data-i18n="services.dev_f4">Dashboards y reportes personalizados</span>
                 </li>
               </ul>
             </div>
@@ -216,8 +222,8 @@
               <div class="service-icon">
                 <i class="bi bi-shield-check"></i>
               </div>
-              <h3 class="h4 fw-bold mb-3">QA Automation</h3>
-              <p class="text-muted mb-4">
+              <h3 class="h4 fw-bold mb-3" data-i18n="services.qa_title">QA Automation</h3>
+              <p class="text-muted mb-4" data-i18n="services.qa_desc">
                 Nuestro servicio de Quality Assurance automatizado garantiza la
                 calidad de tu software mediante pruebas exhaustivas. Detectamos
                 errores antes de que lleguen a producción, ahorrando tiempo y
@@ -226,19 +232,19 @@
               <ul class="list-unstyled service-features">
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Testing automatizado E2E
+                  ><span data-i18n="services.qa_f1">Testing automatizado E2E</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Pruebas de rendimiento y carga
+                  ><span data-i18n="services.qa_f2">Pruebas de rendimiento y carga</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Integración continua (CI/CD)
+                  ><span data-i18n="services.qa_f3">Integración continua (CI/CD)</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Reportes detallados de calidad
+                  ><span data-i18n="services.qa_f4">Reportes detallados de calidad</span>
                 </li>
               </ul>
             </div>
@@ -252,11 +258,11 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="technologies.badge"
               >Stack Tecnológico</span
             >
-            <h2 class="display-5 fw-bold mb-3">Tecnologías que utilizamos</h2>
-            <p class="lead text-muted">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="technologies.title">Tecnologías que utilizamos</h2>
+            <p class="lead text-muted" data-i18n="technologies.subtitle">
               Trabajamos con las herramientas más modernas y demandadas del
               mercado.
             </p>
@@ -271,8 +277,8 @@
           >
             <div class="tech-card text-center">
               <i class="bi bi-filetype-html display-4 text-primary mb-3"></i>
-              <h5 class="fw-bold">Frontend</h5>
-              <p class="text-muted small mb-0">
+              <h5 class="fw-bold" data-i18n="technologies.frontend">Frontend</h5>
+              <p class="text-muted small mb-0" data-i18n="technologies.frontend_desc">
                 React, Vue.js, Angular, TypeScript, HTML5, CSS3
               </p>
             </div>
@@ -284,8 +290,8 @@
           >
             <div class="tech-card text-center">
               <i class="bi bi-server display-4 text-primary mb-3"></i>
-              <h5 class="fw-bold">Backend</h5>
-              <p class="text-muted small mb-0">
+              <h5 class="fw-bold" data-i18n="technologies.backend">Backend</h5>
+              <p class="text-muted small mb-0" data-i18n="technologies.backend_desc">
                 .NET Core, Node.js, Python, SQL Server, PostgreSQL
               </p>
             </div>
@@ -297,8 +303,8 @@
           >
             <div class="tech-card text-center">
               <i class="bi bi-cloud display-4 text-primary mb-3"></i>
-              <h5 class="fw-bold">Cloud</h5>
-              <p class="text-muted small mb-0">
+              <h5 class="fw-bold" data-i18n="technologies.cloud">Cloud</h5>
+              <p class="text-muted small mb-0" data-i18n="technologies.cloud_desc">
                 Azure, AWS, Docker, Kubernetes, CI/CD
               </p>
             </div>
@@ -310,8 +316,8 @@
           >
             <div class="tech-card text-center">
               <i class="bi bi-bug display-4 text-primary mb-3"></i>
-              <h5 class="fw-bold">Testing</h5>
-              <p class="text-muted small mb-0">
+              <h5 class="fw-bold" data-i18n="technologies.testing">Testing</h5>
+              <p class="text-muted small mb-0" data-i18n="technologies.testing_desc">
                 Selenium, Playwright, Cypress, Jest, xUnit
               </p>
             </div>
@@ -330,14 +336,14 @@
           </div>
           <div class="col-lg-6 d-flex align-items-center" data-aos="fade-left">
             <div class="ps-lg-5 mt-4 mt-lg-0">
-              <h3 class="fw-bold mb-4">Aplicaciones modernas y escalables</h3>
+              <h3 class="fw-bold mb-4" data-i18n="technologies.features_title">Aplicaciones modernas y escalables</h3>
               <div class="d-flex mb-4">
                 <div class="feature-icon-sm me-3">
                   <i class="bi bi-phone"></i>
                 </div>
                 <div>
-                  <h5 class="fw-bold">Full Responsive</h5>
-                  <p class="text-muted">
+                  <h5 class="fw-bold" data-i18n="technologies.responsive_title">Full Responsive</h5>
+                  <p class="text-muted" data-i18n="technologies.responsive_desc">
                     Nuestras aplicaciones se adaptan perfectamente a cualquier
                     dispositivo: PC, tablet o smartphone.
                   </p>
@@ -348,8 +354,8 @@
                   <i class="bi bi-graph-up"></i>
                 </div>
                 <div>
-                  <h5 class="fw-bold">Dashboards Interactivos</h5>
-                  <p class="text-muted">
+                  <h5 class="fw-bold" data-i18n="technologies.dashboards_title">Dashboards Interactivos</h5>
+                  <p class="text-muted" data-i18n="technologies.dashboards_desc">
                     Gráficos y reportes en tiempo real que te ayudan a tomar
                     mejores decisiones de negocio.
                   </p>
@@ -360,8 +366,8 @@
                   <i class="bi bi-lightning"></i>
                 </div>
                 <div>
-                  <h5 class="fw-bold">Alto Rendimiento</h5>
-                  <p class="text-muted">
+                  <h5 class="fw-bold" data-i18n="technologies.performance_title">Alto Rendimiento</h5>
+                  <p class="text-muted" data-i18n="technologies.performance_desc">
                     Aplicaciones optimizadas para carga rápida y experiencia de
                     usuario fluida.
                   </p>
@@ -378,11 +384,11 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="about.badge"
               >Nosotros</span
             >
-            <h2 class="display-5 fw-bold mb-3">Nuestro Equipo</h2>
-            <p class="lead text-muted mb-5">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="about.title">Nuestro Equipo</h2>
+            <p class="lead text-muted mb-5" data-i18n="about.subtitle">
               Profesionales con amplia experiencia en desarrollo de software y
               aseguramiento de calidad.
             </p>
@@ -398,8 +404,8 @@
                 alt="Fabián Rodríguez"
               />
               <h4 class="fw-bold mb-1">Fabián Rodríguez</h4>
-              <p class="text-primary mb-3">CEO & Senior Developer</p>
-              <p class="text-muted mb-4">
+              <p class="text-primary mb-3" data-i18n="about.role">CEO & Senior Developer</p>
+              <p class="text-muted mb-4" data-i18n="about.bio">
                 Senior Developer y QA Automation Engineer (SDET) con más de 25
                 años de experiencia en desarrollo de software y automatización
                 de pruebas.
@@ -431,12 +437,12 @@
         <div class="row mt-5 pt-4">
           <div class="col-lg-8 offset-lg-2 text-center" data-aos="fade-up">
             <div class="about-text p-4 p-lg-5 rounded-4 bg-light">
-              <p class="mb-3">
+              <p class="mb-3" data-i18n-html="about.about_text_1">
                 <strong>AdvanSys</strong> desarrolla soluciones de software para
                 ayudar a las empresas a mejorar su productividad y optimizar sus
                 procesos de negocio.
               </p>
-              <p class="mb-0">
+              <p class="mb-0" data-i18n="about.about_text_2">
                 Nos dedicamos a ofrecer productos de calidad y servicio de
                 primer nivel, mejorando constantemente nuestras soluciones de
                 acuerdo a las necesidades de cada cliente.
@@ -452,11 +458,11 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="process.badge"
               >Metodología</span
             >
-            <h2 class="display-5 fw-bold mb-3">Nuestro Proceso de Trabajo</h2>
-            <p class="lead text-muted">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="process.title">Nuestro Proceso de Trabajo</h2>
+            <p class="lead text-muted" data-i18n="process.subtitle">
               Seguimos una metodología ágil que garantiza resultados de calidad
               en cada proyecto.
             </p>
@@ -476,9 +482,9 @@
                   <i class="bi bi-chat-quote"></i>
                 </div>
                 <div class="timeline-content">
-                  <span class="timeline-step">Paso 1</span>
-                  <h4 class="fw-bold">Reunión Inicial</h4>
-                  <p class="text-muted mb-0">
+                  <span class="timeline-step" data-i18n="process.step1_label">Paso 1</span>
+                  <h4 class="fw-bold" data-i18n="process.step1_title">Reunión Inicial</h4>
+                  <p class="text-muted mb-0" data-i18n="process.step1_desc">
                     Analizamos tus necesidades y objetivos para entender a fondo
                     el proyecto. Definimos alcance, funcionalidades y
                     expectativas.
@@ -496,9 +502,9 @@
                   <i class="bi bi-pencil-square"></i>
                 </div>
                 <div class="timeline-content">
-                  <span class="timeline-step">Paso 2</span>
-                  <h4 class="fw-bold">Propuesta y Planificación</h4>
-                  <p class="text-muted mb-0">
+                  <span class="timeline-step" data-i18n="process.step2_label">Paso 2</span>
+                  <h4 class="fw-bold" data-i18n="process.step2_title">Propuesta y Planificación</h4>
+                  <p class="text-muted mb-0" data-i18n="process.step2_desc">
                     Elaboramos una propuesta detallada con cronograma,
                     tecnologías a utilizar y presupuesto. Planificamos sprints y
                     entregables.
@@ -516,9 +522,9 @@
                   <i class="bi bi-code-square"></i>
                 </div>
                 <div class="timeline-content">
-                  <span class="timeline-step">Paso 3</span>
-                  <h4 class="fw-bold">Desarrollo e Iteraciones</h4>
-                  <p class="text-muted mb-0">
+                  <span class="timeline-step" data-i18n="process.step3_label">Paso 3</span>
+                  <h4 class="fw-bold" data-i18n="process.step3_title">Desarrollo e Iteraciones</h4>
+                  <p class="text-muted mb-0" data-i18n="process.step3_desc">
                     Desarrollamos en sprints cortos con entregas parciales.
                     Mantenemos comunicación constante y ajustamos según tu
                     feedback.
@@ -536,9 +542,9 @@
                   <i class="bi bi-rocket-takeoff"></i>
                 </div>
                 <div class="timeline-content">
-                  <span class="timeline-step">Paso 4</span>
-                  <h4 class="fw-bold">Entrega y Soporte</h4>
-                  <p class="text-muted mb-0">
+                  <span class="timeline-step" data-i18n="process.step4_label">Paso 4</span>
+                  <h4 class="fw-bold" data-i18n="process.step4_title">Entrega y Soporte</h4>
+                  <p class="text-muted mb-0" data-i18n="process.step4_desc">
                     Realizamos el despliegue en producción, capacitación del
                     equipo y brindamos soporte continuo post-lanzamiento.
                   </p>
@@ -555,11 +561,11 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="products.badge"
               >Nuestros Productos</span
             >
-            <h2 class="display-5 fw-bold mb-3">Soluciones propias</h2>
-            <p class="lead text-muted">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="products.title">Soluciones propias</h2>
+            <p class="lead text-muted" data-i18n="products.subtitle">
               Desarrollamos productos de software que resuelven problemas
               reales.
             </p>
@@ -578,12 +584,12 @@
                       height="40"
                       class="me-3"
                     />
-                    <span class="badge bg-primary">Sistema Municipal</span>
+                    <span class="badge bg-primary" data-i18n="products.sico_badge">Sistema Municipal</span>
                   </div>
-                  <h3 class="fw-bold mb-3">
+                  <h3 class="fw-bold mb-3" data-i18n="products.sico_title">
                     Sistema Integral de Control On-Line
                   </h3>
-                  <p class="text-muted mb-4">
+                  <p class="text-muted mb-4" data-i18n="products.sico_desc">
                     Plataforma completa para la gestión municipal moderna.
                     Administra expedientes, actas, inspecciones, documentos y
                     más desde una única solución integrada construida con tecnología de vanguardia.
@@ -592,19 +598,19 @@
                     <div class="col-6 col-md-3">
                       <div class="text-center">
                         <div class="h4 fw-bold text-primary mb-0">10+</div>
-                        <small class="text-muted">Módulos</small>
+                        <small class="text-muted" data-i18n="products.sico_modules">Módulos</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
                       <div class="text-center">
                         <div class="h4 fw-bold text-primary mb-0">24/7</div>
-                        <small class="text-muted">Disponible</small>
+                        <small class="text-muted" data-i18n="products.sico_available">Disponible</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
                       <div class="text-center">
                         <div class="h4 fw-bold text-primary mb-0">100%</div>
-                        <small class="text-muted">Digital</small>
+                        <small class="text-muted" data-i18n="products.sico_digital">Digital</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
@@ -612,41 +618,41 @@
                         <div class="h4 fw-bold text-primary mb-0">
                           <i class="bi bi-shield-check"></i>
                         </div>
-                        <small class="text-muted">Seguro</small>
+                        <small class="text-muted" data-i18n="products.sico_secure">Seguro</small>
                       </div>
                     </div>
                   </div>
                   <a href="sico/" class="btn btn-primary">
-                    <i class="bi bi-arrow-right me-2"></i>Conocer SICO
+                    <i class="bi bi-arrow-right me-2"></i><span data-i18n="products.sico_cta">Conocer SICO</span>
                   </a>
                 </div>
                 <div class="col-lg-4 text-center">
                   <div class="p-4 bg-white rounded-4 shadow-sm">
-                    <h6 class="text-muted mb-3">Módulos principales</h6>
+                    <h6 class="text-muted mb-3" data-i18n="products.sico_main_modules">Módulos principales</h6>
                     <ul class="list-unstyled text-start small">
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Expedientes
+                        ><span data-i18n="products.sico_m1">Expedientes</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Actas e Inspecciones
+                        ><span data-i18n="products.sico_m2">Actas e Inspecciones</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Actuaciones y Plazos
+                        ><span data-i18n="products.sico_m3">Actuaciones y Plazos</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Gestión Documental
+                        ><span data-i18n="products.sico_m4">Gestión Documental</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Órdenes de Trabajo
+                        ><span data-i18n="products.sico_m5">Órdenes de Trabajo</span>
                       </li>
                       <li class="mb-0">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Profesionales
+                        ><span data-i18n="products.sico_m6">Profesionales</span>
                       </li>
                     </ul>
                   </div>
@@ -662,10 +668,10 @@
                 <div class="col-lg-8">
                   <div class="d-flex align-items-center mb-3">
                     <i class="bi bi-bus-front fs-2 text-primary me-3"></i>
-                    <span class="badge bg-primary">Sitio Web</span>
+                    <span class="badge bg-primary" data-i18n="products.kairos_badge">Sitio Web</span>
                   </div>
-                  <h3 class="fw-bold mb-3">Kairos Transportes</h3>
-                  <p class="text-muted mb-4">
+                  <h3 class="fw-bold mb-3" data-i18n="products.kairos_title">Kairos Transportes</h3>
+                  <p class="text-muted mb-4" data-i18n="products.kairos_desc">
                     Sitio web corporativo para empresa de transporte de
                     pasajeros con amplia trayectoria. Diseño moderno y
                     responsive que refleja la solidez y experiencia de la
@@ -677,7 +683,7 @@
                         <div class="h4 fw-bold text-primary mb-0">
                           <i class="bi bi-globe"></i>
                         </div>
-                        <small class="text-muted">Online</small>
+                        <small class="text-muted" data-i18n="products.kairos_online">Online</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
@@ -685,7 +691,7 @@
                         <div class="h4 fw-bold text-primary mb-0">
                           <i class="bi bi-phone"></i>
                         </div>
-                        <small class="text-muted">Responsive</small>
+                        <small class="text-muted" data-i18n="products.kairos_responsive">Responsive</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
@@ -693,7 +699,7 @@
                         <div class="h4 fw-bold text-primary mb-0">
                           <i class="bi bi-speedometer2"></i>
                         </div>
-                        <small class="text-muted">Rápido</small>
+                        <small class="text-muted" data-i18n="products.kairos_fast">Rápido</small>
                       </div>
                     </div>
                     <div class="col-6 col-md-3">
@@ -701,7 +707,7 @@
                         <div class="h4 fw-bold text-primary mb-0">
                           <i class="bi bi-shield-check"></i>
                         </div>
-                        <small class="text-muted">Seguro</small>
+                        <small class="text-muted" data-i18n="products.kairos_secure">Seguro</small>
                       </div>
                     </div>
                   </div>
@@ -710,36 +716,36 @@
                     target="_blank"
                     class="btn btn-primary"
                   >
-                    <i class="bi bi-arrow-right me-2"></i>Visitar sitio
+                    <i class="bi bi-arrow-right me-2"></i><span data-i18n="products.kairos_cta">Visitar sitio</span>
                   </a>
                 </div>
                 <div class="col-lg-4 text-center">
                   <div class="p-4 bg-white rounded-4 shadow-sm">
-                    <h6 class="text-muted mb-3">Servicios destacados</h6>
+                    <h6 class="text-muted mb-3" data-i18n="products.kairos_services_title">Servicios destacados</h6>
                     <ul class="list-unstyled text-start small">
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Transporte de pasajeros
+                        ><span data-i18n="products.kairos_s1">Transporte de pasajeros</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Viajes de larga distancia
+                        ><span data-i18n="products.kairos_s2">Viajes de larga distancia</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Transporte escolar
+                        ><span data-i18n="products.kairos_s3">Transporte escolar</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Viajes de egresados
+                        ><span data-i18n="products.kairos_s4">Viajes de egresados</span>
                       </li>
                       <li class="mb-2">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Excursiones culturales
+                        ><span data-i18n="products.kairos_s5">Excursiones culturales</span>
                       </li>
                       <li class="mb-0">
                         <i class="bi bi-check-circle-fill text-primary me-2"></i
-                        >Cobertura internacional
+                        ><span data-i18n="products.kairos_s6">Cobertura internacional</span>
                       </li>
                     </ul>
                   </div>
@@ -756,11 +762,11 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
-            <span class="badge bg-primary-soft text-primary mb-3"
+            <span class="badge bg-primary-soft text-primary mb-3" data-i18n="contact.badge"
               >Contacto</span
             >
-            <h2 class="display-5 fw-bold mb-3">Hablemos de tu proyecto</h2>
-            <p class="lead text-muted">
+            <h2 class="display-5 fw-bold mb-3" data-i18n="contact.title">Hablemos de tu proyecto</h2>
+            <p class="lead text-muted" data-i18n="contact.subtitle">
               Estamos listos para ayudarte a llevar tu negocio al siguiente
               nivel.
             </p>
@@ -777,8 +783,8 @@
               <div class="contact-icon mb-3">
                 <i class="bi bi-geo-alt"></i>
               </div>
-              <h5 class="fw-bold">Ubicación</h5>
-              <p class="text-muted mb-0">
+              <h5 class="fw-bold" data-i18n="contact.location_title">Ubicación</h5>
+              <p class="text-muted mb-0" data-i18n-html="contact.location_value">
                 Caseros, Buenos Aires<br />Argentina
               </p>
             </div>
@@ -793,7 +799,7 @@
               <div class="contact-icon mb-3">
                 <i class="bi bi-whatsapp"></i>
               </div>
-              <h5 class="fw-bold">WhatsApp</h5>
+              <h5 class="fw-bold" data-i18n="contact.whatsapp_title">WhatsApp</h5>
               <p class="text-muted mb-0">
                 <a
                   href="https://wa.me/5491164630232"
@@ -813,7 +819,7 @@
               <div class="contact-icon mb-3">
                 <i class="bi bi-envelope"></i>
               </div>
-              <h5 class="fw-bold">Email</h5>
+              <h5 class="fw-bold" data-i18n="contact.email_title">Email</h5>
               <p class="text-muted mb-0">
                 <a
                   href="mailto:info@advansys.com.ar"
@@ -831,7 +837,7 @@
               href="mailto:info@advansys.com.ar"
               class="btn btn-primary btn-lg me-3"
             >
-              <i class="bi bi-envelope me-2"></i>Enviar Email
+              <i class="bi bi-envelope me-2"></i><span data-i18n="contact.cta_email">Enviar Email</span>
             </a>
             <a
               href="https://wa.me/5491164630232"
@@ -846,7 +852,7 @@
 
         <div class="row mt-5 pt-4">
           <div class="col-12 text-center">
-            <p class="text-muted mb-3">Seguinos en redes sociales</p>
+            <p class="text-muted mb-3" data-i18n="contact.social_text">Seguinos en redes sociales</p>
             <div class="d-flex justify-content-center gap-3">
               <a
                 href="https://www.linkedin.com/company/advansys-it"
@@ -883,13 +889,13 @@
               height="30"
               class="mb-2"
             />
-            <p class="mb-0 small text-muted">
+            <p class="mb-0 small text-muted" data-i18n-html="footer.copyright">
               &copy; 2026 AdvanSys. Todos los derechos reservados.
             </p>
           </div>
           <div class="col-md-6 text-center text-md-end">
             <a href="#page-top" class="btn btn-outline-primary btn-sm">
-              <i class="bi bi-arrow-up me-1"></i>Volver arriba
+              <i class="bi bi-arrow-up me-1"></i><span data-i18n="footer.back_to_top">Volver arriba</span>
             </a>
           </div>
         </div>
@@ -904,5 +910,8 @@
 
     <!-- Custom JS -->
     <script src="js/main.js"></script>
+
+    <!-- i18n -->
+    <script src="js/i18n.js"></script>
   </body>
 </html>

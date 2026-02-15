@@ -473,6 +473,35 @@
           font-size: 2rem;
         }
       }
+
+      /* Language Selector */
+      .language-selector {
+        display: flex;
+        align-items: center;
+        background: var(--gray-100);
+        border-radius: 50px;
+        padding: 2px;
+        gap: 2px;
+      }
+      .lang-btn {
+        border: none;
+        background: transparent;
+        padding: 4px 10px;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--gray-500);
+        cursor: pointer;
+        transition: all 150ms ease;
+        line-height: 1.4;
+      }
+      .lang-btn.active {
+        background: var(--primary);
+        color: var(--white);
+      }
+      .lang-btn:hover:not(.active) {
+        color: var(--gray-700);
+      }
     </style>
   </head>
 
@@ -497,25 +526,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#page-top">Inicio</a>
+              <a class="nav-link" href="#page-top" data-i18n="nav.home">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">Acerca de</a>
+              <a class="nav-link" href="#about" data-i18n="nav.about">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#modules">Módulos</a>
+              <a class="nav-link" href="#modules" data-i18n="nav.modules">Módulos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#features">Características</a>
+              <a class="nav-link" href="#features" data-i18n="nav.features">Características</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq" data-i18n="nav.faq">FAQ</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contacto</a>
+              <a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
             </li>
           </ul>
-          <a href="../" class="btn btn-outline-primary btn-sm">
-            <i class="bi bi-arrow-left me-1"></i>AdvanSys
-          </a>
+          <div class="d-flex align-items-center gap-2">
+            <div class="language-selector">
+              <button type="button" class="lang-btn active" id="langEs">ES</button>
+              <button type="button" class="lang-btn" id="langEn">EN</button>
+            </div>
+            <a href="../" class="btn btn-outline-primary btn-sm">
+              <i class="bi bi-arrow-left me-1"></i><span data-i18n="nav.back">AdvanSys</span>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -526,17 +561,17 @@
         <div class="row align-items-center">
           <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
             <a href="../" class="back-link">
-              <i class="bi bi-arrow-left"></i> Volver a AdvanSys
+              <i class="bi bi-arrow-left"></i> <span data-i18n="hero.back_link">Volver a AdvanSys</span>
             </a>
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-shield-check me-1"></i>Sistema Integral de Gestión
-              Municipal
+              <i class="bi bi-shield-check me-1"></i><span data-i18n="hero.badge">Sistema Integral de Gestión
+              Municipal</span>
             </span>
-            <h1 class="display-4 fw-bold mb-4">
+            <h1 class="display-4 fw-bold mb-4" data-i18n-html="hero.title">
               <span class="text-primary">SICO</span> - Sistema Integral de<br />
               <span class="text-primary">Control On-Line</span>
             </h1>
-            <p class="lead mb-5" style="max-width: 800px; margin: 0 auto">
+            <p class="lead mb-5" style="max-width: 800px; margin: 0 auto" data-i18n="hero.subtitle">
               Plataforma completa para una gestión municipal moderna y segura.
               Administre Expedientes, Actas de Inspección, Inspecciones,
               Documentos, Actuaciones, Establecimientos y más desde una única
@@ -544,9 +579,9 @@
             </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
               <a href="#contact" class="btn btn-primary btn-lg">
-                <i class="bi bi-chat-dots me-2"></i>Solicitar Demo
+                <i class="bi bi-chat-dots me-2"></i><span data-i18n="hero.cta_demo">Solicitar Demo</span>
               </a>
-              <a href="#modules" class="btn btn-outline-light btn-lg">
+              <a href="#modules" class="btn btn-outline-light btn-lg" data-i18n="hero.cta_modules">
                 Ver Módulos
               </a>
             </div>
@@ -556,19 +591,19 @@
               <div class="col-6 col-md-3">
                 <div class="stat-card">
                   <div class="stat-number">10+</div>
-                  <div class="stat-label">Módulos Integrados</div>
+                  <div class="stat-label" data-i18n="hero.stat_modules">Módulos Integrados</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
                 <div class="stat-card">
                   <div class="stat-number">24/7</div>
-                  <div class="stat-label">Disponibilidad</div>
+                  <div class="stat-label" data-i18n="hero.stat_availability">Disponibilidad</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
                 <div class="stat-card">
                   <div class="stat-number">100%</div>
-                  <div class="stat-label">Digital</div>
+                  <div class="stat-label" data-i18n="hero.stat_digital">Digital</div>
                 </div>
               </div>
               <div class="col-6 col-md-3">
@@ -576,7 +611,7 @@
                   <div class="stat-number">
                     <i class="bi bi-shield-check"></i>
                   </div>
-                  <div class="stat-label">Seguro</div>
+                  <div class="stat-label" data-i18n="hero.stat_secure">Seguro</div>
                 </div>
               </div>
             </div>
@@ -608,12 +643,12 @@
         <div class="row align-items-center g-5">
           <div class="col-lg-6" data-aos="fade-right">
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-info-circle me-1"></i>Acerca de SICO
+              <i class="bi bi-info-circle me-1"></i><span data-i18n="about.badge">Acerca de SICO</span>
             </span>
-            <h2 class="display-6 fw-bold mb-4">
+            <h2 class="display-6 fw-bold mb-4" data-i18n="about.title">
               Una Solución Completa para la Gestión Municipal
             </h2>
-            <p class="text-muted mb-4">
+            <p class="text-muted mb-4" data-i18n="about.desc">
               SICO es un sistema integral diseñado específicamente para
               modernizar y optimizar la gestión de trámites municipales.
               Desarrollado con tecnología NET 10 y SQL Server, ofrece una
@@ -627,8 +662,8 @@
                     <i class="bi bi-database"></i>
                   </div>
                   <div>
-                    <h5 class="mb-2">Gestión Centralizada</h5>
-                    <p class="text-muted small mb-0">
+                    <h5 class="mb-2" data-i18n="about.centralized_title">Gestión Centralizada</h5>
+                    <p class="text-muted small mb-0" data-i18n="about.centralized_desc">
                       Toda la información municipal en un solo lugar accesible y
                       organizado
                     </p>
@@ -641,8 +676,8 @@
                     <i class="bi bi-lightning"></i>
                   </div>
                   <div>
-                    <h5 class="mb-2">Alto Rendimiento</h5>
-                    <p class="text-muted small mb-0">
+                    <h5 class="mb-2" data-i18n="about.performance_title">Alto Rendimiento</h5>
+                    <p class="text-muted small mb-0" data-i18n="about.performance_desc">
                       Arquitectura optimizada para respuestas rápidas y
                       eficientes
                     </p>
@@ -655,8 +690,8 @@
                     <i class="bi bi-lock"></i>
                   </div>
                   <div>
-                    <h5 class="mb-2">Seguridad Avanzada</h5>
-                    <p class="text-muted small mb-0">
+                    <h5 class="mb-2" data-i18n="about.security_title">Seguridad Avanzada</h5>
+                    <p class="text-muted small mb-0" data-i18n="about.security_desc">
                       Control de acceso basado en roles y auditoría completa
                     </p>
                   </div>
@@ -668,8 +703,8 @@
                     <i class="bi bi-phone"></i>
                   </div>
                   <div>
-                    <h5 class="mb-2">Responsive Design</h5>
-                    <p class="text-muted small mb-0">
+                    <h5 class="mb-2" data-i18n="about.responsive_title">Responsive Design</h5>
+                    <p class="text-muted small mb-0" data-i18n="about.responsive_desc">
                       Acceso desde cualquier dispositivo y desde cualquier lugar
                     </p>
                   </div>
@@ -680,7 +715,7 @@
 
           <div class="col-lg-6" data-aos="fade-left">
             <div class="p-4 bg-light rounded-4">
-              <h4 class="mb-4">Tecnologías Utilizadas</h4>
+              <h4 class="mb-4" data-i18n="about.tech_title">Tecnologías Utilizadas</h4>
               <div class="row g-3">
                 <div class="col-6">
                   <div class="tech-card">
@@ -688,21 +723,21 @@
                       class="bi bi-filetype-cs display-4 text-primary mb-2"
                     ></i>
                     <h6 class="mb-0">NET 10</h6>
-                    <small class="text-muted">Backend</small>
+                    <small class="text-muted" data-i18n="about.tech_backend">Backend</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="tech-card">
                     <i class="bi bi-database display-4 text-primary mb-2"></i>
                     <h6 class="mb-0">SQL Server</h6>
-                    <small class="text-muted">Base de Datos</small>
+                    <small class="text-muted" data-i18n="about.tech_database">Base de Datos</small>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="tech-card">
                     <i class="bi bi-bootstrap display-4 text-primary mb-2"></i>
                     <h6 class="mb-0">Bootstrap 5</h6>
-                    <small class="text-muted">Frontend</small>
+                    <small class="text-muted" data-i18n="about.tech_frontend">Frontend</small>
                   </div>
                 </div>
                 <div class="col-6">
@@ -711,7 +746,7 @@
                       class="bi bi-hdd-network display-4 text-primary mb-2"
                     ></i>
                     <h6 class="mb-0">REST API</h6>
-                    <small class="text-muted">Arquitectura</small>
+                    <small class="text-muted" data-i18n="about.tech_architecture">Arquitectura</small>
                   </div>
                 </div>
               </div>
@@ -727,10 +762,10 @@
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-grid me-1"></i>Módulos del Sistema
+              <i class="bi bi-grid me-1"></i><span data-i18n="modules.badge">Módulos del Sistema</span>
             </span>
-            <h2 class="display-6 fw-bold mb-3">Funcionalidades Completas</h2>
-            <p class="lead text-muted">
+            <h2 class="display-6 fw-bold mb-3" data-i18n="modules.title">Funcionalidades Completas</h2>
+            <p class="lead text-muted" data-i18n="modules.subtitle">
               SICO integra todos los módulos necesarios para una administración
               municipal eficiente
             </p>
@@ -748,27 +783,27 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-folder2-open"></i>
               </div>
-              <h4 class="mb-3">Expedientes</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.expedientes_title">Expedientes</h4>
+              <p class="text-muted mb-3" data-i18n="modules.expedientes_desc">
                 Gestión completa de expedientes municipales con seguimiento de
                 estados y tipos configurables.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Múltiples tipos de expedientes
+                  ><span data-i18n="modules.expedientes_f1">Múltiples tipos de expedientes</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Seguimiento de estados
+                  ><span data-i18n="modules.expedientes_f2">Seguimiento de estados</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Historial de movimientos
+                  ><span data-i18n="modules.expedientes_f3">Historial de movimientos</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Expedientes relacionados
+                  ><span data-i18n="modules.expedientes_f4">Expedientes relacionados</span>
                 </li>
               </ul>
             </div>
@@ -784,26 +819,26 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-file-earmark-text"></i>
               </div>
-              <h4 class="mb-3">Actas</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.actas_title">Actas</h4>
+              <p class="text-muted mb-3" data-i18n="modules.actas_desc">
                 Registro y seguimiento de actas de inspección municipal.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Comprobaciones
+                  ><span data-i18n="modules.actas_f1">Comprobaciones</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Infracciones
+                  ><span data-i18n="modules.actas_f2">Infracciones</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Intimaciones
+                  ><span data-i18n="modules.actas_f3">Intimaciones</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Clausuras
+                  ><span data-i18n="modules.actas_f4">Clausuras</span>
                 </li>
               </ul>
             </div>
@@ -819,27 +854,27 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-calendar-event"></i>
               </div>
-              <h4 class="mb-3">Actuaciones</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.actuaciones_title">Actuaciones</h4>
+              <p class="text-muted mb-3" data-i18n="modules.actuaciones_desc">
                 Gestión de plazos otorgados con seguimiento automático de
                 vencimientos.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Otorgamiento de plazos
+                  ><span data-i18n="modules.actuaciones_f1">Otorgamiento de plazos</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Control de vencimientos
+                  ><span data-i18n="modules.actuaciones_f2">Control de vencimientos</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Estados personalizables
+                  ><span data-i18n="modules.actuaciones_f3">Estados personalizables</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Notificaciones automáticas
+                  ><span data-i18n="modules.actuaciones_f4">Notificaciones automáticas</span>
                 </li>
               </ul>
             </div>
@@ -853,27 +888,27 @@
           >
             <div class="module-card">
               <div class="feature-icon mb-3"><i class="bi bi-files"></i></div>
-              <h4 class="mb-3">Documentos</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.documentos_title">Documentos</h4>
+              <p class="text-muted mb-3" data-i18n="modules.documentos_desc">
                 Sistema de gestión documental con soporte para múltiples
                 formatos.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-primary me-2"></i>PDF,
-                  imágenes, Office
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i><span data-i18n="modules.documentos_f1">PDF,
+                  imágenes, Office</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Visualización en línea
+                  ><span data-i18n="modules.documentos_f2">Visualización en línea</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Asociación a expedientes
+                  ><span data-i18n="modules.documentos_f3">Asociación a expedientes</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Búsqueda avanzada
+                  ><span data-i18n="modules.documentos_f4">Búsqueda avanzada</span>
                 </li>
               </ul>
             </div>
@@ -889,26 +924,26 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-clipboard-check"></i>
               </div>
-              <h4 class="mb-3">Órdenes de Trabajo</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.ordenes_title">Órdenes de Trabajo</h4>
+              <p class="text-muted mb-3" data-i18n="modules.ordenes_desc">
                 Emisión y seguimiento de órdenes de trabajo e inspección.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Asignación de inspectores
+                  ><span data-i18n="modules.ordenes_f1">Asignación de inspectores</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Seguimiento de estados
+                  ><span data-i18n="modules.ordenes_f2">Seguimiento de estados</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Observaciones detalladas
+                  ><span data-i18n="modules.ordenes_f3">Observaciones detalladas</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Vinculación con actas
+                  ><span data-i18n="modules.ordenes_f4">Vinculación con actas</span>
                 </li>
               </ul>
             </div>
@@ -924,27 +959,27 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-person-badge"></i>
               </div>
-              <h4 class="mb-3">Profesionales</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.profesionales_title">Profesionales</h4>
+              <p class="text-muted mb-3" data-i18n="modules.profesionales_desc">
                 Registro unificado de profesionales y gestores con múltiples
                 especialidades.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Múltiples especialidades
+                  ><span data-i18n="modules.profesionales_f1">Múltiples especialidades</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Gestores, ingenieros, arquitectos
+                  ><span data-i18n="modules.profesionales_f2">Gestores, ingenieros, arquitectos</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Vinculación a expedientes
+                  ><span data-i18n="modules.profesionales_f3">Vinculación a expedientes</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Validación de duplicados
+                  ><span data-i18n="modules.profesionales_f4">Validación de duplicados</span>
                 </li>
               </ul>
             </div>
@@ -958,27 +993,27 @@
           >
             <div class="module-card">
               <div class="feature-icon mb-3"><i class="bi bi-shop"></i></div>
-              <h4 class="mb-3">Establecimientos</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.establecimientos_title">Establecimientos</h4>
+              <p class="text-muted mb-3" data-i18n="modules.establecimientos_desc">
                 Gestión de establecimientos comerciales e industriales con datos
                 completos.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-primary me-2"></i>Datos
-                  de propietarios
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i><span data-i18n="modules.establecimientos_f1">Datos
+                  de propietarios</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Direcciones completas
+                  ><span data-i18n="modules.establecimientos_f2">Direcciones completas</span>
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle-fill text-primary me-2"></i>Tipos
-                  de actividad
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i><span data-i18n="modules.establecimientos_f3">Tipos
+                  de actividad</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >CUIT/CUIL
+                  ><span data-i18n="modules.establecimientos_f4">CUIT/CUIL</span>
                 </li>
               </ul>
             </div>
@@ -994,27 +1029,27 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-arrow-left-right"></i>
               </div>
-              <h4 class="mb-3">Pases</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.pases_title">Pases</h4>
+              <p class="text-muted mb-3" data-i18n="modules.pases_desc">
                 Registro cronológico de movimientos de expedientes entre áreas
                 municipales.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Historial completo
+                  ><span data-i18n="modules.pases_f1">Historial completo</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Trazabilidad total
+                  ><span data-i18n="modules.pases_f2">Trazabilidad total</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Observaciones por movimiento
+                  ><span data-i18n="modules.pases_f3">Observaciones por movimiento</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Filtros de búsqueda
+                  ><span data-i18n="modules.pases_f4">Filtros de búsqueda</span>
                 </li>
               </ul>
             </div>
@@ -1030,27 +1065,27 @@
               <div class="feature-icon mb-3">
                 <i class="bi bi-shield-check"></i>
               </div>
-              <h4 class="mb-3">Defensa del Consumidor</h4>
-              <p class="text-muted mb-3">
+              <h4 class="mb-3" data-i18n="modules.consumidor_title">Defensa del Consumidor</h4>
+              <p class="text-muted mb-3" data-i18n="modules.consumidor_desc">
                 Módulo especializado para gestión de reclamos y trámites de
                 defensa del consumidor.
               </p>
               <ul class="list-unstyled text-muted small">
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Gestión de reclamos
+                  ><span data-i18n="modules.consumidor_f1">Gestión de reclamos</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Seguimiento de casos
+                  ><span data-i18n="modules.consumidor_f2">Seguimiento de casos</span>
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Resoluciones
+                  ><span data-i18n="modules.consumidor_f3">Resoluciones</span>
                 </li>
                 <li>
                   <i class="bi bi-check-circle-fill text-primary me-2"></i
-                  >Estadísticas
+                  ><span data-i18n="modules.consumidor_f4">Estadísticas</span>
                 </li>
               </ul>
             </div>
@@ -1065,10 +1100,10 @@
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-star me-1"></i>Características
+              <i class="bi bi-star me-1"></i><span data-i18n="features.badge">Características</span>
             </span>
-            <h2 class="display-6 fw-bold mb-3">Por Qué Elegir SICO</h2>
-            <p class="lead text-muted">
+            <h2 class="display-6 fw-bold mb-3" data-i18n="features.title">Por Qué Elegir SICO</h2>
+            <p class="lead text-muted" data-i18n="features.subtitle">
               Funcionalidades avanzadas para optimizar la gestión municipal
             </p>
           </div>
@@ -1082,8 +1117,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-search"></i></div>
-              <h5>Búsqueda Avanzada</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.search">Búsqueda Avanzada</h5>
+              <p class="text-muted small" data-i18n="features.search_desc">
                 Filtros poderosos para encontrar expedientes rápidamente
               </p>
             </div>
@@ -1095,8 +1130,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-eye"></i></div>
-              <h5>Visualización Online</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.viewer">Visualización Online</h5>
+              <p class="text-muted small" data-i18n="features.viewer_desc">
                 Vea PDFs y documentos sin descargar
               </p>
             </div>
@@ -1108,8 +1143,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-shield-lock"></i></div>
-              <h5>Control de Acceso</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.access">Control de Acceso</h5>
+              <p class="text-muted small" data-i18n="features.access_desc">
                 Sistema de roles y permisos granular
               </p>
             </div>
@@ -1123,8 +1158,8 @@
               <div class="icon-wrapper">
                 <i class="bi bi-clock-history"></i>
               </div>
-              <h5>Auditoría Completa</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.audit">Auditoría Completa</h5>
+              <p class="text-muted small" data-i18n="features.audit_desc">
                 Registro de todas las acciones del usuario
               </p>
             </div>
@@ -1136,8 +1171,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-bell"></i></div>
-              <h5>Notificaciones</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.notifications">Notificaciones</h5>
+              <p class="text-muted small" data-i18n="features.notifications_desc">
                 Alertas para vencimientos y eventos
               </p>
             </div>
@@ -1149,8 +1184,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-graph-up"></i></div>
-              <h5>Reportes</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.reports">Reportes</h5>
+              <p class="text-muted small" data-i18n="features.reports_desc">
                 Dashboards y estadísticas detalladas
               </p>
             </div>
@@ -1162,8 +1197,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-gear"></i></div>
-              <h5>Configurable</h5>
-              <p class="text-muted small">Catálogos personalizables</p>
+              <h5 data-i18n="features.configurable">Configurable</h5>
+              <p class="text-muted small" data-i18n="features.configurable_desc">Catálogos personalizables</p>
             </div>
           </div>
           <div
@@ -1173,8 +1208,8 @@
           >
             <div class="feature-card">
               <div class="icon-wrapper"><i class="bi bi-link-45deg"></i></div>
-              <h5>Relaciones</h5>
-              <p class="text-muted small">
+              <h5 data-i18n="features.relations">Relaciones</h5>
+              <p class="text-muted small" data-i18n="features.relations_desc">
                 Vinculación automática de expedientes
               </p>
             </div>
@@ -1199,8 +1234,8 @@
                   <i class="bi bi-hdd-network"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2">API RESTful</h4>
-                  <p class="text-muted mb-0">
+                  <h4 class="mb-2" data-i18n="features.api_title">API RESTful</h4>
+                  <p class="text-muted mb-0" data-i18n="features.api_desc">
                     Arquitectura API-first que permite integración con otros
                     sistemas y desarrollo de aplicaciones móviles. Todas las
                     funcionalidades disponibles vía API.
@@ -1225,8 +1260,8 @@
                   <i class="bi bi-phone"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2">Diseño Responsive</h4>
-                  <p class="text-muted mb-0">
+                  <h4 class="mb-2" data-i18n="features.responsive_title">Diseño Responsive</h4>
+                  <p class="text-muted mb-0" data-i18n="features.responsive_desc">
                     Interface adaptable a cualquier dispositivo. Acceda al
                     sistema desde PC, tablet o smartphone con la misma
                     experiencia de usuario.
@@ -1251,8 +1286,8 @@
                   <i class="bi bi-upload"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2">Importación de Datos</h4>
-                  <p class="text-muted mb-0">
+                  <h4 class="mb-2" data-i18n="features.import_title">Importación de Datos</h4>
+                  <p class="text-muted mb-0" data-i18n="features.import_desc">
                     Migre fácilmente desde sistemas anteriores. Soporte para
                     importación masiva de documentos y registros históricos.
                   </p>
@@ -1276,8 +1311,8 @@
                   <i class="bi bi-trash"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2">Soft Delete</h4>
-                  <p class="text-muted mb-0">
+                  <h4 class="mb-2" data-i18n="features.softdelete_title">Soft Delete</h4>
+                  <p class="text-muted mb-0" data-i18n="features.softdelete_desc">
                     Los registros nunca se eliminan físicamente. Sistema de
                     borrado lógico que permite recuperar información si es
                     necesario.
@@ -1296,9 +1331,9 @@
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-question-circle me-1"></i>FAQ
+              <i class="bi bi-question-circle me-1"></i><span data-i18n="faq.badge">FAQ</span>
             </span>
-            <h2 class="display-6 fw-bold mb-3">Preguntas Frecuentes</h2>
+            <h2 class="display-6 fw-bold mb-3" data-i18n="faq.title">Preguntas Frecuentes</h2>
           </div>
         </div>
 
@@ -1312,6 +1347,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq1"
+                    data-i18n="faq.q1"
                   >
                     ¿Qué tipos de archivos puedo subir al sistema?
                   </button>
@@ -1321,7 +1357,7 @@
                   class="accordion-collapse collapse show"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a1">
                     SICO soporta PDFs, imágenes (PNG, JPG, GIF), documentos de
                     Microsoft Office (Word, Excel), archivos de texto y más. El
                     sistema cuenta con visualización en línea para PDFs e
@@ -1337,6 +1373,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq2"
+                    data-i18n="faq.q2"
                   >
                     ¿Cómo funciona el sistema de permisos?
                   </button>
@@ -1346,7 +1383,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a2">
                     SICO implementa control de acceso basado en roles. Cada
                     usuario tiene permisos específicos que determinan qué
                     módulos puede acceder y qué acciones puede realizar.
@@ -1361,6 +1398,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq3"
+                    data-i18n="faq.q3"
                   >
                     ¿Puedo acceder desde dispositivos móviles?
                   </button>
@@ -1370,7 +1408,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a3">
                     Sí. SICO está construido con diseño responsive, garantizando
                     una experiencia óptima en cualquier dispositivo:
                     computadoras, laptops, tablets y smartphones.
@@ -1385,6 +1423,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq4"
+                    data-i18n="faq.q4"
                   >
                     ¿El sistema guarda historial de cambios?
                   </button>
@@ -1394,7 +1433,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a4">
                     Sí, todos los registros incluyen campos de auditoría que
                     guardan automáticamente quién creó el registro (CreatedBy),
                     cuándo (CreatedAt), quién lo modificó por última vez
@@ -1411,6 +1450,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq5"
+                    data-i18n="faq.q5"
                   >
                     ¿Cómo se relacionan los expedientes con otros módulos?
                   </button>
@@ -1420,7 +1460,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a5">
                     Los expedientes son el núcleo del sistema y pueden
                     vincularse con múltiples elementos: actas de inspección,
                     actuaciones, órdenes de trabajo, documentos, profesionales y
@@ -1438,6 +1478,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq6"
+                    data-i18n="faq.q6"
                   >
                     ¿Qué es el sistema de Pases?
                   </button>
@@ -1447,7 +1488,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a6">
                     Los pases registran todos los movimientos de un expediente
                     entre diferentes áreas y oficinas municipales. Permite ver
                     el historial completo con fechas, usuarios responsables y
@@ -1464,6 +1505,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq7"
+                    data-i18n="faq.q7"
                   >
                     ¿Puedo configurar los tipos de expedientes y estados?
                   </button>
@@ -1473,7 +1515,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a7">
                     Sí, SICO cuenta con un sistema de catálogos configurables
                     (DataCatalogs) que permite a los administradores definir
                     tipos de expedientes, estados, especialidades profesionales
@@ -1490,6 +1532,7 @@
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#faq8"
+                    data-i18n="faq.q8"
                   >
                     ¿Cómo funciona el seguimiento de plazos en Actuaciones?
                   </button>
@@ -1499,7 +1542,7 @@
                   class="accordion-collapse collapse"
                   data-bs-parent="#faqAccordion"
                 >
-                  <div class="accordion-body text-muted">
+                  <div class="accordion-body text-muted" data-i18n="faq.a8">
                     El módulo de Actuaciones permite otorgar plazos a
                     contribuyentes y realiza seguimiento automático de
                     vencimientos. El sistema calcula fechas de vencimiento,
@@ -1521,10 +1564,10 @@
         <div class="row justify-content-center mb-5">
           <div class="col-lg-8 text-center" data-aos="fade-up">
             <span class="badge bg-primary-soft text-primary mb-3">
-              <i class="bi bi-envelope me-1"></i>Contacto
+              <i class="bi bi-envelope me-1"></i><span data-i18n="contact.badge">Contacto</span>
             </span>
-            <h2 class="display-6 fw-bold mb-3">Solicite una Demostración</h2>
-            <p class="lead text-muted">
+            <h2 class="display-6 fw-bold mb-3" data-i18n="contact.title">Solicite una Demostración</h2>
+            <p class="lead text-muted" data-i18n="contact.subtitle">
               Nuestro equipo está disponible para responder sus consultas sobre
               SICO
             </p>
@@ -1541,7 +1584,7 @@
               <div class="d-flex gap-3 mb-4">
                 <div class="contact-icon"><i class="bi bi-envelope"></i></div>
                 <div>
-                  <small class="text-muted">Email</small>
+                  <small class="text-muted" data-i18n="contact.email_label">Email</small>
                   <h6 class="mb-0">
                     <a href="mailto:sico@advansys.com.ar"
                       >sico@advansys.com.ar</a
@@ -1552,7 +1595,7 @@
               <div class="d-flex gap-3 mb-4">
                 <div class="contact-icon"><i class="bi bi-whatsapp"></i></div>
                 <div>
-                  <small class="text-muted">WhatsApp</small>
+                  <small class="text-muted" data-i18n="contact.whatsapp_label">WhatsApp</small>
                   <h6 class="mb-0">
                     <a href="https://wa.me/5491164630232">+54 9 11 6463-0232</a>
                   </h6>
@@ -1561,8 +1604,8 @@
               <div class="d-flex gap-3">
                 <div class="contact-icon"><i class="bi bi-clock"></i></div>
                 <div>
-                  <small class="text-muted">Horario</small>
-                  <h6 class="mb-0">Lunes a Viernes<br />9:00 - 18:00 hs</h6>
+                  <small class="text-muted" data-i18n="contact.hours_label">Horario</small>
+                  <h6 class="mb-0" data-i18n-html="contact.hours_value">Lunes a Viernes<br />9:00 - 18:00 hs</h6>
                 </div>
               </div>
             </div>
@@ -1572,59 +1615,64 @@
             <form class="contact-info">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label class="form-label">Nombre</label>
+                  <label class="form-label" data-i18n="contact.form_name">Nombre</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Su nombre"
+                    data-i18n-placeholder="contact.form_name_placeholder"
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">Email</label>
+                  <label class="form-label" data-i18n="contact.form_email">Email</label>
                   <input
                     type="email"
                     class="form-control"
                     placeholder="Su email"
+                    data-i18n-placeholder="contact.form_email_placeholder"
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">Teléfono</label>
+                  <label class="form-label" data-i18n="contact.form_phone">Teléfono</label>
                   <input
                     type="tel"
                     class="form-control"
                     placeholder="Su teléfono"
+                    data-i18n-placeholder="contact.form_phone_placeholder"
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="form-label">Municipalidad</label>
+                  <label class="form-label" data-i18n="contact.form_municipality">Municipalidad</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Nombre de su municipalidad"
+                    data-i18n-placeholder="contact.form_municipality_placeholder"
                   />
                 </div>
                 <div class="col-12">
-                  <label class="form-label">Asunto</label>
+                  <label class="form-label" data-i18n="contact.form_subject">Asunto</label>
                   <select class="form-select">
-                    <option value="">Seleccione un tema...</option>
-                    <option value="info">Información General</option>
-                    <option value="demo">Solicitar Demostración</option>
-                    <option value="pricing">Consulta de Precios</option>
-                    <option value="support">Soporte Técnico</option>
-                    <option value="other">Otro</option>
+                    <option value="" data-i18n="contact.form_subject_placeholder">Seleccione un tema...</option>
+                    <option value="info" data-i18n="contact.form_subject_info">Información General</option>
+                    <option value="demo" data-i18n="contact.form_subject_demo">Solicitar Demostración</option>
+                    <option value="pricing" data-i18n="contact.form_subject_pricing">Consulta de Precios</option>
+                    <option value="support" data-i18n="contact.form_subject_support">Soporte Técnico</option>
+                    <option value="other" data-i18n="contact.form_subject_other">Otro</option>
                   </select>
                 </div>
                 <div class="col-12">
-                  <label class="form-label">Mensaje</label>
+                  <label class="form-label" data-i18n="contact.form_message">Mensaje</label>
                   <textarea
                     class="form-control"
                     rows="4"
                     placeholder="Su consulta..."
+                    data-i18n-placeholder="contact.form_message_placeholder"
                   ></textarea>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-primary w-100">
-                    <i class="bi bi-send me-2"></i>Enviar Mensaje
+                    <i class="bi bi-send me-2"></i><span data-i18n="contact.form_submit">Enviar Mensaje</span>
                   </button>
                 </div>
               </div>
@@ -1640,45 +1688,45 @@
         <div class="row g-4">
           <div class="col-lg-4">
             <img src="img/sico-small.png" alt="SICO" height="30" class="mb-3" />
-            <p class="small">
+            <p class="small" data-i18n="footer.description">
               SICO es un sistema integral de gestión municipal desarrollado por
               AdvanSys. Moderniza y optimiza los procesos administrativos con
               tecnología de última generación.
             </p>
           </div>
           <div class="col-lg-4">
-            <h5 class="mb-3">Módulos</h5>
+            <h5 class="mb-3" data-i18n="footer.modules_title">Módulos</h5>
             <div class="row">
               <div class="col-6">
                 <ul class="list-unstyled small">
-                  <li class="mb-2"><a href="#modules">Expedientes</a></li>
-                  <li class="mb-2"><a href="#modules">Actas</a></li>
-                  <li class="mb-2"><a href="#modules">Actuaciones</a></li>
-                  <li class="mb-2"><a href="#modules">Documentos</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_expedientes">Expedientes</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_actas">Actas</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_actuaciones">Actuaciones</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_documentos">Documentos</a></li>
                   <li class="mb-2">
-                    <a href="#modules">Órdenes de Trabajo</a>
+                    <a href="#modules" data-i18n="footer.modules_ordenes">Órdenes de Trabajo</a>
                   </li>
                 </ul>
               </div>
               <div class="col-6">
                 <ul class="list-unstyled small">
-                  <li class="mb-2"><a href="#modules">Profesionales</a></li>
-                  <li class="mb-2"><a href="#modules">Establecimientos</a></li>
-                  <li class="mb-2"><a href="#modules">Pases</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_profesionales">Profesionales</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_establecimientos">Establecimientos</a></li>
+                  <li class="mb-2"><a href="#modules" data-i18n="footer.modules_pases">Pases</a></li>
                   <li class="mb-2">
-                    <a href="#modules">Defensa del Consumidor</a>
+                    <a href="#modules" data-i18n="footer.modules_consumidor">Defensa del Consumidor</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-lg-4">
-            <h5 class="mb-3">Enlaces</h5>
+            <h5 class="mb-3" data-i18n="footer.links_title">Enlaces</h5>
             <ul class="list-unstyled small">
-              <li class="mb-2"><a href="../">AdvanSys</a></li>
-              <li class="mb-2"><a href="#about">Acerca de SICO</a></li>
-              <li class="mb-2"><a href="#features">Características</a></li>
-              <li class="mb-2"><a href="#contact">Contacto</a></li>
+              <li class="mb-2"><a href="../" data-i18n="footer.links_advansys">AdvanSys</a></li>
+              <li class="mb-2"><a href="#about" data-i18n="footer.links_about">Acerca de SICO</a></li>
+              <li class="mb-2"><a href="#features" data-i18n="footer.links_features">Características</a></li>
+              <li class="mb-2"><a href="#contact" data-i18n="footer.links_contact">Contacto</a></li>
             </ul>
           </div>
         </div>
@@ -1687,14 +1735,14 @@
 
         <div class="row align-items-center">
           <div class="col-md-6 text-center text-md-start">
-            <p class="small mb-0">
+            <p class="small mb-0" data-i18n-html="footer.copyright">
               &copy; 2026 SICO - Sistema Integral de Control On-Line |
-              Desarrollado por <a href="../" class="text-primary">AdvanSys</a>
+              Desarrollado por <a href="../" class="text-primary" data-i18n="footer.copyright_link">AdvanSys</a>
             </p>
           </div>
           <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
             <a href="#page-top" class="btn btn-sm btn-outline-light">
-              <i class="bi bi-arrow-up me-1"></i>Subir
+              <i class="bi bi-arrow-up me-1"></i><span data-i18n="footer.back_to_top">Subir</span>
             </a>
           </div>
         </div>
@@ -1766,5 +1814,8 @@
         });
       });
     </script>
+
+    <!-- i18n -->
+    <script src="../js/i18n.js"></script>
   </body>
 </html>
