@@ -99,19 +99,27 @@
   }
 
   /**
-   * Update the visual state of the language toggle
+   * Update the visual state of all language toggle buttons (desktop + mobile)
    */
   function updateLanguageToggle(lang) {
-    var btnEs = document.getElementById('langEs');
-    var btnEn = document.getElementById('langEn');
-    if (!btnEs || !btnEn) return;
+    var esButtons = [document.getElementById('langEs'), document.getElementById('langEsMobile')];
+    var enButtons = [document.getElementById('langEn'), document.getElementById('langEnMobile')];
 
-    if (lang === 'es') {
-      btnEs.classList.add('active');
-      btnEn.classList.remove('active');
-    } else {
-      btnEn.classList.add('active');
-      btnEs.classList.remove('active');
+    for (var i = 0; i < esButtons.length; i++) {
+      if (!esButtons[i]) continue;
+      if (lang === 'es') {
+        esButtons[i].classList.add('active');
+      } else {
+        esButtons[i].classList.remove('active');
+      }
+    }
+    for (var j = 0; j < enButtons.length; j++) {
+      if (!enButtons[j]) continue;
+      if (lang === 'en') {
+        enButtons[j].classList.add('active');
+      } else {
+        enButtons[j].classList.remove('active');
+      }
     }
   }
 
@@ -128,22 +136,28 @@
   function initI18n() {
     var lang = getCurrentLang();
 
-    // Set up click handlers for the language toggle buttons
-    var btnEs = document.getElementById('langEs');
-    var btnEn = document.getElementById('langEn');
+    // Set up click handlers for all language toggle buttons (desktop + mobile)
+    var esIds = ['langEs', 'langEsMobile'];
+    var enIds = ['langEn', 'langEnMobile'];
 
-    if (btnEs) {
-      btnEs.addEventListener('click', function (e) {
-        e.preventDefault();
-        switchLanguage('es');
-      });
+    for (var i = 0; i < esIds.length; i++) {
+      var btnEs = document.getElementById(esIds[i]);
+      if (btnEs) {
+        btnEs.addEventListener('click', function (e) {
+          e.preventDefault();
+          switchLanguage('es');
+        });
+      }
     }
 
-    if (btnEn) {
-      btnEn.addEventListener('click', function (e) {
-        e.preventDefault();
-        switchLanguage('en');
-      });
+    for (var j = 0; j < enIds.length; j++) {
+      var btnEn = document.getElementById(enIds[j]);
+      if (btnEn) {
+        btnEn.addEventListener('click', function (e) {
+          e.preventDefault();
+          switchLanguage('en');
+        });
+      }
     }
 
     // Apply the saved/default language

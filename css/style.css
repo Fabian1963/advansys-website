@@ -790,11 +790,6 @@ img {
   .lang-btn:hover:not(.active) {
     color: var(--gray-700);
   }
-
-  .nav-item .language-selector {
-    display: inline-flex;
-    margin-top: 0.5rem;
-  }
 }
 
 /* ============================================
