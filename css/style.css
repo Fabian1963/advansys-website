@@ -793,6 +793,13 @@ img {
 
   .lang-btn {
     color: var(--gray-500);
+    padding: 3px 7px;
+    font-size: 0.7rem;
+    gap: 2px;
+  }
+
+  .flag-emoji {
+    font-size: 0.8rem;
   }
 
   .lang-btn:hover:not(.active) {
