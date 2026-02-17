@@ -496,11 +496,13 @@
         line-height: 1.4;
         display: inline-flex;
         align-items: center;
-        gap: 3px;
+        gap: 6px;
       }
-      .flag-emoji {
-        font-size: 0.85rem;
-        line-height: 1;
+      .flag-icon {
+        width: 16px;
+        height: 12px;
+        border-radius: 2px;
+        vertical-align: middle;
       }
       .lang-btn.active {
         background: var(--primary);
@@ -513,10 +515,11 @@
         .lang-btn {
           padding: 3px 7px;
           font-size: 0.7rem;
-          gap: 2px;
+          gap: 4px;
         }
-        .flag-emoji {
-          font-size: 0.8rem;
+        .flag-icon {
+          width: 14px;
+          height: 10px;
         }
       }
     </style>
@@ -531,8 +534,8 @@
         </a>
         <div class="d-flex align-items-center ms-auto me-2 d-lg-none gap-2">
           <div class="language-selector">
-            <button type="button" class="lang-btn active" id="langEsMobile"><span class="flag-emoji">🇪🇸</span> ES</button>
-            <button type="button" class="lang-btn" id="langEnMobile"><span class="flag-emoji">🇺🇸</span> EN</button>
+            <button type="button" class="lang-btn active" id="langEsMobile"><img class="flag-icon" src="../img/flag-es.svg" alt="ES"> ES</button>
+            <button type="button" class="lang-btn" id="langEnMobile"><img class="flag-icon" src="../img/flag-us.svg" alt="EN"> EN</button>
           </div>
         </div>
         <button
@@ -567,12 +570,9 @@
           </ul>
           <div class="d-flex align-items-center gap-2 d-none d-lg-flex">
             <div class="language-selector">
-              <button type="button" class="lang-btn active" id="langEs"><span class="flag-emoji">🇪🇸</span> ES</button>
-              <button type="button" class="lang-btn" id="langEn"><span class="flag-emoji">🇺🇸</span> EN</button>
+              <button type="button" class="lang-btn active" id="langEs"><img class="flag-icon" src="../img/flag-es.svg" alt="ES"> ES</button>
+              <button type="button" class="lang-btn" id="langEn"><img class="flag-icon" src="../img/flag-us.svg" alt="EN"> EN</button>
             </div>
-            <a href="../index.html" class="btn btn-outline-primary btn-sm">
-              <i class="bi bi-arrow-left me-1"></i><span data-i18n="nav.back">AdvanSys</span>
-            </a>
           </div>
         </div>
       </div>

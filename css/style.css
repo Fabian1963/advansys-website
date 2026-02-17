@@ -761,12 +761,14 @@ img {
   line-height: 1.4;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 }
 
-.flag-emoji {
-  font-size: 0.85rem;
-  line-height: 1;
+.flag-icon {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  vertical-align: middle;
 }
 
 .navbar.scrolled .lang-btn {
@@ -788,7 +790,7 @@ img {
 
 @media (max-width: 991.98px) {
   .navbar-brand img {
-    height: 32px;
+    height: 40px;
   }
 
   .language-selector {
@@ -799,11 +801,12 @@ img {
     color: var(--gray-500);
     padding: 3px 7px;
     font-size: 0.7rem;
-    gap: 2px;
+    gap: 4px;
   }
 
-  .flag-emoji {
-    font-size: 0.8rem;
+  .flag-icon {
+    width: 14px;
+    height: 10px;
   }
 
   .lang-btn:hover:not(.active) {

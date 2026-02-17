@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1235 650">
+  <rect width="1235" height="650" fill="#fff"/>
+  <g fill="#b22234">
+    <rect width="1235" height="50"/>
+    <rect width="1235" height="50" y="100"/>
+    <rect width="1235" height="50" y="200"/>
+    <rect width="1235" height="50" y="300"/>
+    <rect width="1235" height="50" y="400"/>
+    <rect width="1235" height="50" y="500"/>
+    <rect width="1235" height="50" y="600"/>
+  </g>
+  <rect width="494" height="350" fill="#3c3b6e"/>
+  <g fill="#fff">
+    <g id="s18">
+      <g id="s9">
+        <g id="s5">
+          <g id="s4">
+            <g id="s2">
+              <g id="s1">
+                <polygon points="41.2,17.8 44.4,27.6 54.8,27.6 46.4,33.6 49.6,43.4 41.2,37.4 32.8,43.4 36,33.6 27.6,27.6 38,27.6" />
+              </g>
+              <use href="#s1" x="82.4"/>
+            </g>
+            <use href="#s2" x="164.8"/>
+          </g>
+          <use href="#s1" x="329.6"/>
+        </g>
+        <use href="#s4" x="41.2" y="35"/>
+      </g>
+      <use href="#s9" y="70"/>
+    </g>
+    <use href="#s18" y="140"/>
+    <use href="#s9" y="280"/>
+  </g>
+</svg>
