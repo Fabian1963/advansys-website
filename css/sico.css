@@ -197,6 +197,19 @@
   color: var(--primary);
 }
 
+/* Language selector: navbar is always white, so use scrolled variant */
+.language-selector {
+  background: var(--gray-200);
+}
+
+.lang-btn {
+  color: var(--gray-500);
+}
+
+.lang-btn:hover:not(.active) {
+  color: var(--gray-700);
+}
+
 /* Button outline light */
 .btn-outline-light:hover {
   background-color: var(--white);

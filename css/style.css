@@ -775,7 +775,8 @@ img {
   color: var(--gray-500);
 }
 
-.lang-btn.active {
+.lang-btn.active,
+.navbar.scrolled .lang-btn.active {
   background: var(--primary);
   color: var(--white);
 }
