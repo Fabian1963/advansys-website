@@ -759,6 +759,14 @@ img {
   cursor: pointer;
   transition: all var(--transition-fast);
   line-height: 1.4;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.flag-emoji {
+  font-size: 0.85rem;
+  line-height: 1;
 }
 
 .navbar.scrolled .lang-btn {

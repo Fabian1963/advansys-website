@@ -494,6 +494,13 @@
         cursor: pointer;
         transition: all 150ms ease;
         line-height: 1.4;
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .flag-emoji {
+        font-size: 0.85rem;
+        line-height: 1;
       }
       .lang-btn.active {
         background: var(--primary);
@@ -514,8 +521,8 @@
         </a>
         <div class="d-flex align-items-center ms-auto me-2 d-lg-none gap-2">
           <div class="language-selector">
-            <button type="button" class="lang-btn active" id="langEsMobile">ES</button>
-            <button type="button" class="lang-btn" id="langEnMobile">EN</button>
+            <button type="button" class="lang-btn active" id="langEsMobile"><span class="flag-emoji">🇪🇸</span> ES</button>
+            <button type="button" class="lang-btn" id="langEnMobile"><span class="flag-emoji">🇺🇸</span> EN</button>
           </div>
         </div>
         <button
@@ -550,8 +557,8 @@
           </ul>
           <div class="d-flex align-items-center gap-2 d-none d-lg-flex">
             <div class="language-selector">
-              <button type="button" class="lang-btn active" id="langEs">ES</button>
-              <button type="button" class="lang-btn" id="langEn">EN</button>
+              <button type="button" class="lang-btn active" id="langEs"><span class="flag-emoji">🇪🇸</span> ES</button>
+              <button type="button" class="lang-btn" id="langEn"><span class="flag-emoji">🇺🇸</span> EN</button>
             </div>
             <a href="../index.html" class="btn btn-outline-primary btn-sm">
               <i class="bi bi-arrow-left me-1"></i><span data-i18n="nav.back">AdvanSys</span>
