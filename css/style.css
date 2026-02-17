@@ -764,9 +764,11 @@ img {
   gap: 3px;
 }
 
-.flag-emoji {
-  font-size: 0.85rem;
-  line-height: 1;
+.flag-icon {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  vertical-align: middle;
 }
 
 .navbar.scrolled .lang-btn {
@@ -802,8 +804,9 @@ img {
     gap: 2px;
   }
 
-  .flag-emoji {
-    font-size: 0.8rem;
+  .flag-icon {
+    width: 14px;
+    height: 10px;
   }
 
   .lang-btn:hover:not(.active) {
