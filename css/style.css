@@ -761,7 +761,7 @@ img {
   line-height: 1.4;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
 }
 
 .flag-icon {
@@ -801,7 +801,7 @@ img {
     color: var(--gray-500);
     padding: 3px 7px;
     font-size: 0.7rem;
-    gap: 2px;
+    gap: 4px;
   }
 
   .flag-icon {
