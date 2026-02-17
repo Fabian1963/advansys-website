@@ -787,6 +787,10 @@ img {
 }
 
 @media (max-width: 991.98px) {
+  .navbar-brand img {
+    height: 32px;
+  }
+
   .language-selector {
     background: var(--gray-200);
   }
