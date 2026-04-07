@@ -84,7 +84,7 @@
     "subtitle": "We develop software products that solve real problems.",
     "sico_badge": "Municipal System",
     "sico_title": "Comprehensive Online Control System",
-    "sico_desc": "A complete platform for modern municipal management. Manage records, inspection reports, inspections, documents, and more from a single integrated solution built with cutting-edge technology.",
+    "sico_desc": "A complete platform for modern municipal management. Manage records, inspection reports, inspections, documents, and more from a single integrated solution with native mobile app built with cutting-edge technology.",
     "sico_modules": "Modules",
     "sico_available": "Available",
     "sico_digital": "Digital",

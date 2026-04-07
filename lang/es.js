@@ -84,7 +84,7 @@
     "subtitle": "Desarrollamos productos de software que resuelven problemas reales.",
     "sico_badge": "Sistema Municipal",
     "sico_title": "Sistema Integral de Control On-Line",
-    "sico_desc": "Plataforma completa para la gestión municipal moderna. Administra expedientes, actas, inspecciones, documentos y más desde una única solución integrada construida con tecnología de vanguardia.",
+    "sico_desc": "Plataforma completa para la gestión municipal moderna. Administra expedientes, actas, inspecciones, documentos y más desde una única solución integrada con aplicación móvil nativa construida con tecnología de vanguardia.",
     "sico_modules": "Módulos",
     "sico_available": "Disponible",
     "sico_digital": "Digital",

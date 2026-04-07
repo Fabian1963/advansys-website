@@ -17,6 +17,10 @@
   box-shadow: var(--shadow-md);
 }
 
+.navbar-brand img {
+  height: 40px !important;
+}
+
 .navbar-nav .nav-link {
   color: var(--gray-700);
 }

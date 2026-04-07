@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="SICO - Sistema Integral de Control On-Line. Plataforma completa para la gestión municipal moderna. Expedientes, actas, inspecciones y más."
+      content="SICO - Sistema Integral de Control On-Line. Plataforma completa para la gestión municipal moderna con app móvil nativa. Expedientes, actas, inspecciones y más."
     />
     <meta
       name="keywords"
@@ -65,7 +65,7 @@
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand" href="#page-top">
-          <img src="img/sico-small-black.png" alt="SICO" height="36" />
+          <img src="img/sico-medium.png" alt="SICO" />
         </a>
         <div class="d-flex align-items-center ms-auto me-2 d-lg-none gap-2">
           <div class="language-selector">
@@ -160,7 +160,8 @@
               Plataforma completa para una gestión municipal moderna y segura.
               Administre Expedientes, Actas de Inspección, Inspecciones,
               Documentos, Actuaciones, Establecimientos y más desde una única
-              solución integrada construida con tecnología de vanguardia.
+              solución integrada con aplicación móvil nativa construida con
+              tecnología de vanguardia.
             </p>
             <div class="d-flex gap-3 justify-content-center flex-wrap mb-5">
               <a href="#contact" class="btn btn-primary btn-lg">
@@ -250,8 +251,9 @@
             <p class="text-muted mb-4" data-i18n="about.desc">
               SICO es un sistema integral diseñado específicamente para
               modernizar y optimizar la gestión de trámites municipales.
-              Desarrollado con tecnología NET 10 y SQL Server, ofrece una
-              plataforma robusta, escalable y segura.
+              Desarrollado con tecnología NET 10, SQL Server y .NET MAUI,
+              ofrece una plataforma robusta, escalable y segura con
+              aplicación móvil nativa.
             </p>
 
             <div class="row g-4">
@@ -377,6 +379,19 @@
                       class="text-muted"
                       data-i18n="about.tech_architecture"
                       >Arquitectura</small
+                    >
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="tech-card">
+                    <i
+                      class="bi bi-phone display-4 text-primary mb-2"
+                    ></i>
+                    <h6 class="mb-0">.NET MAUI</h6>
+                    <small
+                      class="text-muted"
+                      data-i18n="about.tech_mobile"
+                      >App Móvil</small
                     >
                   </div>
                 </div>
@@ -795,6 +810,54 @@
               </ul>
             </div>
           </div>
+
+          <!-- SICO Mobile -->
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="1000"
+          >
+            <div class="module-card" style="border-color: var(--primary-soft); background: linear-gradient(135deg, rgba(26,179,148,0.03) 0%, rgba(255,255,255,1) 100%);">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="feature-icon">
+                  <i class="bi bi-phone"></i>
+                </div>
+                <span class="badge bg-primary-soft text-primary" data-i18n="modules.mobile_badge">Nuevo</span>
+              </div>
+              <h4 class="mb-3" data-i18n="modules.mobile_title">
+                SICO Mobile
+              </h4>
+              <p class="text-muted mb-3" data-i18n="modules.mobile_desc">
+                Aplicación móvil nativa para inspectores con soporte offline, GPS y autenticación biométrica.
+              </p>
+              <ul class="list-unstyled text-muted small">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  ><span data-i18n="modules.mobile_f1"
+                    >Modo offline con sincronización</span
+                  >
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  ><span data-i18n="modules.mobile_f2"
+                    >Captura GPS y cámara</span
+                  >
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  ><span data-i18n="modules.mobile_f3"
+                    >Autenticación biométrica</span
+                  >
+                </li>
+                <li>
+                  <i class="bi bi-check-circle-fill text-primary me-2"></i
+                  ><span data-i18n="modules.mobile_f4"
+                    >Calendario de inspecciones</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -978,16 +1041,16 @@
                   <i class="bi bi-phone"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2" data-i18n="features.responsive_title">
-                    Diseño Responsive
+                  <h4 class="mb-2" data-i18n="features.mobile_title">
+                    App Móvil Nativa
                   </h4>
                   <p
                     class="text-muted mb-0"
-                    data-i18n="features.responsive_desc"
+                    data-i18n="features.mobile_desc"
                   >
-                    Interface adaptable a cualquier dispositivo. Acceda al
-                    sistema desde PC, tablet o smartphone con la misma
-                    experiencia de usuario.
+                    Aplicación móvil para inspectores con modo offline, captura
+                    GPS, cámara y autenticación biométrica. Sincronización
+                    automática cuando hay conectividad.
                   </p>
                 </div>
               </div>
@@ -1028,24 +1091,24 @@
                   style="
                     background: linear-gradient(
                       135deg,
-                      #dc3545 0%,
-                      #bb2d3b 100%
+                      #6f42c1 0%,
+                      #5a32a3 100%
                     );
                   "
                 >
-                  <i class="bi bi-trash"></i>
+                  <i class="bi bi-qr-code"></i>
                 </div>
                 <div>
-                  <h4 class="mb-2" data-i18n="features.softdelete_title">
-                    Soft Delete
+                  <h4 class="mb-2" data-i18n="features.qrpdf_title">
+                    Códigos QR y PDF
                   </h4>
                   <p
                     class="text-muted mb-0"
-                    data-i18n="features.softdelete_desc"
+                    data-i18n="features.qrpdf_desc"
                   >
-                    Los registros nunca se eliminan físicamente. Sistema de
-                    borrado lógico que permite recuperar información si es
-                    necesario.
+                    Generación automática de documentos PDF con códigos QR
+                    integrados para verificación y trazabilidad de actas,
+                    órdenes y expedientes.
                   </p>
                 </div>
               </div>
@@ -1142,9 +1205,11 @@
                   data-bs-parent="#faqAccordion"
                 >
                   <div class="accordion-body text-muted" data-i18n="faq.a3">
-                    Sí. SICO está construido con diseño responsive, garantizando
-                    una experiencia óptima en cualquier dispositivo:
-                    computadoras, laptops, tablets y smartphones.
+                    Sí. SICO cuenta con una aplicación móvil nativa (SICO
+                    Mobile) diseñada para inspectores, con modo offline,
+                    captura GPS, cámara y autenticación biométrica. Además,
+                    la plataforma web tiene diseño responsive para acceder
+                    desde cualquier dispositivo.
                   </div>
                 </div>
               </div>
@@ -1282,6 +1347,61 @@
                     muestra alertas para plazos próximos a vencer y permite
                     registrar cumplimientos o incumplimientos con observaciones
                     detalladas.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq9"
+                    data-i18n="faq.q9"
+                  >
+                    ¿Qué funcionalidades tiene la app móvil?
+                  </button>
+                </h2>
+                <div
+                  id="faq9"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted" data-i18n="faq.a9">
+                    SICO Mobile es una aplicación nativa para inspectores que
+                    incluye: gestión de órdenes de trabajo, calendario de
+                    inspecciones, captura de fotos y GPS, checklists por área,
+                    autenticación biométrica y modo offline completo. Los datos
+                    se sincronizan automáticamente cuando se recupera la
+                    conectividad.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faq10"
+                    data-i18n="faq.q10"
+                  >
+                    ¿El sistema genera documentos PDF con códigos QR?
+                  </button>
+                </h2>
+                <div
+                  id="faq10"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#faqAccordion"
+                >
+                  <div class="accordion-body text-muted" data-i18n="faq.a10">
+                    Sí, SICO genera automáticamente documentos PDF con códigos
+                    QR integrados para actas, órdenes de trabajo y otros
+                    documentos. Los códigos QR permiten verificar la
+                    autenticidad y trazabilidad de cada documento de forma
+                    rápida y segura.
                   </div>
                 </div>
               </div>
@@ -1470,7 +1590,7 @@
       <div class="container">
         <div class="row g-4">
           <div class="col-lg-4">
-            <img src="img/sico-small.png" alt="SICO" height="30" class="mb-3" />
+            <img src="img/sico-medium-black.png" alt="SICO" height="40" class="mb-3" />
             <p class="small" data-i18n="footer.description">
               SICO es un sistema integral de gestión municipal desarrollado por
               AdvanSys. Moderniza y optimiza los procesos administrativos con
@@ -1531,6 +1651,11 @@
                   <li class="mb-2">
                     <a href="#modules" data-i18n="footer.modules_consumidor"
                       >Defensa del Consumidor</a
+                    >
+                  </li>
+                  <li class="mb-2">
+                    <a href="#modules" data-i18n="footer.modules_mobile"
+                      >SICO Mobile</a
                     >
                   </li>
                 </ul>
