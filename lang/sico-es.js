@@ -12,7 +12,7 @@
     "back_link": "Volver a AdvanSys",
     "badge": "Sistema Integral de Gestión Municipal",
     "title": "<span class=\"text-primary\">SICO</span> - Sistema Integral de<br><span class=\"text-primary\">Control On-Line</span>",
-    "subtitle": "Plataforma completa para una gestión municipal moderna y segura. Administre Expedientes, Actas de Inspección, Inspecciones, Documentos, Actuaciones, Establecimientos y más desde una única solución integrada construida con tecnología de vanguardia.",
+    "subtitle": "Plataforma completa para una gestión municipal moderna y segura. Administre Expedientes, Actas de Inspección, Inspecciones, Documentos, Actuaciones, Establecimientos y más desde una única solución integrada con aplicación móvil nativa construida con tecnología de vanguardia.",
     "cta_demo": "Solicitar Demo",
     "cta_modules": "Ver Módulos",
     "stat_modules": "Módulos Integrados",
@@ -23,7 +23,7 @@
   "about": {
     "badge": "Acerca de SICO",
     "title": "Una Solución Completa para la Gestión Municipal",
-    "desc": "SICO es un sistema integral diseñado específicamente para modernizar y optimizar la gestión de trámites municipales. Desarrollado con tecnología NET 10 y SQL Server, ofrece una plataforma robusta, escalable y segura.",
+    "desc": "SICO es un sistema integral diseñado específicamente para modernizar y optimizar la gestión de trámites municipales. Desarrollado con tecnología NET 10, SQL Server y .NET MAUI, ofrece una plataforma robusta, escalable y segura con aplicación móvil nativa.",
     "centralized_title": "Gestión Centralizada",
     "centralized_desc": "Toda la información municipal en un solo lugar accesible y organizado",
     "performance_title": "Alto Rendimiento",
@@ -36,7 +36,8 @@
     "tech_backend": "Backend",
     "tech_database": "Base de Datos",
     "tech_frontend": "Frontend",
-    "tech_architecture": "Arquitectura"
+    "tech_architecture": "Arquitectura",
+    "tech_mobile": "App Móvil"
   },
   "modules": {
     "badge": "Módulos del Sistema",
@@ -95,7 +96,14 @@
     "consumidor_f1": "Gestión de reclamos",
     "consumidor_f2": "Seguimiento de casos",
     "consumidor_f3": "Resoluciones",
-    "consumidor_f4": "Estadísticas"
+    "consumidor_f4": "Estadísticas",
+    "mobile_badge": "Nuevo",
+    "mobile_title": "SICO Mobile",
+    "mobile_desc": "Aplicación móvil nativa para inspectores con soporte offline, GPS y autenticación biométrica.",
+    "mobile_f1": "Modo offline con sincronización",
+    "mobile_f2": "Captura GPS y cámara",
+    "mobile_f3": "Autenticación biométrica",
+    "mobile_f4": "Calendario de inspecciones"
   },
   "features": {
     "badge": "Características",
@@ -119,12 +127,12 @@
     "relations_desc": "Vinculación automática de expedientes",
     "api_title": "API RESTful",
     "api_desc": "Arquitectura API-first que permite integración con otros sistemas y desarrollo de aplicaciones móviles. Todas las funcionalidades disponibles vía API.",
-    "responsive_title": "Diseño Responsive",
-    "responsive_desc": "Interface adaptable a cualquier dispositivo. Acceda al sistema desde PC, tablet o smartphone con la misma experiencia de usuario.",
+    "mobile_title": "App Móvil Nativa",
+    "mobile_desc": "Aplicación móvil para inspectores con modo offline, captura GPS, cámara y autenticación biométrica. Sincronización automática cuando hay conectividad.",
     "import_title": "Importación de Datos",
     "import_desc": "Migre fácilmente desde sistemas anteriores. Soporte para importación masiva de documentos y registros históricos.",
-    "softdelete_title": "Soft Delete",
-    "softdelete_desc": "Los registros nunca se eliminan físicamente. Sistema de borrado lógico que permite recuperar información si es necesario."
+    "qrpdf_title": "Códigos QR y PDF",
+    "qrpdf_desc": "Generación automática de documentos PDF con códigos QR integrados para verificación y trazabilidad de actas, órdenes y expedientes."
   },
   "faq": {
     "badge": "FAQ",
@@ -134,7 +142,7 @@
     "q2": "¿Cómo funciona el sistema de permisos?",
     "a2": "SICO implementa control de acceso basado en roles. Cada usuario tiene permisos específicos que determinan qué módulos puede acceder y qué acciones puede realizar.",
     "q3": "¿Puedo acceder desde dispositivos móviles?",
-    "a3": "Sí. SICO está construido con diseño responsive, garantizando una experiencia óptima en cualquier dispositivo: computadoras, laptops, tablets y smartphones.",
+    "a3": "Sí. SICO cuenta con una aplicación móvil nativa (SICO Mobile) diseñada para inspectores, con modo offline, captura GPS, cámara y autenticación biométrica. Además, la plataforma web tiene diseño responsive para acceder desde cualquier dispositivo.",
     "q4": "¿El sistema guarda historial de cambios?",
     "a4": "Sí, todos los registros incluyen campos de auditoría que guardan automáticamente quién creó el registro (CreatedBy), cuándo (CreatedAt), quién lo modificó por última vez (UpdatedBy) y cuándo (UpdatedAt). Esto garantiza trazabilidad completa de todas las operaciones.",
     "q5": "¿Cómo se relacionan los expedientes con otros módulos?",
@@ -144,7 +152,11 @@
     "q7": "¿Puedo configurar los tipos de expedientes y estados?",
     "a7": "Sí, SICO cuenta con un sistema de catálogos configurables (DataCatalogs) que permite a los administradores definir tipos de expedientes, estados, especialidades profesionales y otros valores según las necesidades específicas de cada municipio.",
     "q8": "¿Cómo funciona el seguimiento de plazos en Actuaciones?",
-    "a8": "El módulo de Actuaciones permite otorgar plazos a contribuyentes y realiza seguimiento automático de vencimientos. El sistema calcula fechas de vencimiento, muestra alertas para plazos próximos a vencer y permite registrar cumplimientos o incumplimientos con observaciones detalladas."
+    "a8": "El módulo de Actuaciones permite otorgar plazos a contribuyentes y realiza seguimiento automático de vencimientos. El sistema calcula fechas de vencimiento, muestra alertas para plazos próximos a vencer y permite registrar cumplimientos o incumplimientos con observaciones detalladas.",
+    "q9": "¿Qué funcionalidades tiene la app móvil?",
+    "a9": "SICO Mobile es una aplicación nativa para inspectores que incluye: gestión de órdenes de trabajo, calendario de inspecciones, captura de fotos y GPS, checklists por área, autenticación biométrica y modo offline completo. Los datos se sincronizan automáticamente cuando se recupera la conectividad.",
+    "q10": "¿El sistema genera documentos PDF con códigos QR?",
+    "a10": "Sí, SICO genera automáticamente documentos PDF con códigos QR integrados para actas, órdenes de trabajo y otros documentos. Los códigos QR permiten verificar la autenticidad y trazabilidad de cada documento de forma rápida y segura."
   },
   "contact": {
     "badge": "Contacto",
@@ -174,7 +186,7 @@
     "form_submit": "Enviar Mensaje"
   },
   "footer": {
-    "description": "SICO es un sistema integral de gestión municipal desarrollado por AdvanSys. Moderniza y optimiza los procesos administrativos con tecnología de última generación.",
+    "description": "SICO es un sistema integral de gestión municipal desarrollado por AdvanSys. Moderniza y optimiza los procesos administrativos con tecnología de última generación y aplicación móvil nativa.",
     "modules_title": "Módulos",
     "modules_expedientes": "Expedientes",
     "modules_actas": "Actas",
@@ -185,6 +197,7 @@
     "modules_establecimientos": "Establecimientos",
     "modules_pases": "Pases",
     "modules_consumidor": "Defensa del Consumidor",
+    "modules_mobile": "SICO Mobile",
     "links_title": "Enlaces",
     "links_advansys": "AdvanSys",
     "links_about": "Acerca de SICO",
