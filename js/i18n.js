@@ -10,17 +10,6 @@
   var STORAGE_KEY = 'advansys-lang';
 
   /**
-   * Detect which translation key prefix to use based on the current page
-   */
-  function getTranslationPrefix() {
-    var path = window.location.pathname;
-    if (path.indexOf('/sico') !== -1) {
-      return 'sico-';
-    }
-    return '';
-  }
-
-  /**
    * Get a nested value from an object using a dot-separated key
    */
   function getNestedValue(obj, key) {
@@ -37,12 +26,10 @@
    * Get translations for the given language from window._i18n
    */
   function getTranslations(lang) {
-    var prefix = getTranslationPrefix();
-    var cacheKey = prefix + lang;
-    if (window._i18n && window._i18n[cacheKey]) {
-      return window._i18n[cacheKey];
+    if (window._i18n && window._i18n[lang]) {
+      return window._i18n[lang];
     }
-    console.error('i18n: Translations not found for "' + cacheKey + '". Make sure the script tag is loaded.');
+    console.error('i18n: Translations not found for "' + lang + '". Make sure the script tag is loaded.');
     return null;
   }
 
