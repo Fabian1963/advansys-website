@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presupuesto — Tienda online Aflora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#21402F;--forest-2:#2E5240;--sage:#8B9E79;--sage-soft:#CDD6BC;
+    --honey:#D8964A;--terra:#BE5F3A;--paper:#FBF7EE;--ink:#1D2822;--muted:#5F6B5C;
+    --line:#E4DECF;--cream:#F3ECDD;--berry:#9A3B4A;
+    --font-display:"Fraunces",Georgia,serif;--font-body:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font-body);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 26px}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;line-height:1.14;letter-spacing:-.01em;color:var(--forest)}
+  .eyebrow{font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+  p{margin:0 0 12px}
+  a{color:var(--terra)}
+
+  .cover{background:linear-gradient(160deg,#EEF3E7,#CDD6BC);border-bottom:4px solid var(--honey)}
+  .cover .wrap{padding:48px 26px 40px}
+  .cover img{height:78px;margin-bottom:22px}
+  .cover h1{font-size:clamp(2rem,4.6vw,2.9rem)}
+  .cover .lead{font-size:1.06rem;color:var(--muted);max-width:60ch;margin-top:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:24px;font-size:.9rem;color:var(--forest)}
+  .meta b{display:block;font-family:var(--font-display);font-size:1rem}
+  .meta span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+  section{padding:40px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:1.6rem;margin-bottom:6px}
+  section .eyebrow{display:block;margin-bottom:10px}
+  .lead2{color:var(--muted);margin-bottom:20px;max-width:66ch}
+
+  .own-note{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;margin-top:6px}
+  .own-note .ic{font-size:1.4rem;flex-shrink:0}
+  .own-note b{color:var(--forest)}
+
+  /* comparison table */
+  .cmp{width:100%;border-collapse:collapse;margin-top:8px;font-size:.92rem;min-width:520px}
+  .cmp th,.cmp td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  .cmp thead th{font-family:var(--font-display);font-weight:600;font-size:1rem;color:var(--forest);border-bottom:2px solid var(--sage-soft)}
+  .cmp thead th.rec{color:var(--terra)}
+  .cmp td:first-child,.cmp th:first-child{color:var(--muted);font-weight:600;width:190px}
+  .cmp tbody tr:nth-child(even){background:var(--paper)}
+  .cmp .yes{color:var(--forest);font-weight:700}
+  .cmp .no{color:var(--berry);font-weight:700}
+  .scroller{overflow-x:auto}
+
+  /* pricing cards */
+  .prices{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .pcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+  .pcard.reco{border:2px solid var(--honey);box-shadow:0 18px 40px -26px rgba(216,150,74,.6)}
+  .ribbon{position:absolute;top:14px;right:-34px;background:var(--honey);color:#3a2a12;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 40px;transform:rotate(45deg)}
+  .pcard .top{padding:22px 22px 16px;background:var(--forest);color:var(--paper)}
+  .pcard.reco .top{background:linear-gradient(120deg,var(--forest),var(--forest-2))}
+  .pcard .kind{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.85}
+  .pcard h3{color:var(--paper);font-size:1.3rem;margin:2px 0 12px}
+  .pcard .code{font-size:.82rem;background:rgba(251,247,238,.14);border-radius:8px;padding:7px 12px;display:inline-block}
+  .pcard .code b{color:#fff}
+  .pcard .amounts{padding:16px 22px;background:var(--paper);border-bottom:1px solid var(--line)}
+  .pcard .amt{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--forest)}
+  .pcard .amt span{font-size:.82rem;font-family:var(--font-body);color:var(--muted);font-weight:500}
+  .pcard .amt + .amt{margin-top:2px}
+  .pcard .body{padding:16px 22px;flex:1}
+  .pcard h4{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 6px}
+  .pcard ul{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.88rem}
+  .pcard .pro li{padding-left:20px;position:relative}
+  .pcard .pro li::before{content:"✓";position:absolute;left:0;color:var(--sage);font-weight:700}
+  .pcard .con li{padding-left:20px;position:relative;color:var(--muted)}
+  .pcard .con li::before{content:"–";position:absolute;left:0;color:var(--berry);font-weight:700}
+  @media(max-width:680px){.prices{grid-template-columns:1fr}.ribbon{right:-40px}}
+
+  .addon{margin-top:20px;background:var(--paper);border:1px dashed var(--sage);border-radius:14px;padding:18px 22px}
+  .addon h3{font-size:1.1rem;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+  .addon .price{font-family:var(--font-display);color:var(--forest);font-weight:600}
+
+  .cond{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .cond li{padding-left:22px;position:relative;font-size:.94rem}
+  .cond li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--honey)}
+  .cond b{color:var(--forest)}
+
+  .steps{counter-reset:s;list-style:none}
+  .steps li{counter-increment:s;padding:9px 0 9px 40px;position:relative;font-size:.96rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:7px;width:26px;height:26px;border-radius:50%;background:var(--honey);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+
+  .total-note{background:var(--cream);border-left:3px solid var(--honey);padding:14px 18px;border-radius:8px;font-size:.92rem;color:var(--muted);margin-top:20px}
+  .total-note b{color:var(--forest)}
+
+  footer{padding:28px 0 56px;text-align:center;color:var(--muted);font-size:.85rem}
+  .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.72rem;font-weight:700;color:var(--terra);letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="wrap">
+    <img src="assets/logo-aflora.png" alt="Aflora — Punto Saludable">&nbsp; 
+    <span class="eyebrow">Presupuesto</span>
+    <h1>Tienda online Aflora — dos formas de trabajarlo</h1>
+    <p class="lead">Les presentamos dos modalidades para que elijan la que más les convenga. La diferencia principal es <b>de quién es el código</b> y cómo se paga. Este presupuesto acompaña la propuesta técnica ya presentada.</p>
+    <div class="meta">
+      <div><span>Cliente</span><b>Aflora · Punto Saludable</b></div>
+      <div><span>Fecha</span><b>Agosto 2026</b></div>
+      <div><span>Preparado por</span><b>Advansys</b></div>
+      <div><span>Validez</span><b>30 días</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- LAS DOS MODALIDADES -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Cómo elegir</span>
+    <h2>Servicio o Desarrollo: ¿de quién es el código?</h2>
+    <p class="lead2">Hay dos maneras de encarar un proyecto de software, y conviene entender la diferencia antes de ver los números:</p>
+    <div class="own-note">
+      <span class="ic">🔑</span>
+      <div>
+        <p style="margin-bottom:8px"><b>Servicio (suscripción):</b> pagan por <b>usar</b> la plataforma. Nosotros la desarrollamos, la alojamos y la mantenemos. El <b>código es de Advansys</b>. Es como alquilar una tienda llave en mano, siempre actualizada.</p>
+        <p style="margin:0"><b>Desarrollo a medida (compra):</b> pagan por <b>tener</b> el software. El <b>código es de Aflora</b>: es un activo propio que pueden llevar a otro proveedor el día de mañana. Es como construir un local propio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARACION -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Comparación</span>
+    <h2>Una al lado de la otra</h2>
+    <div class="scroller">
+      <table class="cmp">
+        <thead>
+          <tr><th></th><th class="rec">Servicio (recomendado)</th><th>Desarrollo a medida</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Modalidad</td><td>Suscripción mensual</td><td>Compra del desarrollo</td></tr>
+          <tr><td>Código fuente</td><td class="no">De Advansys</td><td class="yes">De Aflora</td></tr>
+          <tr><td>Desembolso inicial</td><td>Bajo — USD 1.000</td><td>Mayor — USD 3.000</td></tr>
+          <tr><td>Abono mensual</td><td>USD 180</td><td>USD 180 (mantenimiento)</td></tr>
+          <tr><td>Hosting y base de datos</td><td>Incluido</td><td>Incluido</td></tr>
+          <tr><td>Mejoras continuas</td><td>Incluidas</td><td>Mientras dure el mantenimiento</td></tr>
+          <tr><td>Si dejan el abono</td><td>Se dan de baja (con exportación de datos)</td><td>Se quedan con el código y los datos, y pueden seguir por su cuenta u otro proveedor</td></tr>
+          <tr><td>Ideal para</td><td>Arrancar rápido, sin cabeza técnica</td><td>Tener el software como activo propio</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Inversión</span>
+    <h2>Valores de cada modalidad</h2>
+    <div class="prices">
+
+      <div class="pcard reco">
+        <div class="ribbon">Recomendado</div>
+        <div class="top">
+          <div class="kind">Opción A · Servicio</div>
+          <h3>Todo incluido</h3>
+          <span class="code">Código: <b>de Advansys</b></span>
+        </div>
+        <div class="amounts">
+          <div class="amt">USD 1.000 <span>puesta en marcha (única vez)</span></div>
+          <div class="amt">USD 180 <span>/ mes</span></div>
+        </div>
+        <div class="body">
+          <h4>Ventajas</h4>
+          <ul class="pro">
+            <li>Menor inversión inicial</li>
+            <li>Hosting, soporte, asistente IA y mejoras, todo incluido</li>
+            <li>Siempre actualizado, sin preocupaciones técnicas</li>
+            <li>Baja simple, con exportación de sus datos</li>
+          </ul>
+          <h4>A tener en cuenta</h4>
+          <ul class="con">
+            <li>El código no es de ustedes</li>
+            <li>El servicio funciona mientras esté activo el abono</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pcard">
+        <div class="top">
+          <div class="kind">Opción B · Desarrollo</div>
+          <h3>Software propio</h3>
+          <span class="code">Código: <b>de Aflora</b></span>
+        </div>
+        <div class="amounts">
+          <div class="amt">USD 3.000 <span>desarrollo (única vez)</span></div>
+          <div class="amt">USD 180 <span>/ mes (mantenimiento)</span></div>
+        </div>
+        <div class="body">
+          <h4>Ventajas</h4>
+          <ul class="pro">
+            <li>Son dueños del código: es un activo propio</li>
+            <li>Independencia: pueden llevarlo a otro proveedor</li>
+            <li>A largo plazo pueden reducir costos llevándolo in-house</li>
+          </ul>
+          <h4>A tener en cuenta</h4>
+          <ul class="con">
+            <li>Mayor desembolso inicial</li>
+            <li>Asumen más la responsabilidad técnica</li>
+            <li>Las mejoras nuevas dependen de mantener el servicio o contratarlas</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="addon">
+      <h3>🎬 Adicional opcional (para ambas) · Videos con IA</h3>
+      <p style="margin:0 0 8px;color:var(--muted);font-size:.92rem">Producción de videos de productos con un personaje ficticio, para Instagram y YouTube con link a la tienda. En la puesta en marcha dejamos el personaje y el método listos; si prefieren, los capacitamos para producirlos ustedes mismos.</p>
+      <p style="margin:0"><span class="price">Pack de 4 videos / mes: USD 120 o USD 35 por video</span></p>
+    </div>
+
+    <div class="total-note">La diferencia entre ambas es de <b>USD 2.000</b> en el pago inicial: eso es, en la práctica, el <b>precio de la propiedad del código</b>. El abono mensual y el servicio son iguales en las dos.</div>
+  </div>
+</section>
+
+<!-- CONDICIONES -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Condiciones (para ambas modalidades)</span>
+    <h2>Lo que conviene dejar claro</h2>
+    <ul class="cond">
+      <li><b>Permanencia mínima:</b> 6 meses de abono; luego continúa mes a mes.</li>
+      <li><b>Soporte:</b> días hábiles, por WhatsApp y correo.</li>
+      <li><b>Mejoras menores</b> incluidas; desarrollos nuevos de mayor tamaño se cotizan aparte.</li>
+      <li><b>Los datos son de Aflora:</b> catálogo, clientes y pedidos. Siempre se puede exportar. Compromiso de confidencialidad.</li>
+      <li><b>Dominio (aflora.com.ar) y cuenta de Mercado Pago</b> a nombre de Aflora; nosotros los configuramos.</li>
+      <li><b>Comisiones de Mercado Pago</b> por venta: a cargo de Aflora.</li>
+      <li><b>Valores en USD</b>, con revisión anual.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FORMA DE PAGO -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <span class="eyebrow">Para arrancar</span>
+    <h2>Forma de pago y próximos pasos</h2>
+    <p class="lead2"><b>Pago inicial (cualquiera de las dos):</b> 50% al iniciar · 50% a la entrega. &nbsp; <b>Abono:</b> mensual por adelantado.</p>
+    <ol class="steps">
+      <li>Eligen la modalidad (A o B) y aprueban el presupuesto.</li>
+      <li>Nos pasan catálogo, datos de Mercado Pago y accesos del dominio.</li>
+      <li>Puesta en marcha y salida a producción.</li>
+      <li>Acompañamiento mensual: soporte, asistente IA y mejoras.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="tag">Presupuesto</span>
+    <p style="margin-top:12px">Preparado por <b>Advansys</b> para Aflora · Punto Saludable · Caseros, Buenos Aires — válido por 30 días.</p>
+  </div>
+</footer>
+
+</body>
+</html>

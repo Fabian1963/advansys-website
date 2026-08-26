@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta — Tienda online Aflora</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#21402F;--forest-2:#2E5240;--sage:#8B9E79;--sage-soft:#CDD6BC;
+    --honey:#D8964A;--terra:#BE5F3A;--paper:#FBF7EE;--ink:#1D2822;--muted:#5F6B5C;
+    --line:#E4DECF;--cream:#F3ECDD;
+    --font-display:"Fraunces",Georgia,serif;--font-body:"Hanken Grotesk",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:var(--font-body);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:0 26px}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;line-height:1.12;letter-spacing:-.01em;color:var(--forest)}
+  .eyebrow{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+  p{margin:0 0 12px}
+  a{color:var(--terra)}
+
+  /* cover */
+  .cover{background:linear-gradient(160deg,#EEF3E7,#CDD6BC);border-bottom:4px solid var(--honey)}
+  .cover .wrap{padding:54px 26px 48px}
+  .cover img{height:84px;margin-bottom:26px}
+  .cover h1{font-size:clamp(2.2rem,5vw,3.3rem)}
+  .cover h1 em{font-style:italic;color:var(--terra);font-weight:400}
+  .cover .lead{font-size:1.1rem;color:var(--muted);max-width:56ch;margin-top:16px}
+  .meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:28px;font-size:.9rem;color:var(--forest)}
+  .meta b{display:block;font-family:var(--font-display);font-size:1rem}
+  .meta span{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+  section{padding:46px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:1.8rem;margin-bottom:6px}
+  section .eyebrow{display:block;margin-bottom:10px}
+  .lead2{color:var(--muted);margin-bottom:22px;max-width:64ch}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+  .card h3{font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:9px}
+  .card ul{list-style:none;display:flex;flex-direction:column;gap:7px;font-size:.93rem;margin-top:6px}
+  .card li{padding-left:16px;position:relative}
+  .card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--honey)}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+
+  /* architecture diagram */
+  .arch{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 22px;overflow-x:auto}
+  .band{margin:0 auto;max-width:760px}
+  .band + .band{margin-top:8px}
+  .band-label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--terra);text-align:center;margin:10px 0}
+  .row{display:flex;gap:12px;justify-content:center;align-items:stretch;flex-wrap:wrap}
+  .node{background:#fff;border:1.5px solid var(--sage);border-radius:12px;padding:12px 16px;text-align:center;font-weight:600;font-size:.92rem;min-width:130px;display:flex;flex-direction:column;justify-content:center}
+  .node small{display:block;font-weight:500;color:var(--muted);font-size:.76rem;margin-top:3px}
+  .node.web{background:var(--forest);color:var(--paper);border-color:var(--forest)}
+  .node.web small{color:rgba(251,247,238,.8)}
+  .node.ai{background:#F5E6CF;border-color:var(--honey)}
+  .node.db{background:var(--sage-soft);border-color:var(--sage);min-width:280px}
+  .conn{text-align:center;color:var(--sage);font-size:1.2rem;margin:6px 0;font-weight:700}
+  .arrow{align-self:center;color:var(--sage);font-weight:700;font-size:1.3rem}
+
+  /* stack chips */
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .chip{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:600;font-size:.9rem;color:var(--forest)}
+
+  /* phases */
+  .phase{display:flex;gap:18px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .phase:last-child{border-bottom:none}
+  .phase .n{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--forest);color:var(--paper);display:grid;place-items:center;font-family:var(--font-display);font-weight:600}
+  .phase h4{font-size:1.1rem;margin-bottom:3px}
+  .phase p{font-size:.92rem;color:var(--muted);margin:0}
+
+  /* pricing */
+  .price-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:20px}
+  .price-head{padding:20px 24px;display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+  .price-head.init{background:var(--forest);color:var(--paper)}
+  .price-head.month{background:var(--honey);color:#3a2a12}
+  .price-head h3{color:inherit;font-size:1.3rem;margin:0}
+  .price-head .amt{font-family:var(--font-display);font-size:1.7rem;font-weight:600}
+  .price-body{padding:18px 24px}
+  .price-body table{width:100%;border-collapse:collapse;font-size:.92rem}
+  .price-body td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+  .price-body td:last-child{text-align:right;color:var(--muted);white-space:nowrap;padding-left:14px}
+  .price-body tr:last-child td{border-bottom:none}
+  .tbd{font-weight:700;color:var(--terra)}
+  .note{background:var(--cream);border-left:3px solid var(--honey);padding:12px 16px;border-radius:8px;font-size:.88rem;color:var(--muted);margin-top:14px}
+
+  .steps{counter-reset:s;list-style:none}
+  .steps li{counter-increment:s;padding:10px 0 10px 40px;position:relative;font-size:.96rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--honey);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.85rem}
+
+  footer{padding:30px 0 60px;text-align:center;color:var(--muted);font-size:.85rem}
+  .tag{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.72rem;font-weight:700;color:var(--terra);letter-spacing:.08em}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="wrap">
+    <img src="assets/logo-aflora.png" alt="Aflora — Punto Saludable">
+    <span class="eyebrow">Propuesta de desarrollo</span>
+    <h1>Tienda online <em>a medida</em><br>para Aflora</h1>
+    <p class="lead">Plataforma de venta de suplementos dietarios con carrito, panel de administración, asistente con IA y un motor de captación de clientes por redes.</p>
+    <div class="meta">
+      <div><span>Cliente</span><b>Aflora · Punto Saludable</b></div>
+      <div><span>Fecha</span><b>Agosto 2026</b></div>
+      <div><span>Preparado por</span><b>Advansys</b></div>
+      <div><span>Versión</span><b>2.0 — borrador</b></div>
+    </div>
+  </div>
+</div>
+
+<!-- RESUMEN -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Resumen ejecutivo</span>
+    <h2>De qué se trata</h2>
+    <p class="lead2">Aflora tendrá una tienda online propia, rápida y con identidad de marca, para vender <b>suplementos dietarios</b> las 24 horas. El sistema es autónomo: el negocio gestiona su catálogo, stock y pedidos desde un panel simple. Un <b>asistente con IA</b> responde las consultas frecuentes de los clientes (stock, disponibilidad) sin intervención humana, y un módulo de <b>videos generados con IA</b> alimenta Instagram y YouTube para traer tráfico y ventas al sitio.</p>
+    <p class="lead2">El proyecto se estructura en un <b>pago inicial</b> por el desarrollo y un <b>abono mensual</b> que cubre el acompañamiento continuo: hosting, soporte, producción de videos, operación del asistente y nuevas mejoras mes a mes.</p>
+  </div>
+</section>
+
+<!-- ALCANCE -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Qué incluye</span>
+    <h2>Alcance del sistema</h2>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card">
+        <h3>🛒 Sitio Web (tienda)</h3>
+        <ul>
+          <li>Catálogo con búsqueda y filtros (por categoría, marca y beneficio).</li>
+          <li>Ficha de producto con variantes, stock y precio.</li>
+          <li>Carrito y checkout en pocos pasos.</li>
+          <li>Landing por producto (para el tráfico de redes) y SEO.</li>
+          <li>Diseño responsive (celular y computadora).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛠️ Panel de administración</h3>
+        <ul>
+          <li>Alta/edición de productos, precios y variantes.</li>
+          <li>Control de stock (avisos de bajo stock).</li>
+          <li>Gestión de pedidos con estados.</li>
+          <li>Cupones y promociones.</li>
+          <li>Estadísticas de venta y reportes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🤖 Asistente con IA</h3>
+        <ul>
+          <li>Responde solo consultas de <b>stock y disponibilidad</b>.</li>
+          <li>Lee catálogo y stock en tiempo real desde la base.</li>
+          <li>Ayuda a armar el pedido; el cliente toma el control al comprar.</li>
+          <li>Reduce el trabajo de contestar mensajes uno por uno.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎬 Captación por redes</h3>
+        <ul>
+          <li>Videos por producto generados con IA, con un personaje ficticio.</li>
+          <li>Publicación con periodicidad en Instagram y YouTube.</li>
+          <li>Todo con link al sitio para cerrar la venta.</li>
+          <li>SEO e indexación en buscadores.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARQUITECTURA -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Cómo se conecta todo</span>
+    <h2>Arquitectura</h2>
+    <p class="lead2">Basado en el esquema acordado con Aflora.</p>
+    <div class="arch">
+      <div class="band">
+        <div class="band-label">Captación de clientes</div>
+        <div class="row">
+          <div class="node ai">Videos con IA<small>personaje ficticio</small></div>
+          <div class="arrow">→</div>
+          <div class="node">Instagram</div>
+          <div class="node">YouTube</div>
+        </div>
+        <div class="conn">↓ &nbsp;link al sitio</div>
+      </div>
+      <div class="band">
+        <div class="band-label">Plataforma</div>
+        <div class="row">
+          <div class="node">Sitio Admin<small>gestión · productos · estadísticas</small></div>
+          <div class="node web">Sitio Web<small>con carrito de compras</small></div>
+          <div class="node ai">Asistente IA<small>stock y consultas</small></div>
+        </div>
+        <div class="conn">↕</div>
+        <div class="row">
+          <div class="node db">🗄️ Base de datos · SQL Server</div>
+        </div>
+      </div>
+      <div class="band">
+        <div class="band-label">Venta y entrega</div>
+        <div class="row">
+          <div class="node">Pedido</div>
+          <div class="arrow">→</div>
+          <div class="node">Venta<small>Mercado Pago · Alias/CBU · Efectivo</small></div>
+          <div class="arrow">→</div>
+          <div class="node">Retiro<small>en el Local · Envío con cargo</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGIA -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Tecnología</span>
+    <h2>Stack</h2>
+    <p class="lead2">Tecnología robusta y de largo plazo, sobre la que Advansys ya trabaja — sin dependencia de plataformas cerradas.</p>
+    <div class="chips">
+      <span class="chip">ASP.NET Core (MVC)</span>
+      <span class="chip">SQL Server</span>
+      <span class="chip">Entity Framework Core</span>
+      <span class="chip">ASP.NET Identity</span>
+      <span class="chip">Mercado Pago API</span>
+      <span class="chip">API de Claude (IA)</span>
+      <span class="chip">Tailwind CSS</span>
+    </div>
+    <div class="note">Durante el desarrollo, el sistema corre en el equipo de Advansys. Al finalizar, se contrata el servidor de producción y se publica en el dominio <b>aflora.com.ar</b>.</div>
+  </div>
+</section>
+
+<!-- PAGOS Y ENTREGA -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Operación</span>
+    <h2>Medios de pago y entrega</h2>
+    <div class="grid2" style="margin-top:18px">
+      <div class="card">
+        <h3>💳 Pagos</h3>
+        <ul>
+          <li><b>Mercado Pago</b> — tarjeta, cuotas y dinero en cuenta. Confirmación automática.</li>
+          <li><b>Transferencia (Alias/CBU)</b> — confirmación en el panel; ideal para ofrecer con descuento.</li>
+          <li><b>Efectivo</b> — al retirar en el local.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📦 Entrega</h3>
+        <ul>
+          <li><b>Retiro en el local</b> — Caseros, sin costo.</li>
+          <li><b>Envío con cargo</b> — el costo lo abona el cliente (fijo o por zona, configurable en el panel).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Cómo lo construimos</span>
+    <h2>Fases del proyecto</h2>
+    <p class="lead2">Se entrega por etapas para ver avances y salir a vender sin esperar a que "esté todo".</p>
+    <div class="phase"><div class="n">0</div><div><h4>Definición y diseño</h4><p>Relevamiento, identidad visual, diseño de la tienda y del panel. (La maqueta ya está aprobada.)</p></div></div>
+    <div class="phase"><div class="n">1</div><div><h4>Tienda + panel (MVP vendedor)</h4><p>Catálogo, carrito, checkout, pagos (Mercado Pago + transferencia), panel de productos/stock/pedidos, retiro y envío. Puesta en producción.</p></div></div>
+    <div class="phase"><div class="n">2</div><div><h4>Asistente con IA</h4><p>Chat que responde stock y consultas leyendo la base en tiempo real, con handoff al carrito.</p></div></div>
+    <div class="phase"><div class="n">3</div><div><h4>Motor de captación</h4><p>Definición del personaje, pipeline de videos con IA y publicación periódica en Instagram y YouTube con link al sitio.</p></div></div>
+    <div class="phase"><div class="n">4</div><div><h4>Evolución continua</h4><p>Cupones, reportes avanzados, más medios de pago, mejoras según resultados. (Dentro del abono mensual.)</p></div></div>
+  </div>
+</section>
+
+<!-- INVERSION -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Inversión</span>
+    <h2>Pago inicial + abono mensual</h2>
+    <p class="lead2">El pago inicial cubre la construcción de la plataforma. El abono mensual cubre el desarrollo continuo, el soporte y la producción de videos.</p>
+    <div class="note" style="margin-bottom:20px">Valores expresados en <b>dólares (USD)</b>.</div>
+
+    <div class="price-card">
+      <div class="price-head init">
+        <h3>Pago inicial · desarrollo</h3>
+        <span class="amt">USD 2.500</span>
+      </div>
+      <div class="price-body">
+        <table>
+          <tr><td>Tienda online + carrito + checkout</td><td>incluido</td></tr>
+          <tr><td>Panel de administración (productos, stock, pedidos, estadísticas)</td><td>incluido</td></tr>
+          <tr><td>Integración de pagos (Mercado Pago + transferencia)</td><td>incluido</td></tr>
+          <tr><td>Asistente con IA (consultas de stock)</td><td>incluido</td></tr>
+          <tr><td>Setup del motor de captación (personaje + primeros videos)</td><td>incluido</td></tr>
+          <tr><td>Puesta en producción y SEO base</td><td>incluido</td></tr>
+          <tr><td><b>Total inicial (única vez)</b></td><td><b>USD 2.500</b></td></tr>
+        </table>
+        <div class="note">Forma de pago sugerida: 40% al iniciar · 30% al salir a producción · 30% al finalizar.</div>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <div class="price-head month">
+        <h3>Abono mensual · desarrollo y mantenimiento</h3>
+        <span class="amt">USD 250 /mes</span>
+      </div>
+      <div class="price-body">
+        <table>
+          <tr><td>Mantenimiento y desarrollo continuo</td><td>incluido</td></tr>
+          <tr><td>Soporte y acompañamiento</td><td>incluido</td></tr>
+          <tr><td>Producción y publicación de videos con IA (Instagram + YouTube)</td><td>6 a 8 por mes</td></tr>
+          <tr><td>Operación y ajuste del asistente con IA</td><td>incluido</td></tr>
+          <tr><td>Mejoras y nuevas funcionalidades</td><td>incluido</td></tr>
+          <tr><td><b>Total mensual</b></td><td><b>USD 250 /mes</b></td></tr>
+        </table>
+        <div class="note">La infraestructura y los servicios de terceros —servidor, dominio, API de IA, herramientas de video y comisiones de Mercado Pago— corren por cuenta de Aflora. Advansys factura desarrollo y mantenimiento.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NECESITAMOS -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Para arrancar</span>
+    <h2>Qué necesitamos de Aflora</h2>
+    <div class="card">
+      <ul>
+        <li>Cuenta de <b>Mercado Pago</b> y credenciales de API.</li>
+        <li><b>Alias/CBU</b> para transferencias y datos legales del comercio.</li>
+        <li><b>Catálogo</b> (productos, precios, stock) — en planilla o el que tengan.</li>
+        <li><b>Fotos y descripciones</b> de los productos (o acordamos producirlas).</li>
+        <li>Accesos del <b>dominio aflora.com.ar</b>.</li>
+        <li>Definir el <b>costo de envío</b> (fijo o por zona) y el descuento por transferencia, si aplica.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROXIMOS PASOS -->
+<section style="border-bottom:none">
+  <div class="wrap">
+    <span class="eyebrow">Próximos pasos</span>
+    <h2>Cómo seguimos</h2>
+    <ol class="steps">
+      <li>Aprobar esta propuesta y definir los valores (inicial + mensual).</li>
+      <li>Reunir lo del punto anterior (Mercado Pago, catálogo, dominio).</li>
+      <li>Arrancar Fase 1 (tienda + panel) y salir a producción.</li>
+      <li>Sumar el asistente con IA y el motor de captación.</li>
+      <li>Acompañamiento mensual: medir, mejorar y crecer.</li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="tag">Documento de trabajo</span>
+    <p style="margin-top:12px">Propuesta preparada por <b>Advansys</b> para Aflora · Punto Saludable · Caseros, Buenos Aires — sujeta a ajustes según relevamiento.</p>
+  </div>
+</footer>
+
+</body>
+</html>
