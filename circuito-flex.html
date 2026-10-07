@@ -1,0 +1,299 @@
+<meta charset="utf-8">
+<title>Circuito Flex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#F1F4FC; --panel:#FFFFFF; --panel-2:#F7F9FE;
+    --ink:#101a3a; --ink-2:#4d5878; --ink-3:#8a93ad;
+    --line:#e2e7f4; --line-strong:#cdd5ea;
+    --azul:#2447DB; --azul-soft:#e7ecfd; --azul-ink:#1b39b8;
+    --verde:#0FB585; --verde-soft:#e0f6ef; --verde-ink:#0a8a66;
+    --oro:#B7791F; --oro-soft:#fbf1de; --oro-ink:#8a5a12;
+    --shadow:0 1px 2px rgba(16,26,58,.04), 0 8px 24px -12px rgba(16,26,58,.18);
+    --radius:14px;
+  }
+  :root:not([data-theme="light"]){ @media (prefers-color-scheme: dark){
+    --ground:#0a1120; --panel:#111c33; --panel-2:#0e1830;
+    --ink:#e9edf9; --ink-2:#a7b1cd; --ink-3:#6d7794;
+    --line:#20304f; --line-strong:#2b3d61;
+    --azul:#7f9bff; --azul-soft:#1a2748; --azul-ink:#a9bcff;
+    --verde:#3dd6a6; --verde-soft:#0f2c28; --verde-ink:#5fe6bb;
+    --oro:#e6b45a; --oro-soft:#2a2213; --oro-ink:#f0c674;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.6);
+  }}
+  :root[data-theme="dark"]{
+    --ground:#0a1120; --panel:#111c33; --panel-2:#0e1830;
+    --ink:#e9edf9; --ink-2:#a7b1cd; --ink-3:#6d7794;
+    --line:#20304f; --line-strong:#2b3d61;
+    --azul:#7f9bff; --azul-soft:#1a2748; --azul-ink:#a9bcff;
+    --verde:#3dd6a6; --verde-soft:#0f2c28; --verde-ink:#5fe6bb;
+    --oro:#e6b45a; --oro-soft:#2a2213; --oro-ink:#f0c674;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.6);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:"Geist","Segoe UI",-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:16px; line-height:1.6; letter-spacing:-.01em; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px; margin:0 auto; padding:clamp(20px,4vw,56px) clamp(16px,4vw,32px) 80px}
+  code,.mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  header.top{margin-bottom:34px}
+  .kicker{display:inline-flex; align-items:center; gap:8px; font-family:"Geist Mono",monospace; font-size:12px; font-weight:500; text-transform:uppercase; letter-spacing:.14em; color:var(--ink-2); margin-bottom:18px}
+  .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 3px var(--verde-soft)}
+  h1{font-size:clamp(30px,6vw,46px); line-height:1.04; font-weight:800; letter-spacing:-.03em; margin:0 0 14px; text-wrap:balance}
+  h1 .g{color:var(--verde)} h1 .b{color:var(--azul)} h1 .c{color:var(--oro)}
+  .lede{font-size:clamp(16px,2.2vw,18px); color:var(--ink-2); max-width:64ch; margin:0}
+
+  .meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:24px}
+  .meta .m{display:flex; flex-direction:column; gap:2px; padding:10px 14px; background:var(--panel); border:1px solid var(--line); border-radius:11px; box-shadow:var(--shadow)}
+  .meta .m .lb{font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-3); font-weight:500}
+  .meta .m .vl{font-size:14px; font-weight:600}
+
+  .legend{display:flex; flex-wrap:wrap; gap:18px 24px; margin:26px 0 10px; padding:14px 18px; background:var(--panel-2); border:1px dashed var(--line-strong); border-radius:12px}
+  .legend .li{display:flex; align-items:center; gap:9px; font-size:13.5px; color:var(--ink-2)}
+  .legend .li b{color:var(--ink)}
+  .sw{width:12px;height:12px;border-radius:4px;flex:none}
+  .sw.g{background:var(--verde)} .sw.b{background:var(--azul)} .sw.c{background:var(--oro)}
+
+  .act{display:flex; align-items:baseline; gap:12px; margin:44px 0 8px}
+  .act .n{font-family:"Geist Mono",monospace; font-size:13px; font-weight:600; color:var(--ink-3); letter-spacing:.05em}
+  .act h2{font-size:22px; font-weight:700; letter-spacing:-.02em; margin:0}
+
+  .card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow)}
+  .pre{padding:22px 24px; margin-bottom:8px}
+  .pre h3{margin:0 0 14px; font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-2); font-weight:600}
+  .pre ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px}
+  .pre li{display:flex; gap:12px; align-items:flex-start; font-size:15px}
+  .pre li .ck{flex:none; width:20px;height:20px;margin-top:2px; border-radius:6px; border:1.5px solid var(--line-strong); background:var(--panel-2)}
+
+  .steps{display:flex; flex-direction:column; gap:14px; margin-top:14px; position:relative}
+  .step{position:relative; display:grid; grid-template-columns:44px 1fr; gap:16px}
+  .rail{display:flex; flex-direction:column; align-items:center}
+  .num{flex:none; width:44px;height:44px; border-radius:12px; display:grid; place-items:center; font-family:"Geist Mono",monospace; font-weight:600; font-size:17px; color:#fff; box-shadow:var(--shadow); background:linear-gradient(150deg,var(--azul),var(--azul-ink))}
+  .step.g .num{background:linear-gradient(150deg,var(--verde),var(--verde-ink))}
+  .step.c .num{background:linear-gradient(150deg,var(--oro),var(--oro-ink))}
+  .line-v{flex:1; width:2px; background:var(--line); margin:6px 0 -14px}
+  .step:last-child .line-v{display:none}
+
+  .body{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 20px 16px}
+  .step.g .body{border-left:3px solid var(--verde)}
+  .step.b .body{border-left:3px solid var(--azul)}
+  .step.c .body{border-left:3px solid var(--oro)}
+  .chips{display:flex; gap:6px; margin-bottom:9px; flex-wrap:wrap}
+  .chip{font-family:"Geist Mono",monospace; font-size:10.5px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; padding:3px 9px; border-radius:999px}
+  .chip.g{background:var(--verde-soft); color:var(--verde-ink)}
+  .chip.b{background:var(--azul-soft); color:var(--azul-ink)}
+  .chip.c{background:var(--oro-soft); color:var(--oro-ink)}
+  .do{font-size:15.5px; margin:0 0 10px}
+  .do b{font-weight:600}
+  .say{display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--ink-2); background:var(--panel-2); border-radius:10px; padding:10px 13px}
+  .say .q{flex:none; font-family:"Geist Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase; padding-top:3px}
+  .say i{font-style:italic; color:var(--ink)}
+
+  .ui{font-family:"Geist Mono",monospace; font-size:.88em; font-weight:500; background:var(--panel-2); border:1px solid var(--line); border-radius:6px; padding:1px 7px; white-space:nowrap; color:var(--ink)}
+  .k{font-family:"Geist Mono",monospace; font-weight:600; color:var(--azul); font-size:.9em}
+  .kg{color:var(--verde-ink)} .kc{color:var(--oro-ink)}
+
+  .note{display:flex; gap:13px; padding:15px 18px; border-radius:12px; margin:16px 0; font-size:14.5px; line-height:1.55; background:var(--panel-2); border:1px solid var(--line)}
+  .note .ic{flex:none; width:26px;height:26px;border-radius:8px; display:grid; place-items:center; font-weight:700; font-size:15px; background:var(--ink-3); color:var(--panel)}
+  .note b{color:var(--ink)}
+
+  .final{margin-top:46px; padding:26px 26px 8px; background:linear-gradient(160deg,var(--panel),var(--panel-2)); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow)}
+  .final h2{margin:0 0 4px; font-size:20px; letter-spacing:-.02em}
+  .final p.sub{margin:0 0 18px; color:var(--ink-2); font-size:14.5px}
+  .points{list-style:none; margin:0; padding:0 0 18px; display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media(max-width:560px){.points{grid-template-columns:1fr}}
+  .points li{display:flex; gap:11px; align-items:flex-start; font-size:14.5px}
+  .points .b{flex:none; width:22px;height:22px;border-radius:7px; display:grid; place-items:center; background:var(--verde-soft); color:var(--verde-ink); font-weight:700; font-size:13px}
+  .points li:nth-child(3n-1) .b{background:var(--azul-soft); color:var(--azul-ink)}
+  .points li:nth-child(3n) .b{background:var(--oro-soft); color:var(--oro-ink)}
+
+  .accesos{padding:22px 24px; margin-bottom:14px}
+  .accesos h3{margin:0 0 16px; font-size:13px; text-transform:uppercase; letter-spacing:.1em; color:var(--ink-2); font-weight:600}
+  .acc-grid{display:grid; grid-template-columns:minmax(0,460px); gap:14px}
+  .acc{border:1px solid var(--line); border-radius:12px; padding:14px 16px; background:var(--panel-2)}
+  .role{display:inline-block; font-family:"Geist Mono",monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; padding:3px 10px; border-radius:999px; margin-bottom:12px}
+  .role-op{background:var(--azul-soft); color:var(--azul-ink)}
+  .role-cli{background:var(--verde-soft); color:var(--verde-ink)}
+  .cred{display:flex; align-items:center; gap:10px; margin-bottom:7px}
+  .cred .cl{flex:none; width:58px; font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-3); font-weight:500}
+  .cred code{font-size:13.5px; font-weight:600; color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:7px; padding:4px 10px; user-select:all}
+  .acc-note{margin:11px 0 0; font-size:13px; color:var(--ink-2); line-height:1.5}
+
+  .setup{margin-top:22px; padding:20px 24px 22px; border-left:3px solid var(--azul)}
+  .setup .lbl{display:inline-flex; align-items:center; gap:8px; font-family:"Geist Mono",monospace; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--azul-ink); margin-bottom:10px}
+  .setup h3{margin:0 0 6px; font-size:18px; letter-spacing:-.02em}
+  .setup p.i{margin:0 0 16px; font-size:14px; color:var(--ink-2)}
+  .setup ol{margin:0; padding-left:0; list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:14px}
+  .setup ol li{counter-increment:s; position:relative; padding-left:38px; font-size:14.5px; line-height:1.6}
+  .setup ol li::before{content:counter(s); position:absolute; left:0; top:1px; width:24px;height:24px; border-radius:7px; background:var(--azul-soft); color:var(--azul-ink); font-family:"Geist Mono",monospace; font-weight:600; font-size:12px; display:grid; place-items:center}
+  .setup .flds{display:flex; flex-direction:column; gap:5px; margin-top:8px; padding:12px 14px; background:var(--panel-2); border:1px solid var(--line); border-radius:10px}
+  .setup .flds div{display:flex; gap:10px; font-size:13.5px}
+  .setup .flds .f{flex:none; width:96px; color:var(--ink-3); font-size:11px; text-transform:uppercase; letter-spacing:.06em; padding-top:2px}
+  .setup .flds code{font-weight:600; color:var(--ink); background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:2px 8px; user-select:all}
+  .setup .fin{margin:14px 0 0; font-size:13px; color:var(--ink-2); line-height:1.55}
+
+  footer{margin-top:40px; padding-top:20px; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="kicker"><span class="dot"></span>Guion de demo · Sintonía · módulo Flex</div>
+    <h1>Del <span class="g">depósito</span> del cliente al <span class="c">cobro</span>, pasando por el <span class="b">reparto</span></h1>
+    <p class="lede">Un recorrido que sigue los paquetes de un cliente: están en el depósito, salen a reparto por nuestra mensajería, y al entregarse se arma la cobranza al cliente y el pago a la logística. Todo en una sola operación — sin Mercado Libre ni couriers externos (eso viene después).</p>
+
+    <div class="meta">
+      <div class="m"><span class="lb">Duración</span><span class="vl">~15 min</span></div>
+      <div class="m"><span class="lb">Usuario</span><span class="vl">Operador (CentralTECH)</span></div>
+      <div class="m"><span class="lb">Mensajería</span><span class="vl">WinFlex</span></div>
+      <div class="m"><span class="lb">Foco</span><span class="vl">Stock · Envíos · Cobranzas</span></div>
+    </div>
+
+    <div class="legend">
+      <div class="li"><span class="sw g"></span><b>Stock</b>&nbsp;— las ventas del cliente en el depósito</div>
+      <div class="li"><span class="sw b"></span><b>Envíos</b>&nbsp;— reparto por la mensajería</div>
+      <div class="li"><span class="sw c"></span><b>Cobranzas</b>&nbsp;— cobro al cliente + pago a la logística</div>
+    </div>
+  </header>
+
+  <!-- ACCESOS -->
+  <div class="card accesos">
+    <h3>Acceso para la demo</h3>
+    <div class="acc-grid">
+      <div class="acc">
+        <span class="role role-op">Operador</span>
+        <div class="cred"><span class="cl">Usuario</span><code>info@centraltech.com.ar</code></div>
+        <div class="cred"><span class="cl">Clave</span><code>la que definiste en prod</code></div>
+        <p class="acc-note">Ve todo el depósito y opera el circuito completo (Actos&nbsp;1 a&nbsp;3).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREFLIGHT -->
+  <div class="card pre">
+    <h3>Antes de empezar</h3>
+    <ul>
+      <li><span class="ck"></span><div>Entrá como <b>operador</b> y dejá el menú a la vista.</div></li>
+      <li><span class="ck"></span><div><b>Para que las cobranzas muestren importe:</b> cargá una tarifa en <span class="ui">Tarifario</span> (una zona, un rango de peso → <b>Precio al cliente</b> + <b>Costo a la logística</b>). Si preferís, después ajustás el precio a mano en la liquidación.</div></li>
+      <li><span class="ck"></span><div>Confirmá que hay <b>paquetes de un cliente en el depósito</b> (los ves en <span class="ui">Paquetes en depósito</span>) para sumarlos al viaje.</div></li>
+    </ul>
+  </div>
+
+  <!-- ACTO 1 -->
+  <div class="act"><span class="n">ACTO 1</span><h2>Las ventas del cliente, en el depósito</h2></div>
+  <div class="steps">
+    <div class="step g">
+      <div class="rail"><div class="num">1</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip g">Stock</span></div>
+        <p class="do">Abrí <span class="k kg">Paquetes en depósito</span>. Mostrá los paquetes de un cliente (ej. <b>TecnoHogar</b>) esperando salir.</p>
+        <div class="say"><span class="q">Decí</span><div>“Estos son los paquetes que el cliente ya vendió y tiene con nosotros. Vemos <i>en tiempo real</i> qué hay para repartir, de quién es y en qué estado.”</div></div>
+      </div>
+    </div>
+    <div class="step g">
+      <div class="rail"><div class="num">2</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip g">Stock</span></div>
+        <p class="do">Fijate el <b>total en depósito</b> antes de repartir (por zona, por cliente). Vamos a comparar al final.</p>
+        <div class="say"><span class="q">Señalá</span><div>El número de paquetes en depósito. En unos minutos algunos van a salir con el reparto y el depósito lo va a reflejar solo.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTO 2 -->
+  <div class="act"><span class="n">ACTO 2</span><h2>Salen a reparto por la mensajería</h2></div>
+  <div class="steps">
+    <div class="step b">
+      <div class="rail"><div class="num">3</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip b">Envíos</span></div>
+        <p class="do">Mostrá <span class="k">Logísticas</span>: las mensajerías con las que trabajamos — la propia y las de terceros (<b>WinFlex</b>, Antola, Siempre).</p>
+        <div class="say"><span class="q">Decí</span><div>“Repartimos con nuestra logística y con terceros. Hoy usamos <b>WinFlex</b> — a ellos les vamos a pagar por lo entregado.”</div></div>
+      </div>
+    </div>
+    <div class="step b">
+      <div class="rail"><div class="num">4</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip b">Envíos</span></div>
+        <p class="do">Andá a <span class="k">Viajes → Nuevo viaje</span>: elegí la logística <b>WinFlex</b>, la fecha y la zona. <b>Crear y armar</b>.</p>
+        <div class="say"><span class="q">Decí</span><div>“Un viaje es una tanda de reparto de una mensajería. Ahora le sumamos los paquetes.”</div></div>
+      </div>
+    </div>
+    <div class="step b">
+      <div class="rail"><div class="num">5</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip b">Envíos</span></div>
+        <p class="do">En el viaje, desde <b>Disponibles</b>, sumá los paquetes del cliente (botón <span class="ui">add</span>). Después <span class="k">Iniciar reparto</span>.</p>
+        <div class="say"><span class="q">Señalá</span><div>El viaje pasó de <b>Armado</b> a <b>En reparto</b>. Es lo que llevaría el repartidor.</div></div>
+      </div>
+    </div>
+    <div class="step b">
+      <div class="rail"><div class="num">6</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip b">Envíos</span><span class="chip g">Stock</span></div>
+        <p class="do">Marcá las entregas: <span class="k">Entregar</span> cada paquete, o <span class="k">Cerrar y marcar entregados</span>. Volvé a <span class="k kg">Paquetes en depósito</span>: esos paquetes <b>ya no están</b> — salieron.</p>
+        <div class="say"><span class="q">El punto</span><div>Marcar la entrega actualiza el stock del depósito <i>y</i> deja lista la base para cobrar. Un solo gesto, dos efectos.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTO 3 -->
+  <div class="act"><span class="n">ACTO 3</span><h2>Cobranzas: lo que se cobra y lo que se paga</h2></div>
+  <div class="steps">
+    <div class="step c">
+      <div class="rail"><div class="num">7</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip c">Cobranza</span></div>
+        <p class="do">Andá a <span class="k kc">Liquidaciones → Generar</span>, elegí el rango de fechas y generá. Aparece un borrador por <b>(cliente, WinFlex)</b> con una línea por cada paquete entregado.</p>
+        <div class="say"><span class="q">Decí</span><div>“Esto es lo que le <b>cobramos al cliente</b> por los envíos: se arma solo con los paquetes entregados y el tarifario. Nada de sumar a mano.”</div></div>
+      </div>
+    </div>
+    <div class="step c">
+      <div class="rail"><div class="num">8</div><div class="line-v"></div></div>
+      <div class="body">
+        <div class="chips"><span class="chip c">Cobranza</span></div>
+        <p class="do">Entrá al <b>detalle</b>: mostrá el precio por paquete (del tarifario; si querés lo ajustás en la línea) y el <b>total a cobrar</b>. <span class="k kc">Enviar</span> → queda la notificación al cliente. Luego <span class="k kc">Marcar cobrada</span> cuando pague.</p>
+        <div class="say"><span class="q">Señalá</span><div>El resumen que recibiría el cliente: qué se le entregó y cuánto es. Se puede imprimir / PDF.</div></div>
+      </div>
+    </div>
+    <div class="step c">
+      <div class="rail"><div class="num">9</div></div>
+      <div class="body">
+        <div class="chips"><span class="chip c">Pago</span></div>
+        <p class="do">Ahora <span class="k kc">Rendiciones → Generar</span> (mismo rango): aparece lo que le <b>pagamos a WinFlex</b> por esos mismos paquetes, según el <b>costo</b> del tarifario. Podés <span class="k kc">Marcar pagada</span>.</p>
+        <div class="say"><span class="q">El cierre del número</span><div>“Con los mismos paquetes entregados, el sistema arma las <b>dos puntas</b>: lo que cobramos al cliente y lo que le pagamos a la mensajería. La diferencia es nuestro margen — y sale sin planillas.”</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="ic">i</span>
+    <div>Esta demo cubre <b>la mensajería y distribución propia</b>. La integración con <b>Mercado Libre</b> y otros couriers externos queda para una etapa siguiente (falta cargar las credenciales) — no entra hoy.</div>
+  </div>
+
+  <!-- CIERRE -->
+  <div class="final">
+    <h2>El círculo, en una frase</h2>
+    <p class="sub">Los paquetes estaban en el depósito, salieron a reparto por la mensajería, y al entregarse se armó solo el cobro al cliente y el pago a la logística — todo trazado.</p>
+    <ul class="points">
+      <li><span class="b">✓</span><div><b>Stock en tiempo real</b>, por cliente y estado.</div></li>
+      <li><span class="b">✓</span><div><b>Reparto propio y de terceros</b> organizado por viajes.</div></li>
+      <li><span class="b">✓</span><div><b>Entregar</b> actualiza el stock y habilita el cobro.</div></li>
+      <li><span class="b">✓</span><div><b>Cobranza al cliente</b> automática por paquete entregado.</div></li>
+      <li><span class="b">✓</span><div><b>Pago a la logística</b> con el mismo criterio.</div></li>
+      <li><span class="b">✓</span><div><b>El margen a la vista</b>, sin planillas.</div></li>
+    </ul>
+  </div>
+
+  <footer>
+    <span>Sintonía · recorrido de demo</span>
+    <span>Foco: distribución propia (Flex) · stock, envíos y cobranzas</span>
+  </footer>
+</div>
